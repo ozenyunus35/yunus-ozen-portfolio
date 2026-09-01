@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yunus Emre Özen — Portfolio
 
-## Getting Started
+Personal portfolio site documenting selected product and engineering work, process notes, and learning milestones. Built as a static Next.js site and deployed to GitHub Pages.
 
-First, run the development server:
+**Live site:** [https://ozenyunus35.github.io/yunus-ozen-portfolio/](https://ozenyunus35.github.io/yunus-ozen-portfolio/)
+
+## Featured projects
+
+- **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
+- **Eyfel Kurye** — Restaurant and courier operations platform
+- **FMD Eğitim Portalı** — Education management panel (UI/UX & information architecture)
+- **Tavuk da Tavuk** — Corporate website and QR menu platform
+
+Each project includes a case study with system diagrams and process context.
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, static export)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/), [GSAP](https://gsap.com/), [Lenis](https://lenis.darkroom.engineering/)
+
+## Local development
+
+Requirements: Node.js 20+ and npm.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Development runs without a GitHub Pages base path.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Static export (local verification, no repo subpath):
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+GitHub Pages production build (matches CI):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build:pages
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Preview the exported site locally:
 
-## Deploy on Vercel
+```bash
+npm run preview:pages
+# open http://localhost:3000/yunus-ozen-portfolio/
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Type check:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run typecheck
+```
+
+## Deployment (GitHub Pages)
+
+This repository deploys automatically via GitHub Actions on pushes to `main`.
+
+1. Push the repository to GitHub as `yunus-ozen-portfolio`.
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. The workflow builds with:
+   - `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`
+   - `NEXT_PUBLIC_SITE_URL=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}`
+4. Static files are uploaded from the `out/` directory.
+
+For manual local parity, copy `.env.example` to `.env.local` and adjust values if needed.
+
+## Repository notes
+
+- `out/`, `.next/`, and `node_modules/` are gitignored.
+- Do not commit `.env` or `.env.local` — only `.env.example` is tracked.
+- CV download is served from `public/documents/` when the PDF is present at build time.
+
+## Author
+
+**Yunus Emre Özen**
+
+- GitHub: [@ozenyunus35](https://github.com/ozenyunus35)
+- LinkedIn: [yunus-ozen](https://www.linkedin.com/in/yunus-ozen/)
+- Email: ozenyunusemre@outlook.com
