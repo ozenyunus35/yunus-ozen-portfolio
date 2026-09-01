@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { useMotionConfig } from "@/lib/motion/useMotionConfig";
 import { gsap, registerGsapPlugins, ScrollTrigger } from "@/lib/motion/gsap";
-import { refreshScrollTriggers } from "@/lib/motion/scroll-utils";
+import { resetScrollPositionOnNavigation } from "@/lib/motion/scroll-utils";
 
 const HEADER_OFFSET = 80;
 
@@ -96,11 +96,9 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
     }
 
-    refreshScrollTriggers();
+    resetScrollPositionOnNavigation();
   }, [pathname]);
 
   return (
