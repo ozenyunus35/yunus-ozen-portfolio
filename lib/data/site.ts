@@ -1,4 +1,4 @@
-import { CV_PUBLIC_PATH } from "./cv";
+import { CV_PUBLIC_PATH, getCvPublicUrl } from "./cv";
 import { getSiteUrl } from "./site-url";
 
 const cvAvailable = process.env.NEXT_PUBLIC_CV_AVAILABLE === "true";
@@ -16,7 +16,7 @@ export const siteConfig = {
   initials: "YÖ",
   portfolioYear: "2026",
   cvPath: CV_PUBLIC_PATH,
-  cv: cvAvailable ? CV_PUBLIC_PATH : null,
+  cv: cvAvailable ? getCvPublicUrl() : null,
   email: "ozenyunusemre@outlook.com",
   social: {
     linkedin: "https://www.linkedin.com/in/yunus-ozen/",

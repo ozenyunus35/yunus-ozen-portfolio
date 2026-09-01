@@ -1,4 +1,4 @@
-import { CV_PUBLIC_PATH } from "@/lib/data/cv";
+import { getCvPublicUrl } from "@/lib/data/cv";
 import { formatProjectPeriod } from "@/lib/data/project-periods";
 import { getSiteUrl } from "@/lib/data/site-url";
 
@@ -54,7 +54,7 @@ export const dictionaryTr = {
     focus: ["Ürün Yönetimi", "Proje Yönetimi", "Yazılım Mühendisliği"],
     initials: "YÖ",
     portfolioYear: "2026",
-    cv: cvAvailable ? CV_PUBLIC_PATH : null,
+    cv: cvAvailable ? getCvPublicUrl() : null,
     email: "ozenyunusemre@outlook.com",
     social: {
       linkedin: "https://www.linkedin.com/in/yunus-ozen/",
