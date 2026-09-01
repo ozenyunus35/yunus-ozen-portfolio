@@ -61,6 +61,8 @@ npm run typecheck
 
 ## Deployment (GitHub Pages)
 
+**One-time setup:** In the repository go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**. Deploy will fail with a 404 until this is done.
+
 This repository deploys automatically via GitHub Actions on pushes to `main`.
 
 1. Push the repository to GitHub as `yunus-ozen-portfolio`.
