@@ -17,14 +17,15 @@ import {
 import { SchematicVisualFrame } from "@/components/visuals/schematic/SchematicVisualFrame";
 import { schematicAspect } from "@/components/visuals/schematic/layout";
 import { useSchematicPhase } from "@/lib/motion/useSchematicPhase";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
 const MODULES = [
-  { id: "overview", label: "OVERVIEW", step: "01", col: 1, row: 0, w: 2, h: 1, icon: IconDashboard },
-  { id: "users", label: "USERS", step: "02", col: 3, row: 0, w: 1, h: 1, icon: IconUsers },
-  { id: "content", label: "CONTENT", step: "03", col: 1, row: 1, w: 1, h: 2, icon: IconContent },
-  { id: "modules", label: "MODULES", step: "04", col: 2, row: 1, w: 2, h: 1, icon: IconModules },
-  { id: "reports", label: "REPORTS", step: "05", col: 2, row: 2, w: 2, h: 1, icon: IconReports },
+  { id: "overview", step: "01", col: 1, row: 0, w: 2, h: 1, icon: IconDashboard },
+  { id: "users", step: "02", col: 3, row: 0, w: 1, h: 1, icon: IconUsers },
+  { id: "content", step: "03", col: 1, row: 1, w: 1, h: 2, icon: IconContent },
+  { id: "modules", step: "04", col: 2, row: 1, w: 2, h: 1, icon: IconModules },
+  { id: "reports", step: "05", col: 2, row: 2, w: 2, h: 1, icon: IconReports },
 ] as const;
 
 const MODULE_IDS = MODULES.map((m) => m.id);
@@ -49,6 +50,8 @@ export function FmdModularVisual({
   activeStep,
   fill = false,
 }: FmdModularVisualProps) {
+  const { dict } = useI18n();
+  const labels = dict.diagrams.fmd;
   const reducedMotion = useReducedMotion();
   const cycledId = useSchematicPhase(MODULE_IDS, 2400);
   const activeId =
@@ -64,7 +67,7 @@ export function FmdModularVisual({
       ariaLabel="FMD modular panel structure"
       fill={fill}
     >
-      <SchematicCaption x={260} y={248} label="ADMIN PANEL · MODULAR IA" />
+      <SchematicCaption x={260} y={248} label={labels.caption} />
 
       {/* Sidebar nav mock */}
       <SchematicPanel x={16} y={28} width={120} height={196} active={activeId === "overview"}>
@@ -139,7 +142,7 @@ export function FmdModularVisual({
               fontFamily="var(--font-jetbrains)"
               letterSpacing="0.1em"
             >
-              {mod.label}
+              {labels.nodes[mod.id]}
             </text>
             <SchematicSkeletonBars
               x={x + 12}

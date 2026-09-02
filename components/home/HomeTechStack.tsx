@@ -23,7 +23,7 @@ export function HomeTechStack() {
         <ScrollReveal delay={0.06} className="mt-16">
           <p className="text-meta text-muted-foreground">{tech.stackLabel}</p>
           <div className="pro-cap-grid mt-6">
-            {tech.categories.map((category, index) => (
+            {tech.categories.map((category) => (
               <div key={category.label} className="pro-cap-card h-full">
                 <p className="text-meta accent-text">{category.label}</p>
                 <ul className="mt-6 flex flex-wrap gap-2" role="list">
@@ -41,7 +41,7 @@ export function HomeTechStack() {
         <ScrollReveal delay={0.1} className="mt-16">
           <p className="text-meta text-muted-foreground">{tech.byProjectLabel}</p>
           <ul className="mt-6 divide-y divide-[var(--line)] border-y border-[var(--line)]" role="list">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <li key={project.slug}>
                 <Link
                   href={path(project.href)}

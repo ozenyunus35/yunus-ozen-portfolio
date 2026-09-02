@@ -4,6 +4,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
+import {
+  InteractiveLearnings,
+  InteractiveProcess,
+  InteractiveRoleList,
+} from "@/components/case-study/InteractiveCaseBlocks";
+import { PageAmbientField } from "@/components/motion/PageAmbientField";
+import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { BisevkSystemVisual, type BisevkPhase } from "@/components/visuals/BisevkSystemVisual";
 import { getBisevkCaseStudy } from "@/lib/i18n/case-studies";
 import { useI18n } from "@/lib/i18n/I18nProvider";
@@ -66,15 +73,21 @@ export function BisevkExperience() {
   const currentPhase = beats[activeBeat]?.phase ?? "shipper";
   const projectMeta = dict.projects.find((p) => p.slug === "bisevk");
 
+  function scrollToBeat(index: number) {
+    beatRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    setActiveBeat(index);
+  }
+
   return (
     <article>
-      <SectionChapter theme="void" className="pt-[4.25rem] pb-[var(--space-lg)]">
-        <div className="container-editorial py-[var(--space-lg)]">
+      <SectionChapter theme="void" className="relative overflow-hidden pt-[4.25rem] pb-[var(--space-lg)]">
+        <PageAmbientField />
+        <div className="container-editorial relative py-[var(--space-lg)]">
           <div className="editorial-grid items-end">
             <div className="col-span-12 lg:col-span-8">
               <span className="tag">{ui.label} · {dict.common.ongoing}</span>
-              <h1 className="text-hero mt-8 font-display">{cs.hero.title}</h1>
-              <p className="text-statement mt-4 text-muted-foreground">{cs.hero.subtitle}</p>
+              <h1 className="text-display mt-6 font-display">{cs.hero.title}</h1>
+              <p className="text-statement mt-4 max-w-xl text-muted-foreground">{cs.hero.subtitle}</p>
             </div>
             <div className="col-span-12 mt-8 lg:col-span-4 lg:mt-0 lg:text-right">
               <p className="text-meta text-muted-foreground">{cs.hero.period}</p>
@@ -94,7 +107,7 @@ export function BisevkExperience() {
                   {projectMeta.technologies.map((item) => (
                     <li
                       key={item}
-                      className="tag border-[var(--accent-border)] text-[var(--accent-light)]"
+                      className="tag border-[var(--accent-border)] text-[var(--accent-light)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-subtle)]"
                     >
                       {item}
                     </li>
@@ -103,13 +116,6 @@ export function BisevkExperience() {
               </div>
             )}
           </div>
-        </div>
-      </SectionChapter>
-
-      <SectionChapter theme="frost" className="py-[var(--space-lg)]">
-        <div className="container-editorial">
-          <p className="text-meta text-[var(--accent)]">{ui.problem}</p>
-          <p className="text-statement mt-8 max-w-4xl">{cs.problem.content}</p>
         </div>
       </SectionChapter>
 
@@ -123,13 +129,13 @@ export function BisevkExperience() {
                   beatRefs.current[i] = el;
                 }}
                 className={cn(
-                  "container-editorial min-h-[72vh] py-[var(--space-lg)] transition-opacity duration-700 lg:pr-10",
+                  "container-editorial py-[var(--space-lg)] transition-opacity duration-700 lg:min-h-[58vh] lg:pr-10",
                   activeBeat === i ? "opacity-100" : "opacity-30",
                 )}
               >
                 <p className="text-meta text-[var(--accent-light)]">{beat.kicker}</p>
-                <h2 className="text-section mt-6 whitespace-pre-line font-display leading-[0.9]">{beat.title}</h2>
-                <p className="text-body mt-8 max-w-md text-muted-foreground">{beat.body}</p>
+                <h2 className="text-project mt-4 whitespace-pre-line font-display leading-[1.05]">{beat.title}</h2>
+                <p className="text-body mt-6 max-w-md text-muted-foreground">{beat.body}</p>
               </section>
             ))}
 
@@ -142,9 +148,29 @@ export function BisevkExperience() {
           </div>
 
           <div className="hidden lg:col-span-7 lg:block">
-            <div className="sticky top-0 flex h-screen items-stretch px-[var(--container-padding)] py-10">
+            <div className="sticky top-16 flex h-[calc(100svh-4rem)] items-stretch px-[var(--container-padding)] py-6">
               <div className="surface-card flex w-full flex-col self-center p-8 md:p-10">
-                <p className="text-meta mb-6 shrink-0 text-muted-foreground">{dict.common.processFlow}</p>
+                <div className="mb-6 flex shrink-0 flex-wrap items-center justify-between gap-3">
+                  <p className="text-meta text-muted-foreground">{dict.common.processFlow}</p>
+                  <nav className="flex flex-wrap gap-1.5" aria-label={dict.common.processFlow}>
+                    {beats.map((beat, i) => (
+                      <button
+                        key={beat.id}
+                        type="button"
+                        onClick={() => scrollToBeat(i)}
+                        aria-current={activeBeat === i ? "true" : undefined}
+                        className={cn(
+                          "tag transition-colors",
+                          activeBeat === i
+                            ? "border-[var(--accent)] bg-[var(--accent-subtle)] text-[var(--accent-light)]"
+                            : "hover:border-[var(--accent-border)]",
+                        )}
+                      >
+                        {beat.kicker}
+                      </button>
+                    ))}
+                  </nav>
+                </div>
                 <BisevkSystemVisual phase={currentPhase} large fill />
               </div>
             </div>
@@ -158,53 +184,25 @@ export function BisevkExperience() {
 
       <SectionChapter theme="chalk" className="py-[var(--space-2xl)]">
         <div className="container-editorial editorial-grid gap-y-16">
-          <div className="col-span-12 lg:col-span-6">
-            <p className="text-meta text-[var(--accent)]">{ui.myRole}</p>
-            <p className="text-statement mt-8 text-muted-foreground">{cs.myRole.intersection}</p>
-            <ul className="mt-12 space-y-10" role="list">
-              {cs.myRole.areas.map((area, i) => (
-                <li key={area.area} className="relative pl-12">
-                  <span className="text-display absolute left-0 top-0 font-display text-[var(--accent-subtle)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-h2 font-display">{area.area}</p>
-                  <ul className="mt-3 space-y-2" role="list">
-                    {area.responsibilities.map((r) => (
-                      <li key={r} className="text-body text-muted-foreground">{r}</li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-            <p className="text-meta text-[var(--accent)]">{ui.engineering}</p>
-            <p className="text-body mt-6 text-muted-foreground">{cs.developmentProcess.intro}</p>
-            <ol className="mt-10 space-y-0" role="list">
-              {cs.developmentProcess.steps.map((step, i) => (
-                <li key={step.id} className="border-t border-[var(--line)] py-5">
-                  <span className="text-meta text-[var(--accent)]">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="text-h2 mt-2 font-display">{step.label}</p>
-                  <p className="text-body mt-1 text-muted-foreground">{step.description}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ScrollReveal className="col-span-12 lg:col-span-6">
+            <p className="text-statement mb-10 text-muted-foreground">{cs.myRole.intersection}</p>
+            <InteractiveRoleList title={ui.myRole} areas={cs.myRole.areas} />
+          </ScrollReveal>
+          <ScrollReveal delay={0.08} className="col-span-12 lg:col-span-5 lg:col-start-8">
+            <InteractiveProcess
+              title={ui.engineering}
+              intro={cs.developmentProcess.intro}
+              steps={cs.developmentProcess.steps}
+            />
+          </ScrollReveal>
         </div>
       </SectionChapter>
 
       <SectionChapter theme="void" className="py-[var(--space-xl)]">
         <div className="container-editorial">
-          <p className="text-meta text-[var(--accent-light)]">{ui.learnings}</p>
-          <ul className="mt-10 grid gap-8 md:grid-cols-2" role="list">
-            {cs.learnings.items.map((item, i) => (
-              <li key={item.id} className="border-l-2 border-[var(--accent)] pl-6">
-                <span className="text-meta text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-body mt-2 text-muted-foreground">{item.text}</p>
-              </li>
-            ))}
-          </ul>
+          <ScrollReveal>
+            <InteractiveLearnings title={ui.learnings} items={cs.learnings.items} />
+          </ScrollReveal>
         </div>
       </SectionChapter>
     </article>

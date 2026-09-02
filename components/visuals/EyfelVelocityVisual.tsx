@@ -18,6 +18,7 @@ import {
 } from "@/components/visuals/schematic/SchematicPrimitives";
 import { SchematicVisualFrame } from "@/components/visuals/schematic/SchematicVisualFrame";
 import { schematicAspect } from "@/components/visuals/schematic/layout";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
 type EyfelVelocityVisualProps = {
@@ -28,10 +29,10 @@ type EyfelVelocityVisualProps = {
 };
 
 const STEPS = [
-  { label: "ORDER", step: "01", icon: IconOrder },
-  { label: "RESTAURANT", step: "02", icon: IconRestaurant },
-  { label: "COURIER", step: "03", icon: IconCourier },
-  { label: "DELIVERY", step: "04", icon: IconDelivery },
+  { id: "order", step: "01", icon: IconOrder },
+  { id: "restaurant", step: "02", icon: IconRestaurant },
+  { id: "courier", step: "03", icon: IconCourier },
+  { id: "delivery", step: "04", icon: IconDelivery },
 ] as const;
 
 const POSITIONS = [100, 280, 460, 640];
@@ -43,6 +44,8 @@ export function EyfelVelocityVisual({
   activeStep,
   fill = false,
 }: EyfelVelocityVisualProps) {
+  const { dict } = useI18n();
+  const labels = dict.diagrams.eyfel;
   const reducedMotion = useReducedMotion();
   const shouldAnimate = animated && !reducedMotion;
   const stepIndex =
@@ -58,7 +61,7 @@ export function EyfelVelocityVisual({
       ariaLabel="Eyfel Kurye dispatch route diagram"
       fill={fill}
     >
-      <SchematicCaption x={370} y={208} label="DISPATCH PIPELINE · ORDER → DELIVERY" />
+      <SchematicCaption x={370} y={208} label={labels.caption} />
 
       {/* Route track beneath nodes */}
       <path
@@ -69,7 +72,7 @@ export function EyfelVelocityVisual({
         opacity={0.45}
         fill="none"
       />
-      <SchematicCaption x={370} y={196} label="LIVE ROUTE" />
+      <SchematicCaption x={370} y={196} label={labels.route} />
 
       {showCourierTravel && (
         <SchematicPathTravel path={ROUTE_PATH} duration={4} delay={0.5}>
@@ -87,7 +90,7 @@ export function EyfelVelocityVisual({
         const Icon = item.icon;
 
         return (
-          <g key={item.label}>
+          <g key={item.id}>
             {i > 0 && (
               <>
                 <SchematicEdge
@@ -113,14 +116,14 @@ export function EyfelVelocityVisual({
             <SchematicIconNode
               x={cx - hw}
               y={62}
-              label={item.label}
+              label={labels.nodes[item.id]}
               step={item.step}
               active={isActive || (stepIndex === undefined && isLit)}
               icon={
                 <Icon
                   size={20}
                   active={isActive || (stepIndex === undefined && isLit)}
-                  pulse={isActive && item.label === "COURIER" && shouldAnimate}
+                  pulse={isActive && item.id === "courier" && shouldAnimate}
                 />
               }
             />

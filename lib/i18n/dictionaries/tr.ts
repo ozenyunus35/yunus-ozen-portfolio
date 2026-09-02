@@ -23,8 +23,12 @@ export const dictionaryTr = {
     relatedWork: "İlgili projeler",
     channels: "Kanallar",
     next: "Sonraki",
+    all: "Tümü",
+    copy: "Kopyala",
+    copied: "Kopyalandı",
     skipToContent: "Ana içeriğe atla",
     language: "Dil",
+    pages: "Sayfalar",
     footerNav: {
       work: "Projeler",
       about: "Hakkımda",
@@ -408,5 +412,48 @@ export const dictionaryTr = {
       { id: "transport", kicker: "Taşıma", title: "Rota\nilerler." },
       { id: "delivery", kicker: "Teslimat", title: "Teslim\nedildi." },
     ],
+  },
+
+  diagrams: {
+    bisevk: {
+      caption: "PAZAR YERİ AKIŞI · YÜK → EŞLEŞME → TESLİMAT",
+      matchZone: "EŞLEŞME ALANI",
+      nodes: {
+        shipper: "GÖNDERİCİ",
+        load: "YÜK İLANI",
+        offers: "TEKLİFLER",
+        carrier: "TAŞIYICI",
+        transport: "TAŞIMA",
+        delivery: "TESLİMAT",
+      },
+    },
+    eyfel: {
+      caption: "SEVK HATTI · SİPARİŞ → TESLİMAT",
+      route: "CANLI ROTA",
+      nodes: {
+        order: "SİPARİŞ",
+        restaurant: "RESTORAN",
+        courier: "KURYE",
+        delivery: "TESLİMAT",
+      },
+    },
+    fmd: {
+      caption: "YÖNETİM PANELİ · MODÜLER YAPI",
+      nodes: {
+        overview: "GENEL BAKIŞ",
+        users: "KULLANICILAR",
+        content: "İÇERİK",
+        modules: "MODÜLLER",
+        reports: "RAPORLAR",
+      },
+    },
+    tavuk: {
+      caption: "MEKÂN İÇİ AKIŞ · TARA → MOBİL MENÜ",
+      qr: "QR KOD",
+      scan: "TARA",
+      menu: "MOBİL MENÜ",
+      web: "KURUMSAL WEB",
+      touchpoint: "FİZİKSEL TEMAS NOKTASI",
+    },
   },
 } as const;

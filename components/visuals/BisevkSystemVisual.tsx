@@ -20,6 +20,7 @@ import {
 import { SchematicVisualFrame } from "@/components/visuals/schematic/SchematicVisualFrame";
 import { schematicAspect, SCHEMATIC_VIEW } from "@/components/visuals/schematic/layout";
 import { useSchematicPhase } from "@/lib/motion/useSchematicPhase";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
 export type BisevkPhase =
@@ -36,7 +37,6 @@ export type BisevkPhase =
 const NODES = [
   {
     id: "shipper",
-    label: "SHIPPER",
     step: "01",
     cx: 90,
     cy: 118,
@@ -44,7 +44,6 @@ const NODES = [
   },
   {
     id: "load",
-    label: "LOAD POST",
     step: "02",
     cx: 230,
     cy: 118,
@@ -52,7 +51,6 @@ const NODES = [
   },
   {
     id: "offers",
-    label: "OFFERS",
     step: "03",
     cx: 400,
     cy: 58,
@@ -60,7 +58,6 @@ const NODES = [
   },
   {
     id: "carrier",
-    label: "CARRIER",
     step: "04",
     cx: 400,
     cy: 178,
@@ -68,7 +65,6 @@ const NODES = [
   },
   {
     id: "transport",
-    label: "TRANSPORT",
     step: "05",
     cx: 570,
     cy: 118,
@@ -76,7 +72,6 @@ const NODES = [
   },
   {
     id: "delivery",
-    label: "DELIVERY",
     step: "06",
     cx: 720,
     cy: 118,
@@ -212,6 +207,8 @@ export function BisevkSystemVisual({
   animated = true,
   fill = false,
 }: BisevkSystemVisualProps) {
+  const { dict } = useI18n();
+  const labels = dict.diagrams.bisevk;
   const reducedMotion = useReducedMotion();
   const cyclePhase = useSchematicPhase(CYCLE_PHASES, 2200);
   const displayPhase = animated && !reducedMotion && phase === "full" ? cyclePhase : phase;
@@ -230,7 +227,7 @@ export function BisevkSystemVisual({
       ariaLabel="Bi-Sevk logistics flow diagram"
       fill={fill}
     >
-      <SchematicCaption x={410} y={h - 8} label="MARKETPLACE FLOW · LOAD → MATCH → DELIVERY" />
+      <SchematicCaption x={410} y={h - 8} label={labels.caption} />
 
       {/* Marketplace zone label */}
       <rect
@@ -245,7 +242,7 @@ export function BisevkSystemVisual({
         strokeDasharray="4 6"
         opacity={active.has("offers") || active.has("carrier") ? 0.9 : 0.45}
       />
-      <SchematicCaption x={400} y={38} label="MATCH ZONE" />
+      <SchematicCaption x={400} y={38} label={labels.matchZone} />
 
       <BisevkEdges
         active={active}
@@ -266,7 +263,7 @@ export function BisevkSystemVisual({
             key={node.id}
             x={node.cx - SCHEMATIC.iconNode.w / 2}
             y={node.cy - SCHEMATIC.iconNode.h / 2}
-            label={node.label}
+            label={labels.nodes[node.id]}
             step={node.step}
             active={isActive}
             icon={<Icon size={20} active={isActive} pulse={pulseIcon && shouldAnimate} />}

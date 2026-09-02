@@ -12,8 +12,11 @@ import { cn } from "@/lib/utils/cn";
 export function Header() {
   const { dict, path } = useI18n();
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+
+  /** Menu closes on its own when navigation changes the pathname. */
+  const open = openedAt === pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -21,10 +24,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   return (
     <header
@@ -75,7 +74,7 @@ export function Header() {
         <button
           type="button"
           className="flex h-9 w-9 items-center justify-center text-foreground md:hidden"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpenedAt(open ? null : pathname)}
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
