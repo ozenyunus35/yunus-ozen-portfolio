@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { AboutCapabilityExplorer } from "@/components/about/AboutCapabilityExplorer";
+import { AboutMethodMap } from "@/components/about/AboutMethodMap";
 import { SectionChapter } from "@/components/axis/SectionChapter";
+import { HoverTilt } from "@/components/motion/HoverTilt";
+import { PageAmbientField } from "@/components/motion/PageAmbientField";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { FocusAreas } from "@/components/visuals/pro/FocusAreas";
@@ -14,8 +18,9 @@ export function AboutProfile() {
 
   return (
     <div>
-      <SectionChapter theme="void" className="pt-16 pb-[var(--space-lg)]">
-        <div className="container-editorial py-[var(--space-md)]">
+      <SectionChapter theme="void" className="relative overflow-hidden pt-16 pb-[var(--space-lg)]">
+        <PageAmbientField />
+        <div className="container-editorial relative py-[var(--space-md)]">
           <PageHeader
             label={about.sectionLabel}
             title={about.headline[0]}
@@ -42,14 +47,46 @@ export function AboutProfile() {
             <ScrollReveal delay={0.1}>
               <dl className="pro-meta-list">
                 {about.meta.map((item) => (
-                  <div key={item.label}>
-                    <dt className="text-meta text-muted-foreground">{item.label}</dt>
-                    <dd className="text-h2 mt-2">{item.value}</dd>
-                  </div>
+                  <HoverTilt key={item.label} maxTilt={4}>
+                    <div className="pro-panel p-5">
+                      <dt className="text-meta text-muted-foreground">{item.label}</dt>
+                      <dd className="text-h2 mt-2">{item.value}</dd>
+                    </div>
+                  </HoverTilt>
                 ))}
               </dl>
             </ScrollReveal>
           </div>
+        </div>
+      </SectionChapter>
+
+      <SectionChapter theme="void" className="py-[var(--space-xl)]">
+        <div className="container-editorial">
+          <ScrollReveal>
+            <p className="text-meta accent-text">{dict.approach.sectionLabel}</p>
+            <h2 className="text-section mt-4 max-w-2xl font-display">
+              {dict.approach.statement[0]}{" "}
+              <span className="text-muted-foreground">{dict.approach.statement[1]}</span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.08} className="mt-12">
+            <AboutCapabilityExplorer columns={dict.approach.columns} />
+          </ScrollReveal>
+        </div>
+      </SectionChapter>
+
+      <SectionChapter theme="frost" className="py-[var(--space-xl)]">
+        <div className="container-editorial">
+          <ScrollReveal>
+            <p className="text-meta accent-text">{dict.method.sectionLabel}</p>
+            <h2 className="text-section mt-4 max-w-2xl font-display">
+              {dict.method.headline[0]}{" "}
+              <span className="text-muted-foreground">{dict.method.headline[1]}</span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.08} className="mt-12">
+            <AboutMethodMap method={dict.method} />
+          </ScrollReveal>
         </div>
       </SectionChapter>
 

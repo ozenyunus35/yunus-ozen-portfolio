@@ -62,13 +62,13 @@ export function StickyVisualStory({
                 beatRefs.current[index] = element;
               }}
               className={cn(
-                "container-editorial min-h-[68vh] py-[var(--space-lg)] transition-opacity duration-700 lg:pr-10",
+                "container-editorial py-[var(--space-lg)] transition-opacity duration-700 lg:min-h-[58vh] lg:pr-10",
                 activeBeat === index ? "opacity-100" : "opacity-35",
               )}
             >
               <p className="text-meta text-[var(--accent-light)]">{beat.kicker}</p>
-              <h2 className="text-section mt-6 max-w-md font-display leading-[0.95]">{beat.title}</h2>
-              <p className="text-body mt-8 max-w-md text-muted-foreground">{beat.body}</p>
+              <h2 className="text-project mt-4 max-w-md font-display leading-[1.05]">{beat.title}</h2>
+              <p className="text-body mt-6 max-w-md text-muted-foreground">{beat.body}</p>
               {beat.action}
             </section>
           ))}

@@ -23,8 +23,12 @@ export const dictionaryEn = {
     relatedWork: "Related projects",
     channels: "Channels",
     next: "Next",
+    all: "All",
+    copy: "Copy",
+    copied: "Copied",
     skipToContent: "Skip to main content",
     language: "Language",
+    pages: "Pages",
     footerNav: {
       work: "Projects",
       about: "About",
@@ -408,5 +412,48 @@ export const dictionaryEn = {
       { id: "transport", kicker: "Transport", title: "Route\nstretches forward." },
       { id: "delivery", kicker: "Delivery", title: "Delivered." },
     ],
+  },
+
+  diagrams: {
+    bisevk: {
+      caption: "MARKETPLACE FLOW · LOAD → MATCH → DELIVERY",
+      matchZone: "MATCH ZONE",
+      nodes: {
+        shipper: "SHIPPER",
+        load: "LOAD POST",
+        offers: "OFFERS",
+        carrier: "CARRIER",
+        transport: "TRANSPORT",
+        delivery: "DELIVERY",
+      },
+    },
+    eyfel: {
+      caption: "DISPATCH PIPELINE · ORDER → DELIVERY",
+      route: "LIVE ROUTE",
+      nodes: {
+        order: "ORDER",
+        restaurant: "RESTAURANT",
+        courier: "COURIER",
+        delivery: "DELIVERY",
+      },
+    },
+    fmd: {
+      caption: "ADMIN PANEL · MODULAR IA",
+      nodes: {
+        overview: "OVERVIEW",
+        users: "USERS",
+        content: "CONTENT",
+        modules: "MODULES",
+        reports: "REPORTS",
+      },
+    },
+    tavuk: {
+      caption: "ON-SITE FLOW · SCAN → MOBILE MENU",
+      qr: "QR CODE",
+      scan: "SCAN",
+      menu: "MOBILE MENU",
+      web: "CORPORATE WEB",
+      touchpoint: "PHYSICAL TOUCHPOINT",
+    },
   },
 } as const;

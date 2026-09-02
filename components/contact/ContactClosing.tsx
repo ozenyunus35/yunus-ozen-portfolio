@@ -1,21 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
+import { MagneticLink } from "@/components/motion/MagneticLink";
+import { PageAmbientField } from "@/components/motion/PageAmbientField";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { getContactLinks } from "@/lib/i18n/helpers";
 
 export function ContactClosing() {
   const { dict, path } = useI18n();
   const links = getContactLinks(dict);
+  const { copied, copy } = useCopyToClipboard();
 
   return (
     <div>
-      <SectionChapter theme="void" className="pt-16 pb-[var(--space-xl)]">
-        <div className="container-editorial py-[var(--space-md)]">
+      <SectionChapter theme="void" className="relative overflow-hidden pt-16 pb-[var(--space-xl)]">
+        <PageAmbientField variant="signal" />
+        <div className="container-editorial relative py-[var(--space-md)]">
           <PageHeader
             label={dict.contact.sectionLabel}
             title={dict.contact.headline[0]}
@@ -23,11 +28,20 @@ export function ContactClosing() {
             description={dict.contact.intro}
           />
 
-          <ScrollReveal className="mt-10">
-            <a href={`mailto:${dict.site.email}`} className="btn-primary">
+          <ScrollReveal className="mt-10 flex flex-wrap items-center gap-3">
+            <MagneticLink href={`mailto:${dict.site.email}`} className="btn-primary">
               <Mail size={15} />
               {dict.site.email}
-            </a>
+            </MagneticLink>
+            <button
+              type="button"
+              onClick={() => copy(dict.site.email)}
+              className="btn-ghost"
+              aria-live="polite"
+            >
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+              {copied ? dict.common.copied : dict.common.copy}
+            </button>
           </ScrollReveal>
         </div>
       </SectionChapter>
@@ -45,12 +59,12 @@ export function ContactClosing() {
                     href={link.href}
                     {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     {...(link.download ? { download: true } : {})}
-                    className="group flex items-center justify-between py-6"
+                    className="group -mx-3 flex items-center justify-between rounded-[var(--radius-md)] px-3 py-6 transition-colors hover:bg-[var(--accent-subtle)]"
                     data-cursor={link.external ? "external" : undefined}
                   >
                     <div>
                       <p className="text-meta text-muted-foreground">{link.label}</p>
-                      <p className="text-h2 mt-1 group-hover:text-[var(--accent-light)]">
+                      <p className="text-h2 mt-1 transition-colors group-hover:text-[var(--accent-light)]">
                         {link.label === dict.contact.actions.email ? dict.site.email : link.label}
                       </p>
                     </div>

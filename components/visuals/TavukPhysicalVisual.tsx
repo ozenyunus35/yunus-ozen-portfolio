@@ -12,6 +12,7 @@ import {
 } from "@/components/visuals/schematic/SchematicPrimitives";
 import { SchematicVisualFrame } from "@/components/visuals/schematic/SchematicVisualFrame";
 import { schematicAspect, SCHEMATIC_VIEW } from "@/components/visuals/schematic/layout";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
 type TavukPhysicalVisualProps = {
@@ -21,7 +22,19 @@ type TavukPhysicalVisualProps = {
   fill?: boolean;
 };
 
-function QrPattern({ x, y, active, scanning }: { x: number; y: number; active: boolean; scanning: boolean }) {
+function QrPattern({
+  x,
+  y,
+  active,
+  scanning,
+  label,
+}: {
+  x: number;
+  y: number;
+  active: boolean;
+  scanning: boolean;
+  label: string;
+}) {
   const cells = [
     [0, 0],
     [1, 0],
@@ -87,7 +100,7 @@ function QrPattern({ x, y, active, scanning }: { x: number; y: number; active: b
         fontFamily="var(--font-jetbrains)"
         letterSpacing="0.1em"
       >
-        QR CODE
+        {label}
       </text>
     </g>
   );
@@ -99,6 +112,8 @@ export function TavukPhysicalVisual({
   activeStep,
   fill = false,
 }: TavukPhysicalVisualProps) {
+  const { dict } = useI18n();
+  const labels = dict.diagrams.tavuk;
   const reducedMotion = useReducedMotion();
   const shouldAnimate = animated && !reducedMotion;
   const focus = activeStep ?? (shouldAnimate ? undefined : 0);
@@ -115,9 +130,9 @@ export function TavukPhysicalVisual({
       ariaLabel="Tavuk da Tavuk QR to menu flow"
       fill={fill}
     >
-      <SchematicCaption x={w / 2} y={h - 6} label="ON-SITE FLOW · SCAN → MOBILE MENU" />
+      <SchematicCaption x={w / 2} y={h - 6} label={labels.caption} />
 
-      <QrPattern x={48} y={44} active={qrActive} scanning={scanning} />
+      <QrPattern x={48} y={44} active={qrActive} scanning={scanning} label={labels.qr} />
 
       <SchematicEdge x1={128} y1={80} x2={188} y2={80} active={flowActive} />
       {shouldAnimate && flowActive && (
@@ -133,7 +148,7 @@ export function TavukPhysicalVisual({
         fontFamily="var(--font-jetbrains)"
         letterSpacing="0.1em"
       >
-        SCAN
+        {labels.scan}
       </text>
 
       <SchematicPanel x={200} y={28} width={128} height={168} active={menuActive}>
@@ -146,7 +161,7 @@ export function TavukPhysicalVisual({
           fontFamily="var(--font-jetbrains)"
           letterSpacing="0.1em"
         >
-          MOBILE MENU
+          {labels.menu}
         </text>
         <g transform="translate(248, 44)">
           <IconPhone size={18} active={menuActive} />
@@ -176,7 +191,7 @@ export function TavukPhysicalVisual({
         strokeWidth={1}
       />
       <SchematicSkeletonBars x={372} y={58} width={72} heights={[10, 8, 8]} />
-      <SchematicCaption x={408} y={132} label="CORPORATE WEB" />
+      <SchematicCaption x={408} y={132} label={labels.web} />
 
       <path
         d="M 120 122 Q 240 142 320 122"
@@ -186,7 +201,7 @@ export function TavukPhysicalVisual({
         fill="none"
         opacity={0.35}
       />
-      <SchematicCaption x={240} y={156} label="PHYSICAL TOUCHPOINT" align="middle" />
+      <SchematicCaption x={240} y={156} label={labels.touchpoint} align="middle" />
     </SchematicCanvas>
   );
 

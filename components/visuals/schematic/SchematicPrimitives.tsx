@@ -306,12 +306,15 @@ export function SchematicSkeletonBars({
   heights: number[];
   activeIndex?: number;
 }) {
-  let offsetY = y;
+  const offsets = heights.reduce<number[]>((acc, h, i) => {
+    acc.push(i === 0 ? y : acc[i - 1] + heights[i - 1] + 8);
+    return acc;
+  }, []);
+
   return (
     <g>
       {heights.map((h, i) => {
-        const barY = offsetY;
-        offsetY += h + 8;
+        const barY = offsets[i];
         const active = activeIndex === i;
         return (
           <rect

@@ -27,7 +27,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="text-meta text-muted-foreground">{dict.common.footerNav.work}</p>
+            <p className="text-meta text-muted-foreground">{dict.common.pages}</p>
             <ul className="mt-4 space-y-2" role="list">
               {footerLinks.map((link) => (
                 <li key={link.href}>

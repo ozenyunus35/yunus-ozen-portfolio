@@ -4,6 +4,12 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { CaseStudyScrollVisual } from "@/components/case-study/CaseStudyScrollVisual";
+import {
+  InteractiveLearnings,
+  InteractiveProcess,
+  InteractiveRoleList,
+} from "@/components/case-study/InteractiveCaseBlocks";
+import { PageAmbientField } from "@/components/motion/PageAmbientField";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { StickyVisualStory } from "@/components/motion/StickyVisualStory";
 import type { CompactCaseStudy } from "@/lib/data/case-studies/compact-types";
@@ -26,44 +32,49 @@ export function CompactCaseStudyPage({ study }: CompactCaseStudyPageProps) {
     : null;
   const nextHref = nextSlug ? path(`/work/${nextSlug}`) : null;
 
+  const flowSection = study.productFlow ?? study.focus;
+
   const storyBeats = [
     {
       id: "problem",
-      kicker: study.problem.title,
-      title: study.hero.title,
+      title: study.problem.title,
       body: study.problem.content,
     },
     {
       id: "overview",
-      kicker: study.overview.title,
-      title: study.hero.subtitle,
+      title: study.overview.title,
       body: study.overview.content,
     },
-    ...(study.productFlow || study.focus
+    ...(flowSection
       ? [
           {
             id: "flow",
-            kicker: study.productFlow?.title ?? study.focus!.title,
-            title: dict.common.processFlow,
-            body: study.productFlow?.intro ?? study.focus!.intro,
+            title: flowSection.title,
+            body: flowSection.intro ?? "",
           },
         ]
       : []),
-  ];
+  ].map((beat, index) => ({
+    ...beat,
+    kicker: String(index + 1).padStart(2, "0"),
+  }));
 
-  const hasVisual = study.productFlow || study.focus;
+  const hasVisual = Boolean(flowSection);
   const projectMeta = dict.projects.find((p) => p.slug === study.slug);
 
   return (
     <article>
-      <SectionChapter theme="void" className="pt-[4.25rem] pb-[var(--space-lg)]">
-        <div className="container-editorial py-[var(--space-lg)]">
+      <SectionChapter theme="void" className="relative overflow-hidden pt-[4.25rem] pb-[var(--space-lg)]">
+        <PageAmbientField />
+        <div className="container-editorial relative py-[var(--space-lg)]">
           <ScrollReveal>
             <div className="editorial-grid items-end">
               <div className="col-span-12 lg:col-span-9">
                 <span className="tag">{dict.caseStudyUi.label} · {status}</span>
-                <h1 className="text-hero mt-8 font-display">{study.hero.title}</h1>
-                <p className="text-display mt-4 text-muted-foreground">{study.hero.subtitle}</p>
+                <h1 className="text-display mt-6 max-w-2xl font-display">{study.hero.title}</h1>
+                <p className="text-statement mt-4 max-w-xl text-muted-foreground">
+                  {study.hero.subtitle}
+                </p>
               </div>
               <div className="col-span-12 mt-6 flex flex-wrap gap-x-4 gap-y-1 lg:col-span-3 lg:mt-0 lg:justify-end">
                 {study.hero.roles.map((role) => (
@@ -80,7 +91,7 @@ export function CompactCaseStudyPage({ study }: CompactCaseStudyPageProps) {
                     {projectMeta.technologies.map((item) => (
                       <li
                         key={item}
-                        className="tag border-[var(--accent-border)] text-[var(--accent-light)]"
+                        className="tag border-[var(--accent-border)] text-[var(--accent-light)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-subtle)]"
                       >
                         {item}
                       </li>
@@ -111,8 +122,8 @@ export function CompactCaseStudyPage({ study }: CompactCaseStudyPageProps) {
               <ScrollReveal key={beat.id} delay={index * 0.06}>
                 <div>
                   <p className="text-meta text-[var(--accent-light)]">{beat.kicker}</p>
-                  <h2 className="text-section mt-6 font-display leading-[0.95]">{beat.title}</h2>
-                  <p className="text-body mt-8 text-muted-foreground">{beat.body}</p>
+                  <h2 className="text-project mt-4 font-display leading-[1.05]">{beat.title}</h2>
+                  <p className="text-body mt-6 text-muted-foreground">{beat.body}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -123,33 +134,18 @@ export function CompactCaseStudyPage({ study }: CompactCaseStudyPageProps) {
       <SectionChapter theme="void" className="py-[var(--space-xl)]">
         <div className="container-editorial editorial-grid gap-y-16">
           <ScrollReveal className="col-span-12 md:col-span-6">
-            <p className="text-meta accent-text">{study.role.title}</p>
-            <p className="text-body mt-6 text-muted-foreground">{study.role.intro}</p>
-            <ul className="mt-10 space-y-8" role="list">
-              {study.role.areas.map((area, i) => (
-                <li key={area.area}>
-                  <span className="text-meta text-[var(--accent-subtle)]">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="text-h2 mt-2 font-display">{area.area}</p>
-                  <ul className="mt-2 space-y-1" role="list">
-                    {area.responsibilities.map((item) => (
-                      <li key={item} className="text-body text-muted-foreground">{item}</li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
+            <InteractiveRoleList
+              title={study.role.title}
+              intro={study.role.intro}
+              areas={study.role.areas}
+            />
           </ScrollReveal>
           <ScrollReveal delay={0.08} className="col-span-12 md:col-span-5 md:col-start-8">
-            <p className="text-meta accent-text">{study.process.title}</p>
-            <ol className="mt-8 space-y-0" role="list">
-              {study.process.steps.map((step, i) => (
-                <li key={step.label} className="border-t border-[var(--line)] py-5">
-                  <span className="text-meta text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="text-h2 mt-1 font-display">{step.label}</p>
-                  <p className="text-body mt-1 text-muted-foreground">{step.description}</p>
-                </li>
-              ))}
-            </ol>
+            <InteractiveProcess
+              title={study.process.title}
+              intro={study.process.intro}
+              steps={study.process.steps}
+            />
           </ScrollReveal>
         </div>
       </SectionChapter>
@@ -169,14 +165,7 @@ export function CompactCaseStudyPage({ study }: CompactCaseStudyPageProps) {
         <SectionChapter theme="frost" className="py-[var(--space-lg)]">
           <div className="container-editorial">
             <ScrollReveal>
-              <p className="text-meta accent-text">{study.learnings.title}</p>
-              <ul className="mt-8 grid gap-6 md:grid-cols-2" role="list">
-                {study.learnings.items.map((item) => (
-                  <li key={item.id} className="border-l-2 border-[var(--accent)] pl-5">
-                    <p className="text-body text-muted-foreground">{item.text}</p>
-                  </li>
-                ))}
-              </ul>
+              <InteractiveLearnings title={study.learnings.title} items={study.learnings.items} />
               {nextHref && study.nextProject && (
                 <Link
                   href={nextHref}

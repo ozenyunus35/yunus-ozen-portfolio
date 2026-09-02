@@ -20,7 +20,7 @@ export function PageHeader({ label, title, titleMuted, description, className }:
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <SectionLabel label={label} />
-        <h1 className="text-hero mt-8 max-w-3xl font-display">
+        <h1 className="text-display mt-6 max-w-3xl font-display">
           {title}
           {titleMuted && (
             <>
