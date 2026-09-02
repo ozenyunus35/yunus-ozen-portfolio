@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { HoverTilt } from "@/components/motion/HoverTilt";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -28,7 +26,7 @@ function ProjectVisual({ slug, fill = false }: { slug: string; fill?: boolean })
 }
 
 export function WorkIndex() {
-  const { dict, path } = useI18n();
+  const { dict } = useI18n();
   const projects = dict.projects;
 
   return (
@@ -46,62 +44,51 @@ export function WorkIndex() {
         return (
           <SectionChapter
             key={project.slug}
+            id={project.slug}
             theme={isEven ? "frost" : "chalk"}
-            className="py-[var(--space-xl)]"
+            className="py-[var(--space-xl)] scroll-mt-24"
           >
             <div className="container-editorial">
               <ScrollReveal>
                 <HoverTilt maxTilt={4}>
-                  <Link
-                    href={path(project.href)}
-                    className="group block"
-                    data-cursor="project"
-                  >
-                    <article className="pro-panel overflow-hidden">
-                      <div className="editorial-grid items-stretch">
-                        <div
-                          className={`col-span-12 border-b border-[var(--line)] p-8 md:p-10 lg:col-span-5 ${
-                            isEven ? "lg:border-b-0 lg:border-r" : "lg:order-2 lg:border-b-0 lg:border-l"
-                          }`}
-                        >
-                          <p className="text-meta text-muted-foreground">{num} — {project.period}</p>
-                          <h2 className="text-project mt-4 font-display transition-colors group-hover:text-[var(--accent-light)]">
-                            {project.title}
-                          </h2>
-                          <p className="text-meta mt-3 accent-text">{project.industry}</p>
-                          <p className="text-body mt-6 text-muted-foreground">{project.description}</p>
-                          <ul className="mt-8 flex flex-wrap gap-2" role="list">
-                            {project.roles.map((role) => (
-                              <li key={role} className="tag">{role}</li>
-                            ))}
-                          </ul>
-                          <ul className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Technologies">
-                            {project.technologies.map((tech) => (
-                              <li
-                                key={tech}
-                                className="tag border-[var(--accent-border)] text-[var(--accent-light)]"
-                              >
-                                {tech}
-                              </li>
-                            ))}
-                          </ul>
-                          <span className="link-form text-meta mt-10 inline-flex text-[var(--accent)]">
-                            {dict.work.caseStudyBtn}
-                            <ArrowUpRight size={14} />
-                          </span>
-                        </div>
-
-                        <div
-                          className={`col-span-12 flex h-full min-h-0 flex-col p-6 md:p-8 lg:col-span-7 ${
-                            isEven ? "" : "lg:order-1"
-                          } bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))]`}
-                        >
-                          <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">{dict.common.processFlow}</p>
-                          <ProjectVisual slug={project.slug} fill />
-                        </div>
+                  <article className="pro-panel overflow-hidden">
+                    <div className="editorial-grid items-stretch">
+                      <div
+                        className={`col-span-12 border-b border-[var(--line)] p-8 md:p-10 lg:col-span-5 ${
+                          isEven ? "lg:border-b-0 lg:border-r" : "lg:order-2 lg:border-b-0 lg:border-l"
+                        }`}
+                      >
+                        <p className="text-meta text-muted-foreground">{num} — {project.period}</p>
+                        <h2 className="text-project mt-4 font-display">{project.title}</h2>
+                        <p className="text-meta mt-3 accent-text">{project.industry}</p>
+                        <p className="text-body mt-6 text-muted-foreground">{project.description}</p>
+                        <ul className="mt-8 flex flex-wrap gap-2" role="list">
+                          {project.roles.map((role) => (
+                            <li key={role} className="tag">{role}</li>
+                          ))}
+                        </ul>
+                        <ul className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Technologies">
+                          {project.technologies.map((tech) => (
+                            <li
+                              key={tech}
+                              className="tag border-[var(--accent-border)] text-[var(--accent-light)]"
+                            >
+                              {tech}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    </article>
-                  </Link>
+
+                      <div
+                        className={`col-span-12 flex h-full min-h-0 flex-col p-6 md:p-8 lg:col-span-7 ${
+                          isEven ? "" : "lg:order-1"
+                        } bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))]`}
+                      >
+                        <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">{dict.common.processFlow}</p>
+                        <ProjectVisual slug={project.slug} fill />
+                      </div>
+                    </div>
+                  </article>
                 </HoverTilt>
               </ScrollReveal>
             </div>

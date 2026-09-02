@@ -28,15 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: page.priority,
       });
     }
-
-    for (const project of dict.projects) {
-      entries.push({
-        url: `${base}${localizedPath(project.href, locale)}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: project.tier === "primary" ? 0.9 : 0.8,
-      });
-    }
   }
 
   return entries;

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
-import { HomeCapabilities } from "@/components/home/HomeCapabilities";
 import { HomeTechStack } from "@/components/home/HomeTechStack";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -24,7 +23,6 @@ export default function HomePage() {
     <>
       <HomeHero />
       <HomeFeatured />
-      <HomeCapabilities />
       <HomeTechStack />
     </>
   );

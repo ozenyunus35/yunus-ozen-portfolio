@@ -99,7 +99,6 @@ export const dictionaryEn = {
       period: "Period",
     },
     indexHeadline: "Projects across logistics, operations, and education.",
-    caseStudyBtn: "Case study",
   },
 
   approach: {
@@ -247,7 +246,7 @@ export const dictionaryEn = {
         description:
           "Operations system for restaurants and courier teams, integrated with online ordering platforms.",
         type: "project" as const,
-        href: "/work/eyfel-kurye",
+        href: "/work#eyfel",
       },
       {
         id: "fmd",
@@ -257,7 +256,7 @@ export const dictionaryEn = {
         description:
           "Management panel structuring education operations — panel architecture, user flows, and interface systems.",
         type: "project" as const,
-        href: "/work/fmd-egitim",
+        href: "/work#fmd",
       },
       {
         id: "bisevk",
@@ -267,7 +266,7 @@ export const dictionaryEn = {
         description:
           "Logistics marketplace connecting load owners with carriers — product and project work on an ongoing platform.",
         type: "project" as const,
-        href: "/work/bisevk",
+        href: "/work#bisevk",
       },
       {
         id: "tavuk-da-tavuk",
@@ -277,7 +276,7 @@ export const dictionaryEn = {
         description:
           "Corporate web presence and QR menu platform — responsive interface design and development.",
         type: "project" as const,
-        href: "/work/tavuk-da-tavuk",
+        href: "/work#tavuk-da-tavuk",
       },
     ],
   },
@@ -306,7 +305,7 @@ export const dictionaryEn = {
       roles: ["Product Management", "Project Management", "Team Coordination", "UI/UX", "Technical Collaboration"],
       technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST API", "Git", "Figma"],
       techInvolvement: "Development contribution, technical collaboration, and interface decisions",
-      href: "/work/bisevk",
+      href: "/work#bisevk",
       status: "ongoing" as const,
       visual: "logistics-vertical" as const,
     },
@@ -323,7 +322,7 @@ export const dictionaryEn = {
       roles: ["Web Design & Development", "Responsive UI/UX"],
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "QR Menu"],
       techInvolvement: "Design and development of the corporate website and QR menu platform",
-      href: "/work/tavuk-da-tavuk",
+      href: "/work#tavuk-da-tavuk",
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },
@@ -340,7 +339,7 @@ export const dictionaryEn = {
       roles: ["UI/UX", "Panel Structure", "User Flows", "Technical Collaboration"],
       technologies: ["Figma", "React", "UI Systems", "User Flow Design"],
       techInvolvement: "Panel architecture, interface systems, and collaboration with the development team",
-      href: "/work/fmd-egitim",
+      href: "/work#fmd",
       status: "completed" as const,
       visual: "dashboard" as const,
     },
@@ -357,7 +356,7 @@ export const dictionaryEn = {
       roles: ["Product & Project Management", "Product Structure", "User Experience", "Development Process", "Team Coordination"],
       technologies: ["React", "TypeScript", "REST API", "Git", "Figma"],
       techInvolvement: "Product structure, development coordination, and technical decision-making",
-      href: "/work/eyfel-kurye",
+      href: "/work#eyfel",
       status: "completed" as const,
       visual: "delivery-chain" as const,
     },
@@ -388,30 +387,6 @@ export const dictionaryEn = {
       title: "Contact",
       description: "Email, LinkedIn, and GitHub links. Informational contact channels only.",
     },
-  },
-
-  caseStudyUi: {
-    label: "Case Study",
-    problem: "The problem",
-    myRole: "My role",
-    engineering: "Engineering",
-    learnings: "Learnings",
-    nextProject: "Next",
-    marketplaceBody:
-      "Posted freight becomes visible to carriers seeking suitable loads that match their capacity and routes.",
-    selectionBody:
-      "Carriers submit offers on posted loads. One offer is selected, establishing the shipper–carrier connection for transport.",
-    transportBody:
-      "Once matched, the load moves through transport coordination toward delivery completion.",
-    beats: [
-      { id: "problem", kicker: "Problem", title: "Freight matching\nwithout structure." },
-      { id: "load", kicker: "Load created", title: "A load\nenters the system." },
-      { id: "marketplace", kicker: "Marketplace", title: "The marketplace\nopens." },
-      { id: "carriers", kicker: "Carriers", title: "Carriers\nenter and bid." },
-      { id: "match", kicker: "Selection", title: "One offer\nis selected." },
-      { id: "transport", kicker: "Transport", title: "Route\nstretches forward." },
-      { id: "delivery", kicker: "Delivery", title: "Delivered." },
-    ],
   },
 
   diagrams: {

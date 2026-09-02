@@ -29,7 +29,7 @@ const MODULES = [
 ] as const;
 
 const MODULE_IDS = MODULES.map((m) => m.id);
-const STEP_TO_MODULE = [0, 2, 4] as const;
+const STEP_TO_MODULE = [0, 2, 3, 4] as const;
 
 const CELL_W = 86;
 const CELL_H = 62;

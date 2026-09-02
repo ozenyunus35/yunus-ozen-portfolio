@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { CustomCursor } from "@/components/motion/CustomCursor";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
@@ -16,7 +15,6 @@ export function Providers({ children }: ProvidersProps) {
     <MotionProvider>
       <SmoothScrollProvider>
         <ScrollRestoration />
-        <CustomCursor />
         <ScrollProgress />
         {children}
       </SmoothScrollProvider>
