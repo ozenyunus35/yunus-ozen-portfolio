@@ -12,10 +12,10 @@ export function HomeTechStack() {
   const { tech, projects } = dict;
 
   return (
-    <SectionChapter theme="frost" id="tech" className="py-[var(--space-xl)]">
+    <SectionChapter theme="void" id="tech" className="py-[var(--space-xl)]">
       <div className="container-editorial">
         <ScrollReveal>
-          <SectionLabel number="03" label={tech.sectionLabel} />
+          <SectionLabel number="02" label={tech.sectionLabel} />
           <h2 className="text-section mt-6 max-w-2xl font-display">{tech.headline}</h2>
           <p className="text-body mt-6 max-w-2xl text-muted-foreground">{tech.intro}</p>
         </ScrollReveal>

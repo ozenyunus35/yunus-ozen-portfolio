@@ -17,7 +17,6 @@ export function useMotionConfig() {
     isMobile,
     disabled,
     magnetic: !disabled,
-    customCursor: !reducedMotion && !isMobile,
     parallaxSpeed: disabled ? 0 : 0.12,
     revealDistance: disabled ? 0 : isMobile ? MOTION_DISTANCE.sm : MOTION_DISTANCE.md,
     stagger: disabled ? 0 : isMobile ? MOTION_STAGGER.tight : MOTION_STAGGER.base,

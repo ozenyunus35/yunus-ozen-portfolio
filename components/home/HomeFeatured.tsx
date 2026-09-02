@@ -45,10 +45,6 @@ export function HomeFeatured() {
                         <li key={role} className="tag">{role}</li>
                       ))}
                     </ul>
-                    <span className="link-form text-meta mt-8 inline-flex text-[var(--accent)]">
-                      {dict.work.caseStudyBtn}
-                      <ArrowUpRight size={14} />
-                    </span>
                   </div>
                   <div className="col-span-12 flex flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-6 md:p-8 lg:col-span-7">
                     <ParallaxLayer speed={32} className="flex flex-1 flex-col">

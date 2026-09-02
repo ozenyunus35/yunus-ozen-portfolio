@@ -454,12 +454,6 @@ body {
 ::selection { background: var(--accent); color: #fff; }
 main { position: relative; z-index: 1; }
 
-html[data-custom-cursor="true"],
-html[data-custom-cursor="true"] a,
-html[data-custom-cursor="true"] button {
-  cursor: none !important;
-}
-
 .text-label {
   font-family: var(--font-jetbrains), monospace;
   font-size: var(--text-meta);

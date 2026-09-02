@@ -99,7 +99,6 @@ export const dictionaryTr = {
       period: "Dönem",
     },
     indexHeadline: "Lojistik, operasyon ve eğitim alanlarındaki projeler.",
-    caseStudyBtn: "Vaka çalışması",
   },
 
   approach: {
@@ -247,7 +246,7 @@ export const dictionaryTr = {
         description:
           "Restoran ve kurye ekipleri için operasyon sistemi, online sipariş platformlarıyla entegre.",
         type: "project" as const,
-        href: "/work/eyfel-kurye",
+        href: "/work#eyfel",
       },
       {
         id: "fmd",
@@ -257,7 +256,7 @@ export const dictionaryTr = {
         description:
           "Eğitim operasyonlarını yapılandıran yönetim paneli — panel mimarisi, kullanıcı akışları ve arayüz sistemleri.",
         type: "project" as const,
-        href: "/work/fmd-egitim",
+        href: "/work#fmd",
       },
       {
         id: "bisevk",
@@ -267,7 +266,7 @@ export const dictionaryTr = {
         description:
           "Yük sahiplerini taşıyıcılarla buluşturan lojistik pazar yeri — devam eden platformda ürün ve proje süreçlerinde çalışma.",
         type: "project" as const,
-        href: "/work/bisevk",
+        href: "/work#bisevk",
       },
       {
         id: "tavuk-da-tavuk",
@@ -277,7 +276,7 @@ export const dictionaryTr = {
         description:
           "Kurumsal web varlığı ve QR menü platformu — duyarlı arayüz tasarımı ve geliştirme.",
         type: "project" as const,
-        href: "/work/tavuk-da-tavuk",
+        href: "/work#tavuk-da-tavuk",
       },
     ],
   },
@@ -306,7 +305,7 @@ export const dictionaryTr = {
       roles: ["Ürün Yönetimi", "Proje Yönetimi", "Ekip Koordinasyonu", "UI/UX", "Teknik İş Birliği"],
       technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST API", "Git", "Figma"],
       techInvolvement: "Geliştirme katılımı, teknik iş birliği ve arayüz kararları",
-      href: "/work/bisevk",
+      href: "/work#bisevk",
       status: "ongoing" as const,
       visual: "logistics-vertical" as const,
     },
@@ -323,7 +322,7 @@ export const dictionaryTr = {
       roles: ["Web Tasarım & Geliştirme", "Duyarlı UI/UX"],
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "QR Menu"],
       techInvolvement: "Kurumsal web sitesi ve QR menü platformunun tasarımı ve geliştirmesi",
-      href: "/work/tavuk-da-tavuk",
+      href: "/work#tavuk-da-tavuk",
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },
@@ -340,7 +339,7 @@ export const dictionaryTr = {
       roles: ["UI/UX", "Panel Yapısı", "Kullanıcı Akışları", "Teknik İş Birliği"],
       technologies: ["Figma", "React", "UI Systems", "User Flow Design"],
       techInvolvement: "Panel mimarisi, arayüz sistemleri ve geliştirme ekibiyle iş birliği",
-      href: "/work/fmd-egitim",
+      href: "/work#fmd",
       status: "completed" as const,
       visual: "dashboard" as const,
     },
@@ -357,7 +356,7 @@ export const dictionaryTr = {
       roles: ["Ürün & Proje Yönetimi", "Ürün Yapısı", "Kullanıcı Deneyimi", "Geliştirme Süreci", "Ekip Koordinasyonu"],
       technologies: ["React", "TypeScript", "REST API", "Git", "Figma"],
       techInvolvement: "Ürün yapısı, geliştirme koordinasyonu ve teknik karar süreçleri",
-      href: "/work/eyfel-kurye",
+      href: "/work#eyfel",
       status: "completed" as const,
       visual: "delivery-chain" as const,
     },
@@ -388,30 +387,6 @@ export const dictionaryTr = {
       title: "İletişim",
       description: "E-posta, LinkedIn ve GitHub bağlantıları. Bilgilendirme amaçlı iletişim kanalları.",
     },
-  },
-
-  caseStudyUi: {
-    label: "Vaka Çalışması",
-    problem: "Problem",
-    myRole: "Rolüm",
-    engineering: "Mühendislik",
-    learnings: "Edinimler",
-    nextProject: "Sonraki",
-    marketplaceBody:
-      "İlan edilen yükler, kapasitelerine ve rotalarına uygun yük arayan taşıyıcılara görünür hale gelir.",
-    selectionBody:
-      "Taşıyıcılar ilan edilen yükler için teklif verir. Bir teklif seçilir ve gönderici–taşıyıcı bağlantısı kurulur.",
-    transportBody:
-      "Eşleşme sağlandıktan sonra yük, teslimata doğru taşıma koordinasyonundan geçer.",
-    beats: [
-      { id: "problem", kicker: "Problem", title: "Yapısız\nyük eşleştirme." },
-      { id: "load", kicker: "Yük oluşturuldu", title: "Sisteme\nbir yük girer." },
-      { id: "marketplace", kicker: "Pazar yeri", title: "Pazar yeri\naçılır." },
-      { id: "carriers", kicker: "Taşıyıcılar", title: "Taşıyıcılar\ngirer ve teklif verir." },
-      { id: "match", kicker: "Seçim", title: "Bir teklif\nseçilir." },
-      { id: "transport", kicker: "Taşıma", title: "Rota\nilerler." },
-      { id: "delivery", kicker: "Teslimat", title: "Teslim\nedildi." },
-    ],
   },
 
   diagrams: {
