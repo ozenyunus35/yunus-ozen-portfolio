@@ -40,7 +40,7 @@ export const dictionaryTr = {
       contact: "İletişim",
     },
     footerTagline:
-      "Üzerinde çalıştığım dijital ürünler, süreçler ve öğrenme notları — yalnızca kayıt ve paylaşım amaçlı.",
+      "Fikirden canlı ürüne kadar tasarlayıp geliştirdiğim ürünler.",
     footerCopyright: "Kişisel site",
     projectNames: {
       bisevk: "Bi-Sevk",
@@ -50,14 +50,14 @@ export const dictionaryTr = {
 
   site: {
     name: "Yunus Ozen",
-    title: "Yunus Ozen — Kişisel Site",
+    title: "Yunus Özen — AI Product Engineer",
     description:
-      "Yazılım mühendisliği öğrencisi. Projelerim, süreçlerim ve öğrenme yolculuğum hakkında bilgilendirici bir site. İzmir, Türkiye.",
+      "AI Product Engineer ve Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. İzmir, Türkiye.",
     url: getSiteUrl(),
     locale: "tr_TR",
     location: "İzmir, Türkiye",
-    role: "Yazılım Mühendisliği · Ürün & Proje",
-    focus: ["Ürün Yönetimi", "Proje Yönetimi", "Yazılım Mühendisliği"],
+    role: "AI Product Engineer · Full-Stack",
+    focus: ["Ürün Mühendisliği", "Full-Stack Geliştirme", "Yapay Zekâ Araçları"],
     initials: "YÖ",
     portfolioYear: "2026",
     cv: cvAvailable ? getCvPublicUrl() : null,
@@ -85,9 +85,9 @@ export const dictionaryTr = {
 
   hero: {
     tagline:
-      "Ürün ve proje süreçlerini, üzerinde çalıştığım gerçek sistemler üzerinden belgeliyorum.",
+      "Ürünleri fikirden canlıya kadar geliştiriyorum: gereksinimler, kullanıcı akışları, arayüz ve kod.",
     supporting:
-      "Bu site; projelerimi, düşünce yapımı ve öğrenme yolculuğumu paylaşmak için var — iş veya müşteri arayışı olmadan.",
+      "AI Product Engineer ve Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisi. Software, AI ve Product Engineer rollerine açığım; uzaktan veya ofiste.",
     viewWork: "Projeleri Gör",
   },
 
@@ -111,8 +111,8 @@ export const dictionaryTr = {
     ],
     columns: [
       { title: "ÜRÜN", items: ["Strateji", "Gereksinimler", "UX"] },
-      { title: "PROJE", items: ["Koordinasyon", "Planlama", "Teslimat"] },
-      { title: "MÜHENDİSLİK", items: ["Teknik Altyapı", "Web & Mobil", "Sistem Düşüncesi"] },
+      { title: "MÜHENDİSLİK", items: ["Web & Mobil", "Backend & API", "Test"] },
+      { title: "YAPAY ZEKÂ", items: ["LLM API", "Claude Code", "Otomasyon"] },
     ],
   },
 
@@ -120,22 +120,22 @@ export const dictionaryTr = {
     sectionLabel: "Teknoloji",
     headline: "Projelerde kullandığım mühendislik araçları.",
     intro:
-      "Ürün ve proje rollerimin yanında, yazılım mühendisliği perspektifinden dokunduğum teknolojiler — geliştirmeden teknik iş birliğine.",
+      "Ürünleri tasarlamak, geliştirmek ve yayına almak için kullandığım araçlar: arayüzden sunucuya ve yayına kadar.",
     stackLabel: "Genel yığın",
     byProjectLabel: "Projeye göre",
     involvementLabel: "Mühendislik rolü",
     categories: [
       {
         label: "Frontend",
-        items: ["TypeScript", "JavaScript", "React", "Next.js", "HTML/CSS"],
+        items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Flutter"],
       },
       {
         label: "Backend & Veri",
-        items: ["Node.js", "REST API", "PostgreSQL"],
+        items: ["Node.js", "Python", "Kotlin", "Spring Boot", "PostgreSQL", "MongoDB"],
       },
       {
-        label: "Tasarım & Süreç",
-        items: ["Figma", "Git", "GitHub", "Agile"],
+        label: "Yapay Zekâ & Araçlar",
+        items: ["LLM API", "Claude Code", "Docker", "GitHub Actions", "Playwright", "Figma"],
       },
     ],
   },
@@ -167,14 +167,14 @@ export const dictionaryTr = {
   exploring: {
     sectionLabel: "Şu An Keşfettiklerim",
     heading: "İLGİ ALANLARIM",
-    supporting: "Ürün düşüncesini genişletmek için şu an merak ettiğim konular.",
+    supporting: "Şu an öğrendiğim ve geliştirdiğim konular.",
     statusLearning: "Öğreniyorum",
     statusDeveloping: "Geliştiriyorum",
     areas: [
+      { label: "YAPAY ZEKÂ AJANLARI", status: "Developing" as const },
+      { label: "RETRIEVAL (RAG)", status: "Developing" as const },
+      { label: "LLM DEĞERLENDİRME", status: "Learning" as const },
       { label: "ÜRÜN ANALİTİĞİ", status: "Learning" as const },
-      { label: "BÜYÜME", status: "Learning" as const },
-      { label: "A/B TESTİ", status: "Learning" as const },
-      { label: "KULLANICI DAVRANIŞI", status: "Learning" as const },
       { label: "SÜREÇ OTOMASYONU", status: "Developing" as const },
     ],
   },
@@ -183,7 +183,7 @@ export const dictionaryTr = {
     sectionLabel: "İletişim",
     headline: ["İLETİŞİM", "BİLGİLERİ."],
     intro:
-      "Bu site bilgilendirme amaçlıdır. Merak ettikleriniz için aşağıdaki kanallardan ulaşabilirsiniz.",
+      "Software, AI ve Product Engineer rollerine açığım; uzaktan veya ofiste, taşınmaya da açığım. En hızlı ulaşım e-posta veya LinkedIn.",
     actions: {
       email: "E-posta",
       linkedin: "LinkedIn",
@@ -194,18 +194,18 @@ export const dictionaryTr = {
 
   about: {
     sectionLabel: "Hakkımda",
-    headline: ["Mühendislik derinliğiyle", "ürün düşüncesi."],
+    headline: ["Ürün düşüncesi,", "koda dönüşmüş hâliyle."],
     paragraphs: [
-      "Kodun ötesinde sistemlerin nasıl kurulduğuyla ilgilenen bir yazılım mühendisliği öğrencisiyim.",
-      "Geliştirme, arayüz tasarımı ve proje koordinasyonu deneyimlerim, ürün düşüncesine olan ilgimi şekillendirdi.",
-      "Bu sitede üzerinde çalıştığım projeleri, süreçleri ve öğrendiklerimi paylaşıyorum.",
+      "Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisiyim (mezuniyet 2027). Bir ürünü baştan sona sahiplenmeyi seviyorum: problem, akışlar, arayüz ve kod.",
+      "Bir lojistik pazar yeri, bir eğitim yönetim paneli ve bir restoran sitesi üzerinde çalıştım; yapay zekâ destek, randevu ve iş araçları demoları geliştiriyorum.",
+      "Claude Code ve LLM API'leri gibi yapay zekâ araçlarını araştırmadan koda, teste ve yayına kadar her aşamada kullanıyorum.",
     ],
     focusStatement:
-      "Teknik altyapım; ürünleri nasıl kapsamlayacağımı, teslimatı nasıl koordine edeceğimi ve gerçek kısıtlar içinde nelerin mümkün olduğunu değerlendirmemi şekillendiriyor.",
+      "Bir ürünün neden var olması gerektiğini, nasıl yapıldığı kadar önemsiyorum; küçük başlayıp erken yayınlıyor, gerçek geri bildirimle geliştiriyorum.",
     meta: [
       { label: "Konum", value: "İzmir, Türkiye" },
-      { label: "Eğitim", value: "Yazılım Mühendisliği" },
-      { label: "Odak", value: "Ürün & Proje Yönetimi" },
+      { label: "Eğitim", value: "Yazılım Mühendisliği Lisans, Fırat Üniversitesi" },
+      { label: "Odak", value: "AI Product Engineering" },
     ],
     cta: "Bağlantılar",
   },
@@ -227,7 +227,7 @@ export const dictionaryTr = {
         title: "Yazılım Mühendisliği",
         context: "Eğitim",
         description:
-          "Ürün yönetimi, proje koordinasyonu ve sistem düşüncesine odaklanarak yazılım mühendisliği okuyorum.",
+          "Fırat Üniversitesi Yazılım Mühendisliği lisans, beklenen mezuniyet 2027.",
         type: "education" as const,
       },
       {
@@ -236,7 +236,7 @@ export const dictionaryTr = {
         title: "NASA Space Apps Challenge",
         context: "Elazığ",
         description:
-          "NASA Uluslararası Space Apps Challenge'a katıldım — ekip projesi üzerinde iş birliği yaptım. İlgili depo GitHub'da mevcut.",
+          "Innosoft ekibiyle Elazığ birinciliği: 48 saatte Flutter uygulaması Wink to the Future'ı geliştirdik.",
         type: "event" as const,
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
       },
@@ -246,7 +246,7 @@ export const dictionaryTr = {
         title: "Bi-Sevk",
         context: "Lojistik / Pazar Yeri",
         description:
-          "Yük sahiplerini taşıyıcılarla buluşturan lojistik pazar yeri — devam eden platformda ürün ve proje süreçlerinde çalışma.",
+          "Yük sahiplerini tır sürücüleriyle buluşturan lojistik pazar yeri. Ürünü yönettim; web, yönetim paneli ve mobil uygulamaları koordine ettim.",
         type: "project" as const,
         href: "/work#bisevk",
       },
@@ -319,7 +319,7 @@ export const dictionaryTr = {
     year: "2022",
     location: "Elazığ",
     description:
-      "2022 Elazığ'da NASA Uluslararası Space Apps Challenge'a katıldım — ekip projesi üzerinde iş birliği yaptım. İlgili GitHub deposu orijinal ekip deposunun bir fork'udur.",
+      "NASA Uluslararası Space Apps Challenge 2022 Elazığ etabında Innosoft ekibiyle birinci olduk. 48 saatte Flutter uygulaması Wink to the Future'ı geliştirdik.",
     githubLinkLabel: "Proje Deposunu Gör",
   },
 
@@ -333,12 +333,12 @@ export const dictionaryTr = {
       industry: "LOJİSTİK / PAZAR YERİ",
       tagline: "Yük verenleri taşıyıcılarla buluşturan lojistik platform",
       description:
-        "Yük sahiplerini ve göndericileri taşıyıcılar ve kamyon sürücüleriyle buluşturan lojistik platform — yük ilanından teslimata kadar akışı yapılandırır.",
-      roles: ["Ürün Yönetimi", "Proje Yönetimi", "Ekip Koordinasyonu", "UI/UX", "Teknik İş Birliği"],
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST API", "Git", "Figma"],
-      techInvolvement: "Geliştirme katılımı, teknik iş birliği ve arayüz kararları",
+        "Tır sürücülerini yük sahipleriyle buluşturan lojistik pazar yeri. Stratejiden gereksinimlere ve UI/UX'e kadar ürünü sahiplendim; canlı yük takibi dahil web, yönetim paneli ve mobil uygulamaları koordine ettim.",
+      roles: ["Ürün Sahipliği", "UI/UX", "Ekip Koordinasyonu", "Geliştirme"],
+      technologies: ["React", "Flutter", "Kotlin", "Spring Boot", "MongoDB", "WebSockets", "Figma"],
+      techInvolvement: "Ürün stratejisi, gereksinimler ve UI/UX; web, yönetim paneli ve mobil uygulamaların koordinasyonu ve kod katkısı",
       href: "/work#bisevk",
-      status: "ongoing" as const,
+      status: "completed" as const,
       visual: "logistics-vertical" as const,
     },
     {
@@ -447,9 +447,9 @@ export const dictionaryTr = {
 
   pages: {
     home: {
-      title: "Yunus Ozen — Kişisel Site",
+      title: "Yunus Özen — AI Product Engineer",
       description:
-        "Yazılım mühendisliği öğrencisi. Projelerim, süreçlerim ve öğrenme yolculuğum hakkında bilgilendirici bir site.",
+        "AI Product Engineer ve Yazılım Mühendisliği öğrencisi. Lojistik, yapay zekâ destek, randevu ve iş araçları projeleri.",
     },
     work: {
       title: "Projeler",
@@ -459,7 +459,7 @@ export const dictionaryTr = {
     about: {
       title: "Hakkımda",
       description:
-        "Kim olduğum, neyle ilgilendiğim ve bu sitede neleri belgelediğim hakkında kısa bir özet.",
+        "Kim olduğum, nasıl çalıştığım ve ne aradığım.",
     },
     journey: {
       title: "Yolculuk",
@@ -468,7 +468,7 @@ export const dictionaryTr = {
     },
     contact: {
       title: "İletişim",
-      description: "E-posta, LinkedIn ve GitHub bağlantıları. Bilgilendirme amaçlı iletişim kanalları.",
+      description: "E-posta, LinkedIn, GitHub ve CV.",
     },
   },
 

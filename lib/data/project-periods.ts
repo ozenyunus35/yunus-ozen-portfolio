@@ -17,7 +17,7 @@ export const PROJECT_DATE_RANGES = {
   },
   bisevk: {
     start: { month: 5, year: 2025 },
-    ongoing: true,
+    end: { month: 10, year: 2026 },
   },
   cadence: {
     start: { month: 10, year: 2026 },
