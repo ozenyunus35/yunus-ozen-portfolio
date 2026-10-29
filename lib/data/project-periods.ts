@@ -19,14 +19,6 @@ export const PROJECT_DATE_RANGES = {
     start: { month: 5, year: 2025 },
     ongoing: true,
   },
-  fmd: {
-    start: { month: 1, year: 2025 },
-    end: { month: 5, year: 2025 },
-  },
-  eyfel: {
-    start: { month: 5, year: 2024 },
-    end: { month: 10, year: 2024 },
-  },
 } satisfies Record<string, ProjectDateRange>;
 
 const MONTHS_TR = [

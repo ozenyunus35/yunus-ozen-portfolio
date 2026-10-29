@@ -5,8 +5,6 @@ import { HoverTilt } from "@/components/motion/HoverTilt";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { BisevkSystemVisual } from "@/components/visuals/BisevkSystemVisual";
-import { EyfelVelocityVisual } from "@/components/visuals/EyfelVelocityVisual";
-import { FmdModularVisual } from "@/components/visuals/FmdModularVisual";
 import { TavukPhysicalVisual } from "@/components/visuals/TavukPhysicalVisual";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
@@ -14,10 +12,6 @@ function ProjectVisual({ slug, fill = false }: { slug: string; fill?: boolean })
   switch (slug) {
     case "bisevk":
       return <BisevkSystemVisual phase="full" animated fill={fill} />;
-    case "eyfel":
-      return <EyfelVelocityVisual fill={fill} />;
-    case "fmd":
-      return <FmdModularVisual fill={fill} />;
     case "tavuk-da-tavuk":
       return <TavukPhysicalVisual fill={fill} />;
     default:

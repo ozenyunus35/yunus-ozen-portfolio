@@ -40,8 +40,6 @@ export const dictionaryEn = {
     footerCopyright: "Personal site",
     projectNames: {
       bisevk: "Bi-Sevk",
-      eyfel: "Eyfel Kurye",
-      fmd: "FMD Eğitim Portalı",
       tavuk: "Tavuk da Tavuk",
     },
   },
@@ -239,26 +237,6 @@ export const dictionaryEn = {
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
       },
       {
-        id: "eyfel",
-        period: formatProjectPeriod("eyfel", "en"),
-        title: "Eyfel Kurye",
-        context: "Operations / Delivery",
-        description:
-          "Operations system for restaurants and courier teams, integrated with online ordering platforms.",
-        type: "project" as const,
-        href: "/work#eyfel",
-      },
-      {
-        id: "fmd",
-        period: formatProjectPeriod("fmd", "en"),
-        title: "FMD Eğitim Portalı",
-        context: "Education / Management",
-        description:
-          "Management panel structuring education operations — panel architecture, user flows, and interface systems.",
-        type: "project" as const,
-        href: "/work#fmd",
-      },
-      {
         id: "bisevk",
         period: formatProjectPeriod("bisevk", "en"),
         title: "Bi-Sevk",
@@ -326,40 +304,6 @@ export const dictionaryEn = {
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },
-    {
-      slug: "fmd",
-      title: "FMD Eğitim Portalı",
-      displayTitle: "FMD EĞİTİM PORTALI",
-      tier: "secondary" as const,
-      period: formatProjectPeriod("fmd", "en"),
-      industry: "EDUCATION / MANAGEMENT",
-      tagline: "Management panel for education operations",
-      description:
-        "Management panel structuring education operations — defining panel architecture, user flows, and interface systems in collaboration with the technical team.",
-      roles: ["UI/UX", "Panel Structure", "User Flows", "Technical Collaboration"],
-      technologies: ["Figma", "React", "UI Systems", "User Flow Design"],
-      techInvolvement: "Panel architecture, interface systems, and collaboration with the development team",
-      href: "/work#fmd",
-      status: "completed" as const,
-      visual: "dashboard" as const,
-    },
-    {
-      slug: "eyfel",
-      title: "Eyfel Kurye",
-      displayTitle: "EYFEL KURYE",
-      tier: "secondary" as const,
-      period: formatProjectPeriod("eyfel", "en"),
-      industry: "OPERATIONS / DELIVERY",
-      tagline: "Restaurant and courier operations platform",
-      description:
-        "Operations system for restaurants and courier teams, integrated with online ordering platforms — coordinating orders from intake to delivery.",
-      roles: ["Product & Project Management", "Product Structure", "User Experience", "Development Process", "Team Coordination"],
-      technologies: ["React", "TypeScript", "REST API", "Git", "Figma"],
-      techInvolvement: "Product structure, development coordination, and technical decision-making",
-      href: "/work#eyfel",
-      status: "completed" as const,
-      visual: "delivery-chain" as const,
-    },
   ],
 
   pages: {
@@ -400,26 +344,6 @@ export const dictionaryEn = {
         carrier: "CARRIER",
         transport: "TRANSPORT",
         delivery: "DELIVERY",
-      },
-    },
-    eyfel: {
-      caption: "DISPATCH PIPELINE · ORDER → DELIVERY",
-      route: "LIVE ROUTE",
-      nodes: {
-        order: "ORDER",
-        restaurant: "RESTAURANT",
-        courier: "COURIER",
-        delivery: "DELIVERY",
-      },
-    },
-    fmd: {
-      caption: "ADMIN PANEL · MODULAR IA",
-      nodes: {
-        overview: "OVERVIEW",
-        users: "USERS",
-        content: "CONTENT",
-        modules: "MODULES",
-        reports: "REPORTS",
       },
     },
     tavuk: {

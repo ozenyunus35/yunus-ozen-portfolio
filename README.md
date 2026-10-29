@@ -7,8 +7,6 @@ Personal portfolio site documenting selected product and engineering work, proce
 ## Featured projects
 
 - **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
-- **Eyfel Kurye** — Restaurant and courier operations platform
-- **FMD Eğitim Portalı** — Education management panel (UI/UX & information architecture)
 - **Tavuk da Tavuk** — Corporate website and QR menu platform
 
 Each project includes a case study with system diagrams and process context.

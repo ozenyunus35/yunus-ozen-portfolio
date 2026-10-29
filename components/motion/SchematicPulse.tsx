@@ -83,7 +83,7 @@ type SchematicPathTravelProps = {
   children: ReactNode;
 };
 
-/** Animates a glyph (truck, courier, etc.) along an SVG path */
+/** Animates a glyph (truck, etc.) along an SVG path */
 export function SchematicPathTravel({
   path,
   delay = 0,

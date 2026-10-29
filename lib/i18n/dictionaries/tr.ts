@@ -40,8 +40,6 @@ export const dictionaryTr = {
     footerCopyright: "Kişisel site",
     projectNames: {
       bisevk: "Bi-Sevk",
-      eyfel: "Eyfel Kurye",
-      fmd: "FMD Eğitim Portalı",
       tavuk: "Tavuk da Tavuk",
     },
   },
@@ -239,26 +237,6 @@ export const dictionaryTr = {
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
       },
       {
-        id: "eyfel",
-        period: formatProjectPeriod("eyfel", "tr"),
-        title: "Eyfel Kurye",
-        context: "Operasyon / Teslimat",
-        description:
-          "Restoran ve kurye ekipleri için operasyon sistemi, online sipariş platformlarıyla entegre.",
-        type: "project" as const,
-        href: "/work#eyfel",
-      },
-      {
-        id: "fmd",
-        period: formatProjectPeriod("fmd", "tr"),
-        title: "FMD Eğitim Portalı",
-        context: "Eğitim / Yönetim",
-        description:
-          "Eğitim operasyonlarını yapılandıran yönetim paneli — panel mimarisi, kullanıcı akışları ve arayüz sistemleri.",
-        type: "project" as const,
-        href: "/work#fmd",
-      },
-      {
         id: "bisevk",
         period: formatProjectPeriod("bisevk", "tr"),
         title: "Bi-Sevk",
@@ -326,40 +304,6 @@ export const dictionaryTr = {
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },
-    {
-      slug: "fmd",
-      title: "FMD Eğitim Portalı",
-      displayTitle: "FMD EĞİTİM PORTALI",
-      tier: "secondary" as const,
-      period: formatProjectPeriod("fmd", "tr"),
-      industry: "EĞİTİM / YÖNETİM",
-      tagline: "Eğitim operasyonları için yönetim paneli",
-      description:
-        "Eğitim operasyonlarını yapılandıran yönetim paneli — teknik ekip ile birlikte panel mimarisi, kullanıcı akışları ve arayüz sistemleri.",
-      roles: ["UI/UX", "Panel Yapısı", "Kullanıcı Akışları", "Teknik İş Birliği"],
-      technologies: ["Figma", "React", "UI Systems", "User Flow Design"],
-      techInvolvement: "Panel mimarisi, arayüz sistemleri ve geliştirme ekibiyle iş birliği",
-      href: "/work#fmd",
-      status: "completed" as const,
-      visual: "dashboard" as const,
-    },
-    {
-      slug: "eyfel",
-      title: "Eyfel Kurye",
-      displayTitle: "EYFEL KURYE",
-      tier: "secondary" as const,
-      period: formatProjectPeriod("eyfel", "tr"),
-      industry: "OPERASYON / TESLİMAT",
-      tagline: "Restoran ve kurye operasyon platformu",
-      description:
-        "Restoran ve kurye ekipleri için operasyon sistemi, online sipariş platformlarıyla entegre — sipariş alımından teslimata koordinasyon.",
-      roles: ["Ürün & Proje Yönetimi", "Ürün Yapısı", "Kullanıcı Deneyimi", "Geliştirme Süreci", "Ekip Koordinasyonu"],
-      technologies: ["React", "TypeScript", "REST API", "Git", "Figma"],
-      techInvolvement: "Ürün yapısı, geliştirme koordinasyonu ve teknik karar süreçleri",
-      href: "/work#eyfel",
-      status: "completed" as const,
-      visual: "delivery-chain" as const,
-    },
   ],
 
   pages: {
@@ -400,26 +344,6 @@ export const dictionaryTr = {
         carrier: "TAŞIYICI",
         transport: "TAŞIMA",
         delivery: "TESLİMAT",
-      },
-    },
-    eyfel: {
-      caption: "SEVK HATTI · SİPARİŞ → TESLİMAT",
-      route: "CANLI ROTA",
-      nodes: {
-        order: "SİPARİŞ",
-        restaurant: "RESTORAN",
-        courier: "KURYE",
-        delivery: "TESLİMAT",
-      },
-    },
-    fmd: {
-      caption: "YÖNETİM PANELİ · MODÜLER YAPI",
-      nodes: {
-        overview: "GENEL BAKIŞ",
-        users: "KULLANICILAR",
-        content: "İÇERİK",
-        modules: "MODÜLLER",
-        reports: "RAPORLAR",
       },
     },
     tavuk: {

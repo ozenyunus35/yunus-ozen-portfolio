@@ -126,19 +126,6 @@ export function IconRestaurant({ size = 20, active }: SchematicIconProps) {
   );
 }
 
-/** Courier / delivery rider */
-export function IconCourier({ size = 20, active, pulse }: SchematicIconProps & { pulse?: boolean }) {
-  return (
-    <IconWrapper size={size} active={active} pulse={pulse}>
-      <circle cx="6" cy="18" r="2.5" />
-      <circle cx="18" cy="18" r="2.5" />
-      <path d="M8.5 18 L15.5 18" />
-      <path d="M12 8 L12 14 M9 11 L15 11" />
-      <path d="M12 8 C12 5 14 3 17 3" />
-    </IconWrapper>
-  );
-}
-
 /** Mobile device */
 export function IconPhone({ size = 20, active }: SchematicIconProps) {
   return (
@@ -221,19 +208,6 @@ export function TravelTruckGlyph({ active = true }: { active?: boolean }) {
       <path d="M11 7.5 L15 7.5 L16.5 11 L16.5 13 L11 13 Z" fill="none" />
       <circle cx="4.5" cy="14.5" r="1.8" />
       <circle cx="14" cy="14.5" r="1.8" />
-    </g>
-  );
-}
-
-/** Inline courier bike for path travel */
-export function TravelCourierGlyph({ active = true }: { active?: boolean }) {
-  const color = active ? "var(--accent-light)" : "var(--foreground-muted)";
-  return (
-    <g stroke={color} fill="none" strokeWidth={1.3} strokeLinecap="round">
-      <circle cx="5" cy="14" r="2.5" />
-      <circle cx="15" cy="14" r="2.5" />
-      <path d="M7.5 14 L12.5 14 M10 8 L10 12" />
-      <path d="M10 8 C10 6 11.5 4.5 14 4.5" />
     </g>
   );
 }
