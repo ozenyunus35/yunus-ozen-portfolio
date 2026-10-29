@@ -7,6 +7,7 @@ Personal portfolio site documenting selected product and engineering work, proce
 ## Featured projects
 
 - **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
+- **Fieldline** — Field service mobile app for technicians, built with Flutter ([live demo](https://ozenyunus35.github.io/field-service-app/))
 - **Cadence** — Online booking page and staff calendar for a salon ([live demo](https://ozenyunus35.github.io/booking-scheduler/))
 - **Relay** — AI support assistant with a chat widget and an admin console ([live demo](https://ozenyunus35.github.io/ai-support-assistant/))
 - **Atlas Portal** — Admin dashboard and client file portal ([live demo](https://ozenyunus35.github.io/admin-file-portal/))

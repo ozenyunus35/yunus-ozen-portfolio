@@ -301,6 +301,16 @@ export const dictionaryEn = {
         href: "/work#relay",
       },
       {
+        id: "fieldline",
+        period: formatProjectPeriod("fieldline", "en"),
+        title: "Fieldline",
+        context: "Mobile / Field Service",
+        description:
+          "Flutter app for service technicians — route, checklists, parts, signature and invoice, works offline and syncs later.",
+        type: "project" as const,
+        href: "/work#fieldline",
+      },
+      {
         id: "cadence",
         period: formatProjectPeriod("cadence", "en"),
         title: "Cadence",
@@ -340,6 +350,23 @@ export const dictionaryEn = {
       href: "/work#bisevk",
       status: "completed" as const,
       visual: "logistics-vertical" as const,
+    },
+    {
+      slug: "fieldline",
+      title: "Fieldline",
+      displayTitle: "FIELDLINE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("fieldline", "en"),
+      industry: "MOBILE / FIELD SERVICE",
+      tagline: "Mobile app for a field technician's day",
+      description:
+        "Demo Flutter app for a fictional heating and plumbing company: the day's route and next job, required checklists, parts from the van, photos, the customer's signature and the invoice. Changes are saved on the phone and sync when the signal is back.",
+      roles: ["Product Design", "Mobile Development", "UI/UX", "Testing"],
+      technologies: ["Flutter", "Dart", "Material 3", "shared_preferences", "Playwright"],
+      techInvolvement: "Designed and built end to end: job flow, offline queue and sync, signature pad, invoice and browser tests",
+      href: "/work#fieldline",
+      status: "completed" as const,
+      visual: "screenshots" as const,
     },
     {
       slug: "cadence",

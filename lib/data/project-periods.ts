@@ -19,6 +19,10 @@ export const PROJECT_DATE_RANGES = {
     start: { month: 5, year: 2025 },
     end: { month: 10, year: 2026 },
   },
+  fieldline: {
+    start: { month: 10, year: 2026 },
+    end: { month: 10, year: 2026 },
+  },
   cadence: {
     start: { month: 10, year: 2026 },
     end: { month: 10, year: 2026 },

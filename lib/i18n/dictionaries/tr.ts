@@ -301,6 +301,16 @@ export const dictionaryTr = {
         href: "/work#relay",
       },
       {
+        id: "fieldline",
+        period: formatProjectPeriod("fieldline", "tr"),
+        title: "Fieldline",
+        context: "Mobil / Saha Servisi",
+        description:
+          "Saha teknisyenleri için Flutter uygulaması — rota, kontrol listeleri, parça, imza ve fatura; çevrimdışı çalışır, sonra senkronize olur.",
+        type: "project" as const,
+        href: "/work#fieldline",
+      },
+      {
         id: "cadence",
         period: formatProjectPeriod("cadence", "tr"),
         title: "Cadence",
@@ -340,6 +350,23 @@ export const dictionaryTr = {
       href: "/work#bisevk",
       status: "completed" as const,
       visual: "logistics-vertical" as const,
+    },
+    {
+      slug: "fieldline",
+      title: "Fieldline",
+      displayTitle: "FIELDLINE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("fieldline", "tr"),
+      industry: "MOBİL / SAHA SERVİSİ",
+      tagline: "Bir saha teknisyeninin günü için mobil uygulama",
+      description:
+        "Kurgusal bir ısıtma ve tesisat firması için demo Flutter uygulaması: günün rotası ve sıradaki iş, zorunlu kontrol listeleri, araçtan parça, fotoğraflar, müşteri imzası ve fatura. Değişiklikler telefonda saklanıyor, bağlantı gelince senkronize oluyor.",
+      roles: ["Ürün Tasarımı", "Mobil Geliştirme", "UI/UX", "Test"],
+      technologies: ["Flutter", "Dart", "Material 3", "shared_preferences", "Playwright"],
+      techInvolvement: "Uçtan uca tasarım ve geliştirme: iş akışı, çevrimdışı kuyruk ve senkronizasyon, imza alanı, fatura ve tarayıcı testleri",
+      href: "/work#fieldline",
+      status: "completed" as const,
+      visual: "screenshots" as const,
     },
     {
       slug: "cadence",
