@@ -437,7 +437,7 @@ export const dictionaryEn = {
       description:
         "Website and QR menu for a restaurant in Elazığ. Mobile-first, designed and built by me and used every day by staff and guests.",
       roles: ["Web Design & Development", "Responsive UI/UX"],
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "QR Menu"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "QR Menu"],
       techInvolvement: "Design and development of the corporate website and QR menu platform",
       href: "/work#tavuk-da-tavuk",
       status: "completed" as const,

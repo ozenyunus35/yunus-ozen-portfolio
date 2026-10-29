@@ -437,7 +437,7 @@ export const dictionaryTr = {
       description:
         "Kurumsal web varlığı ve QR menü platformu — mekân içi ve mobil yemek deneyimleri için duyarlı arayüz tasarımı ve geliştirme.",
       roles: ["Web Tasarım & Geliştirme", "Duyarlı UI/UX"],
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "QR Menu"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "QR Menu"],
       techInvolvement: "Kurumsal web sitesi ve QR menü platformunun tasarımı ve geliştirmesi",
       href: "/work#tavuk-da-tavuk",
       status: "completed" as const,
