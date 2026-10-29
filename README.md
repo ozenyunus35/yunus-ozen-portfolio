@@ -7,6 +7,7 @@ Personal portfolio site documenting selected product and engineering work, proce
 ## Featured projects
 
 - **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
+- **Cadence** — Online booking page and staff calendar for a salon ([live demo](https://ozenyunus35.github.io/booking-scheduler/))
 - **Relay** — AI support assistant with a chat widget and an admin console ([live demo](https://ozenyunus35.github.io/ai-support-assistant/))
 - **Atlas Portal** — Admin dashboard and client file portal ([live demo](https://ozenyunus35.github.io/admin-file-portal/))
 - **PDF to Excel Extractor** — Turns tables in PDF reports into clean Excel files ([live demo](https://ozenyunus35.github.io/pdf-data-extractor/))

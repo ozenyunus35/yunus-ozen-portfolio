@@ -300,6 +300,16 @@ export const dictionaryEn = {
         type: "project" as const,
         href: "/work#relay",
       },
+      {
+        id: "cadence",
+        period: formatProjectPeriod("cadence", "en"),
+        title: "Cadence",
+        context: "Booking / Scheduling",
+        description:
+          "Online booking demo for a salon — live availability, reschedule or cancel online, staff calendar with drag to move.",
+        type: "project" as const,
+        href: "/work#cadence",
+      },
     ],
   },
 
@@ -330,6 +340,23 @@ export const dictionaryEn = {
       href: "/work#bisevk",
       status: "ongoing" as const,
       visual: "logistics-vertical" as const,
+    },
+    {
+      slug: "cadence",
+      title: "Cadence",
+      displayTitle: "CADENCE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("cadence", "en"),
+      industry: "BOOKING / SCHEDULING",
+      tagline: "Online booking page and staff calendar for a salon",
+      description:
+        "Demo booking system for a fictional hair salon: clients book only times that are really free, then reschedule or cancel online. The team works from a calendar with a column per person and drag to reschedule.",
+      roles: ["Product Design", "Full-Stack Development", "UI/UX", "Testing"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Vitest", "Playwright"],
+      techInvolvement: "Designed and built end to end: availability engine, booking flow, staff calendar and browser tests",
+      href: "/work#cadence",
+      status: "completed" as const,
+      visual: "screenshots" as const,
     },
     {
       slug: "relay",

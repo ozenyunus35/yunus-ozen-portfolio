@@ -300,6 +300,16 @@ export const dictionaryTr = {
         type: "project" as const,
         href: "/work#relay",
       },
+      {
+        id: "cadence",
+        period: formatProjectPeriod("cadence", "tr"),
+        title: "Cadence",
+        context: "Randevu / Planlama",
+        description:
+          "Kuaför için online randevu demosu — canlı uygunluk, online değiştirme ve iptal, sürükle-bırak personel takvimi.",
+        type: "project" as const,
+        href: "/work#cadence",
+      },
     ],
   },
 
@@ -330,6 +340,23 @@ export const dictionaryTr = {
       href: "/work#bisevk",
       status: "ongoing" as const,
       visual: "logistics-vertical" as const,
+    },
+    {
+      slug: "cadence",
+      title: "Cadence",
+      displayTitle: "CADENCE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("cadence", "tr"),
+      industry: "RANDEVU / PLANLAMA",
+      tagline: "Bir kuaför için online randevu sayfası ve personel takvimi",
+      description:
+        "Kurgusal bir kuaför için demo randevu sistemi: müşteriler yalnızca gerçekten boş saatleri görüp randevu alıyor, sonra online değiştirip iptal edebiliyor. Ekip, kişi başına sütunlu ve sürükle-bırak takvimden çalışıyor.",
+      roles: ["Ürün Tasarımı", "Full-Stack Geliştirme", "UI/UX", "Test"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Vitest", "Playwright"],
+      techInvolvement: "Uçtan uca tasarım ve geliştirme: uygunluk motoru, randevu akışı, personel takvimi ve tarayıcı testleri",
+      href: "/work#cadence",
+      status: "completed" as const,
+      visual: "screenshots" as const,
     },
     {
       slug: "relay",

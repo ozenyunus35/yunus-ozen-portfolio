@@ -7,6 +7,11 @@ export type ProjectMedia = {
 
 /** Screenshot visuals and public links for projects with a live demo — the same in every language. */
 export const PROJECT_MEDIA: Record<string, ProjectMedia> = {
+  cadence: {
+    image: "/projects/cadence.webp",
+    demo: "https://ozenyunus35.github.io/booking-scheduler/",
+    source: "https://github.com/ozenyunus35/booking-scheduler",
+  },
   relay: {
     image: "/projects/relay.webp",
     demo: "https://ozenyunus35.github.io/ai-support-assistant/",

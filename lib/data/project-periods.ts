@@ -19,6 +19,10 @@ export const PROJECT_DATE_RANGES = {
     start: { month: 5, year: 2025 },
     ongoing: true,
   },
+  cadence: {
+    start: { month: 10, year: 2026 },
+    end: { month: 10, year: 2026 },
+  },
   relay: {
     start: { month: 10, year: 2026 },
     end: { month: 10, year: 2026 },
