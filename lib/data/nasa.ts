@@ -5,12 +5,12 @@ export const nasaContent = {
   year: "2022",
   location: "Elazığ",
   /** Set when verified — e.g. "Local Winner". Leave null for neutral wording. */
-  award: null as string | null,
+  award: "1st Place, Elazığ" as string | null,
   github: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
   projectName: "WINK TO THE FUTURE INNOSOFT",
   description:
-    "Participated in the NASA International Space Apps Challenge in Elazığ, 2022 — collaborating on a team project. The related GitHub repository is a fork of the original team repository.",
-  participationLabel: "Hackathon Participation",
+    "1st place in the Elazığ round of the NASA International Space Apps Challenge 2022 with team Innosoft. We built Wink to the Future, a Flutter app, in 48 hours.",
+  participationLabel: "Hackathon Winner",
   githubLinkLabel: "View Project Repository",
 } as const;
 

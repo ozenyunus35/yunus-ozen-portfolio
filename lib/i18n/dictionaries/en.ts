@@ -40,7 +40,7 @@ export const dictionaryEn = {
       contact: "Contact",
     },
     footerTagline:
-      "Digital products, processes, and learning notes from my work — shared for documentation, not for hiring or client outreach.",
+      "Products I have designed and built, from the first idea to a live release.",
     footerCopyright: "Personal site",
     projectNames: {
       bisevk: "Bi-Sevk",
@@ -50,14 +50,14 @@ export const dictionaryEn = {
 
   site: {
     name: "Yunus Ozen",
-    title: "Yunus Ozen — Personal Site",
+    title: "Yunus Ozen — AI Product Engineer",
     description:
-      "Software engineering student. An informational site about my projects, processes, and learning path. Based in İzmir, Türkiye.",
+      "AI Product Engineer and final-year Software Engineering student. Products I have designed and built, from the first idea to a live release. Based in İzmir, Türkiye.",
     url: getSiteUrl(),
     locale: "en_US",
     location: "İzmir, Türkiye",
-    role: "Software Engineering · Product & Project",
-    focus: ["Product Management", "Project Management", "Software Engineering"],
+    role: "AI Product Engineer · Full-Stack",
+    focus: ["Product Engineering", "Full-Stack Development", "AI Tools"],
     initials: "YÖ",
     portfolioYear: "2026",
     cv: cvAvailable ? getCvPublicUrl() : null,
@@ -85,9 +85,9 @@ export const dictionaryEn = {
 
   hero: {
     tagline:
-      "Documenting product and project work through real systems I've been involved in.",
+      "I build products from the first idea to a live release: requirements, user flows, UI and code.",
     supporting:
-      "This site exists to share my projects, thinking, and learning — not to seek work or clients.",
+      "AI Product Engineer and final-year Software Engineering student at Fırat University. Open to Software, AI and Product Engineer roles, remote or on-site.",
     viewWork: "View Projects",
   },
 
@@ -111,8 +111,8 @@ export const dictionaryEn = {
     ],
     columns: [
       { title: "PRODUCT", items: ["Strategy", "Requirements", "UX"] },
-      { title: "PROJECT", items: ["Coordination", "Planning", "Delivery"] },
-      { title: "ENGINEERING", items: ["Technical Background", "Web & Mobile", "Systems Thinking"] },
+      { title: "ENGINEERING", items: ["Web & Mobile", "Backend & APIs", "Testing"] },
+      { title: "AI", items: ["LLM APIs", "Claude Code", "Automation"] },
     ],
   },
 
@@ -120,22 +120,22 @@ export const dictionaryEn = {
     sectionLabel: "Technology",
     headline: "Engineering tools across my projects.",
     intro:
-      "Alongside product and project work, the technologies I've touched from a software engineering perspective — from hands-on development to technical collaboration.",
+      "The tools I use to design, build and ship products, from the interface to the server and the release.",
     stackLabel: "Core stack",
     byProjectLabel: "By project",
     involvementLabel: "Engineering role",
     categories: [
       {
         label: "Frontend",
-        items: ["TypeScript", "JavaScript", "React", "Next.js", "HTML/CSS"],
+        items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Flutter"],
       },
       {
         label: "Backend & Data",
-        items: ["Node.js", "REST API", "PostgreSQL"],
+        items: ["Node.js", "Python", "Kotlin", "Spring Boot", "PostgreSQL", "MongoDB"],
       },
       {
-        label: "Design & Process",
-        items: ["Figma", "Git", "GitHub", "Agile"],
+        label: "AI & Tools",
+        items: ["LLM APIs", "Claude Code", "Docker", "GitHub Actions", "Playwright", "Figma"],
       },
     ],
   },
@@ -167,14 +167,14 @@ export const dictionaryEn = {
   exploring: {
     sectionLabel: "Currently Exploring",
     heading: "AREAS OF INTEREST",
-    supporting: "Topics I'm currently curious about as I broaden my product thinking.",
+    supporting: "What I am learning and building next.",
     statusLearning: "Learning",
     statusDeveloping: "Developing",
     areas: [
+      { label: "AI AGENTS", status: "Developing" as const },
+      { label: "RETRIEVAL (RAG)", status: "Developing" as const },
+      { label: "LLM EVALUATION", status: "Learning" as const },
       { label: "PRODUCT ANALYTICS", status: "Learning" as const },
-      { label: "GROWTH", status: "Learning" as const },
-      { label: "A/B TESTING", status: "Learning" as const },
-      { label: "USER BEHAVIOR", status: "Learning" as const },
       { label: "PROCESS AUTOMATION", status: "Developing" as const },
     ],
   },
@@ -183,7 +183,7 @@ export const dictionaryEn = {
     sectionLabel: "Contact",
     headline: ["CONTACT", "DETAILS."],
     intro:
-      "This site is for information only. You can reach me through the channels below if you have questions.",
+      "Open to Software, AI and Product Engineer roles, remote or on-site, and open to relocation. The fastest way to reach me is email or LinkedIn.",
     actions: {
       email: "Email",
       linkedin: "LinkedIn",
@@ -194,18 +194,18 @@ export const dictionaryEn = {
 
   about: {
     sectionLabel: "About",
-    headline: ["Product thinking", "with engineering depth."],
+    headline: ["Product thinking,", "shipped as code."],
     paragraphs: [
-      "I'm a software engineering student interested in what happens beyond the code — how systems are structured and why.",
-      "Experience across development, interface design, and project coordination shaped my interest in product thinking.",
-      "On this site I share the projects I've worked on, the processes involved, and what I've learned along the way.",
+      "I'm a final-year Software Engineering student at Fırat University (graduating 2027) and I like owning a product end to end: the problem, the flows, the interface and the code.",
+      "I have worked on a logistics marketplace, an education management panel and a restaurant website, and I build demos of AI support, booking and business tools.",
+      "I use AI tools such as Claude Code and LLM APIs across the whole cycle, from research and specs to code, tests and release.",
     ],
     focusStatement:
-      "Technical background informs how I scope products, coordinate delivery, and evaluate what is feasible within real constraints.",
+      "I care about why a product should exist as much as how it is built, so I scope small, ship early and improve with real feedback.",
     meta: [
       { label: "Based In", value: "İzmir, Türkiye" },
-      { label: "Education", value: "Software Engineering" },
-      { label: "Focus", value: "Product & Project Management" },
+      { label: "Education", value: "B.Sc. Software Engineering, Fırat University" },
+      { label: "Focus", value: "AI Product Engineering" },
     ],
     cta: "Links",
   },
@@ -227,7 +227,7 @@ export const dictionaryEn = {
         title: "Software Engineering",
         context: "Education",
         description:
-          "Studying software engineering while focusing on product management, project coordination, and systems thinking.",
+          "B.Sc. in Software Engineering at Fırat University, expected 2027.",
         type: "education" as const,
       },
       {
@@ -236,7 +236,7 @@ export const dictionaryEn = {
         title: "NASA Space Apps Challenge",
         context: "Elazığ",
         description:
-          "Participated in the NASA International Space Apps Challenge — collaborating on a team project. Related repository available on GitHub.",
+          "1st place in Elazığ with team Innosoft: built Wink to the Future, a Flutter app, in 48 hours.",
         type: "event" as const,
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
       },
@@ -246,7 +246,7 @@ export const dictionaryEn = {
         title: "Bi-Sevk",
         context: "Logistics / Marketplace",
         description:
-          "Logistics marketplace connecting load owners with carriers — product and project work on an ongoing platform.",
+          "Logistics marketplace connecting cargo owners with truck drivers. Led the product and coordinated the web, admin and mobile apps.",
         type: "project" as const,
         href: "/work#bisevk",
       },
@@ -319,7 +319,7 @@ export const dictionaryEn = {
     year: "2022",
     location: "Elazığ",
     description:
-      "Participated in the NASA International Space Apps Challenge in Elazığ, 2022 — collaborating on a team project. The related GitHub repository is a fork of the original team repository.",
+      "1st place in the Elazığ round of the NASA International Space Apps Challenge 2022 with team Innosoft. We built Wink to the Future, a Flutter app, in 48 hours.",
     githubLinkLabel: "View Project Repository",
   },
 
@@ -333,12 +333,12 @@ export const dictionaryEn = {
       industry: "LOGISTICS / MARKETPLACE",
       tagline: "Logistics platform connecting shippers with carriers",
       description:
-        "A logistics platform connecting load owners and shippers with carriers and truck drivers — structuring the flow from load posting to delivery.",
-      roles: ["Product Management", "Project Management", "Team Coordination", "UI/UX", "Technical Collaboration"],
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST API", "Git", "Figma"],
-      techInvolvement: "Development contribution, technical collaboration, and interface decisions",
+        "A logistics marketplace that matches truck drivers with cargo owners. I owned the product from strategy and requirements to UI/UX, and coordinated the web, admin and mobile apps, including real-time shipment tracking.",
+      roles: ["Product Ownership", "UI/UX", "Team Coordination", "Development"],
+      technologies: ["React", "Flutter", "Kotlin", "Spring Boot", "MongoDB", "WebSockets", "Figma"],
+      techInvolvement: "Product strategy, requirements and UI/UX; coordinated the web, admin and mobile apps and contributed code",
       href: "/work#bisevk",
-      status: "ongoing" as const,
+      status: "completed" as const,
       visual: "logistics-vertical" as const,
     },
     {
@@ -435,7 +435,7 @@ export const dictionaryEn = {
       industry: "CORPORATE / HOSPITALITY",
       tagline: "Corporate website and QR menu platform",
       description:
-        "Corporate web presence and QR menu platform — responsive interface design and development for on-site and mobile dining experiences.",
+        "Website and QR menu for a restaurant in Elazığ. Mobile-first, designed and built by me and used every day by staff and guests.",
       roles: ["Web Design & Development", "Responsive UI/UX"],
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "QR Menu"],
       techInvolvement: "Design and development of the corporate website and QR menu platform",
@@ -447,9 +447,9 @@ export const dictionaryEn = {
 
   pages: {
     home: {
-      title: "Yunus Ozen — Personal Site",
+      title: "Yunus Ozen — AI Product Engineer",
       description:
-        "Software engineering student. An informational site about my projects, processes, and learning path.",
+        "AI Product Engineer and Software Engineering student. Projects in logistics, AI support, booking and business tools.",
     },
     work: {
       title: "Projects",
@@ -459,7 +459,7 @@ export const dictionaryEn = {
     about: {
       title: "About",
       description:
-        "A brief overview of who I am, what interests me, and what this site documents.",
+        "Who I am, how I work and what I am looking for.",
     },
     journey: {
       title: "Journey",
@@ -468,7 +468,7 @@ export const dictionaryEn = {
     },
     contact: {
       title: "Contact",
-      description: "Email, LinkedIn, and GitHub links. Informational contact channels only.",
+      description: "Email, LinkedIn, GitHub and CV.",
     },
   },
 
