@@ -1,22 +1,38 @@
 "use client";
 
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { HoverTilt } from "@/components/motion/HoverTilt";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { BisevkSystemVisual } from "@/components/visuals/BisevkSystemVisual";
 import { TavukPhysicalVisual } from "@/components/visuals/TavukPhysicalVisual";
+import { withBasePath } from "@/lib/data/base-path";
+import { PROJECT_MEDIA } from "@/lib/data/project-media";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
-function ProjectVisual({ slug, fill = false }: { slug: string; fill?: boolean }) {
+function ProjectVisual({ slug, alt, fill = false }: { slug: string; alt: string; fill?: boolean }) {
   switch (slug) {
     case "bisevk":
       return <BisevkSystemVisual phase="full" animated fill={fill} />;
     case "tavuk-da-tavuk":
       return <TavukPhysicalVisual fill={fill} />;
-    default:
-      return null;
   }
+  const media = PROJECT_MEDIA[slug];
+  if (!media) return null;
+  return (
+    <div className="flex flex-1 items-center justify-center">
+      <Image
+        src={withBasePath(media.image)}
+        alt={alt}
+        width={1600}
+        height={1032}
+        sizes="(min-width: 1024px) 58vw, 100vw"
+        className="h-auto w-full"
+      />
+    </div>
+  );
 }
 
 export function WorkIndex() {
@@ -34,6 +50,7 @@ export function WorkIndex() {
       {projects.map((project, index) => {
         const num = String(index + 1).padStart(2, "0");
         const isEven = index % 2 === 0;
+        const media = PROJECT_MEDIA[project.slug];
 
         return (
           <SectionChapter
@@ -61,7 +78,7 @@ export function WorkIndex() {
                             <li key={role} className="tag">{role}</li>
                           ))}
                         </ul>
-                        <ul className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Technologies">
+                        <ul className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Technologies" lang="en">
                           {project.technologies.map((tech) => (
                             <li
                               key={tech}
@@ -71,6 +88,23 @@ export function WorkIndex() {
                             </li>
                           ))}
                         </ul>
+                        {media && (
+                          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+                            <a href={media.demo} target="_blank" rel="noopener noreferrer" className="link-form text-meta">
+                              {dict.common.liveDemo}
+                              <ArrowUpRight size={13} aria-hidden />
+                            </a>
+                            <a
+                              href={media.source}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="link-form text-meta text-muted-foreground"
+                            >
+                              {dict.common.sourceCode}
+                              <ArrowUpRight size={13} aria-hidden />
+                            </a>
+                          </div>
+                        )}
                       </div>
 
                       <div
@@ -78,8 +112,10 @@ export function WorkIndex() {
                           isEven ? "" : "lg:order-1"
                         } bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))]`}
                       >
-                        <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">{dict.common.processFlow}</p>
-                        <ProjectVisual slug={project.slug} fill />
+                        <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">
+                          {media ? dict.common.interface : dict.common.processFlow}
+                        </p>
+                        <ProjectVisual slug={project.slug} alt={`${project.title}: ${dict.common.screenshotsAlt}`} fill />
                       </div>
                     </div>
                   </article>

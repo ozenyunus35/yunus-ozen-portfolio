@@ -7,9 +7,13 @@ Personal portfolio site documenting selected product and engineering work, proce
 ## Featured projects
 
 - **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
+- **Relay** — AI support assistant with a chat widget and an admin console ([live demo](https://ozenyunus35.github.io/ai-support-assistant/))
+- **Atlas Portal** — Admin dashboard and client file portal ([live demo](https://ozenyunus35.github.io/admin-file-portal/))
+- **PDF to Excel Extractor** — Turns tables in PDF reports into clean Excel files ([live demo](https://ozenyunus35.github.io/pdf-data-extractor/))
+- **Lead Scraper** — Daily scraper that turns a business directory into a clean lead list ([live demo](https://ozenyunus35.github.io/lead-scraper/))
 - **Tavuk da Tavuk** — Corporate website and QR menu platform
 
-Each project includes a case study with system diagrams and process context.
+Bi-Sevk and Tavuk da Tavuk have system diagrams with process context; the demo projects show their interface on a MacBook and an iPhone, with links to the live demo and source code.
 
 ## Tech stack
 

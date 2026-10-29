@@ -26,7 +26,7 @@ export function HomeTechStack() {
             {tech.categories.map((category) => (
               <div key={category.label} className="pro-cap-card h-full">
                 <p className="text-meta accent-text">{category.label}</p>
-                <ul className="mt-6 flex flex-wrap gap-2" role="list">
+                <ul className="mt-6 flex flex-wrap gap-2" role="list" lang="en">
                   {category.items.map((item) => (
                     <li key={item} className="tag">
                       {item}
@@ -58,7 +58,7 @@ export function HomeTechStack() {
                     <p className="text-meta mt-2 text-[var(--accent)]">{tech.involvementLabel}</p>
                     <p className="text-body mt-2 text-muted-foreground">{project.techInvolvement}</p>
                   </div>
-                  <ul className="flex max-w-xl flex-wrap gap-2 md:justify-end" role="list">
+                  <ul className="flex max-w-xl flex-wrap gap-2 md:justify-end" role="list" lang="en">
                     {project.technologies.map((item) => (
                       <li key={item} className="tag">
                         {item}
