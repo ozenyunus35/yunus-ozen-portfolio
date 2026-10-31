@@ -87,7 +87,7 @@ export const dictionaryTr = {
     tagline:
       "Ürünleri fikirden canlıya kadar geliştiriyorum: gereksinimler, kullanıcı akışları, arayüz ve kod.",
     supporting:
-      "AI Product Engineer ve Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisi. Software, AI ve Product Engineer rollerine açığım; uzaktan veya ofiste.",
+      "AI Product Engineer ve Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisi. Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste.",
     viewWork: "Projeleri Gör",
   },
 
@@ -201,7 +201,7 @@ export const dictionaryTr = {
     sectionLabel: "İletişim",
     headline: ["İLETİŞİM", "BİLGİLERİ."],
     intro:
-      "Software, AI ve Product Engineer rollerine açığım; uzaktan veya ofiste, taşınmaya da açığım. En hızlı ulaşım e-posta veya LinkedIn.",
+      "Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste. ABD, Avrupa, Körfez ülkeleri veya başka bir ülkeye taşınmaya da açığım. En hızlı ulaşım e-posta veya LinkedIn.",
     actions: {
       email: "E-posta",
       linkedin: "LinkedIn",
@@ -482,7 +482,7 @@ export const dictionaryTr = {
       description:
         "Kurumsal web varlığı ve QR menü platformu — mekân içi ve mobil yemek deneyimleri için duyarlı arayüz tasarımı ve geliştirme.",
       roles: ["Web Tasarım & Geliştirme", "Duyarlı UI/UX"],
-      technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "QR Menu"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Supabase", "Vercel", "QR Menu"],
       techInvolvement: "Kurumsal web sitesi ve QR menü platformunun tasarımı ve geliştirmesi",
       href: "/work#tavuk-da-tavuk",
       status: "completed" as const,

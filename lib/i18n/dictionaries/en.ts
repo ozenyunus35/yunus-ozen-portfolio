@@ -87,7 +87,7 @@ export const dictionaryEn = {
     tagline:
       "I build products from the first idea to a live release: requirements, user flows, UI and code.",
     supporting:
-      "AI Product Engineer and final-year Software Engineering student at Fırat University. Open to Software, AI and Product Engineer roles, remote or on-site.",
+      "AI Product Engineer and final-year Software Engineering student at Fırat University. Open to Software, AI and Product Engineer roles, remote, hybrid or on-site.",
     viewWork: "View Projects",
   },
 
@@ -201,7 +201,7 @@ export const dictionaryEn = {
     sectionLabel: "Contact",
     headline: ["CONTACT", "DETAILS."],
     intro:
-      "Open to Software, AI and Product Engineer roles, remote or on-site, and open to relocation. The fastest way to reach me is email or LinkedIn.",
+      "Open to Software, AI and Product Engineer roles, remote, hybrid or on-site, and open to relocating to the US, Europe, the Gulf or elsewhere. The fastest way to reach me is email or LinkedIn.",
     actions: {
       email: "Email",
       linkedin: "LinkedIn",
@@ -482,7 +482,7 @@ export const dictionaryEn = {
       description:
         "Website and QR menu for a restaurant in Elazığ. Mobile-first, designed and built by me and used every day by staff and guests.",
       roles: ["Web Design & Development", "Responsive UI/UX"],
-      technologies: ["Next.js", "React", "Tailwind CSS", "Vercel", "QR Menu"],
+      technologies: ["Next.js", "React", "Tailwind CSS", "Supabase", "Vercel", "QR Menu"],
       techInvolvement: "Design and development of the corporate website and QR menu platform",
       href: "/work#tavuk-da-tavuk",
       status: "completed" as const,
