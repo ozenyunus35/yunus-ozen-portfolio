@@ -140,6 +140,24 @@ export const dictionaryEn = {
     ],
   },
 
+  openSource: {
+    sectionLabel: "Open Source",
+    headline: "Code merged into projects other teams depend on.",
+    intro:
+      "Since October 2026 I fix bugs and add features in public repositories, each change with tests and reviewed by the maintainers.",
+    mergedLabel: "merged PRs",
+    totalLabel: "merged pull requests in 33 public repositories",
+    alsoLabel: "Also merged in",
+    descriptions: {
+      "repowise-dev/repowise": "Code ingestion, tsconfig project references, HTTP route detection for Ktor and Javalin.",
+      "stephenh/ts-proto": "Protobuf to TypeScript code generator: grpc-web async iterables and option fixes.",
+      "uutils/coreutils": "GNU compatibility fixes in sort, od, join, split, csplit and nl.",
+      "cachix/devenv": "Developer environments: TUI process manager and task startup fixes.",
+      "Automattic/harper": "Grammar checker: fewer false positives in English rules.",
+      "oxc-project/oxc": "JavaScript toolchain: minifier and ESLint rule fixes.",
+    } as Record<string, string>,
+  },
+
   method: {
     sectionLabel: "Product × Engineering",
     headline: ["PRODUCT THINKING.", "ENGINEERING MINDSET."],

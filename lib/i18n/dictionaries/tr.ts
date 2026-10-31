@@ -140,6 +140,24 @@ export const dictionaryTr = {
     ],
   },
 
+  openSource: {
+    sectionLabel: "Açık Kaynak",
+    headline: "Başka ekiplerin kullandığı projelere merge edilen kod.",
+    intro:
+      "Ekim 2026'dan beri açık kaynak projelerde hata düzeltip özellik ekliyorum; her değişiklik testli ve proje sahiplerinin incelemesinden geçiyor.",
+    mergedLabel: "merge edilen PR",
+    totalLabel: "merge edilen pull request, 33 açık kaynak projede",
+    alsoLabel: "Ayrıca",
+    descriptions: {
+      "repowise-dev/repowise": "Kod içe aktarma, tsconfig proje referansları, Ktor ve Javalin için HTTP rota tespiti.",
+      "stephenh/ts-proto": "Protobuf'tan TypeScript üreten araç: grpc-web async iterable ve seçenek düzeltmeleri.",
+      "uutils/coreutils": "sort, od, join, split, csplit ve nl komutlarında GNU uyumluluğu düzeltmeleri.",
+      "cachix/devenv": "Geliştirme ortamları: TUI süreç yöneticisi ve görev başlatma düzeltmeleri.",
+      "Automattic/harper": "Dilbilgisi denetleyicisi: İngilizce kurallarda yanlış uyarıları azaltma.",
+      "oxc-project/oxc": "JavaScript araç zinciri: minifier ve ESLint kuralı düzeltmeleri.",
+    } as Record<string, string>,
+  },
+
   method: {
     sectionLabel: "Ürün × Mühendislik",
     headline: ["ÜRÜN DÜŞÜNCESİ.", "MÜHENDİSLİK ZİHNİYETİ."],

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeTechStack } from "@/components/home/HomeTechStack";
+import { HomeOpenSource } from "@/components/home/HomeOpenSource";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale } from "@/lib/i18n/config";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <HomeHero />
       <HomeFeatured />
       <HomeTechStack />
+      <HomeOpenSource />
     </>
   );
 }
