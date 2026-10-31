@@ -25,7 +25,7 @@ export const siteConfig = {
 } as const;
 
 export const heroContent = {
-  name: ["YUNUS", "EMRE", "ÖZEN"],
+  name: ["YUNUS", "OZEN"],
   introKeywords: ["PRODUCT", "PROJECT", "SYSTEMS", "UX"],
   statement: ["PRODUCT & PROJECT", "MANAGEMENT."],
   secondary: siteConfig.role,

@@ -50,7 +50,7 @@ export const dictionaryTr = {
 
   site: {
     name: "Yunus Ozen",
-    title: "Yunus Özen — AI Product Engineer",
+    title: "Yunus Ozen — AI Product Engineer",
     description:
       "AI Product Engineer ve Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. İzmir, Türkiye.",
     url: getSiteUrl(),
@@ -492,7 +492,7 @@ export const dictionaryTr = {
 
   pages: {
     home: {
-      title: "Yunus Özen — AI Product Engineer",
+      title: "Yunus Ozen — AI Product Engineer",
       description:
         "AI Product Engineer ve Yazılım Mühendisliği öğrencisi. Lojistik, yapay zekâ destek, randevu ve iş araçları projeleri.",
     },
