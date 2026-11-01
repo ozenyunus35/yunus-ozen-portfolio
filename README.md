@@ -15,7 +15,7 @@ Personal portfolio site documenting selected product and engineering work, proce
 - **Lead Scraper** — Daily scraper that turns a business directory into a clean lead list ([live demo](https://ozenyunus35.github.io/lead-scraper/))
 - **Tavuk da Tavuk** — Corporate website and QR menu platform
 
-Every project has its own page (`/en/work/<slug>`) with a share preview image. Bi-Sevk and Tavuk da Tavuk have system diagrams with process context; the demo projects show their interface on a MacBook and an iPhone, with links to the live demo and source code. The project index can be filtered by AI, web, mobile and automation, and ⌘K opens a quick search for pages, projects and actions.
+Every project has its own page (`/en/work/<slug>`) with a share preview image. Each one shows its interface on a MacBook and an iPhone. Demo projects link to the live demo and source code; client work (Bi-Sevk, Tavuk da Tavuk) links to the live site and its case study. The project index can be filtered by AI, web, mobile and automation, and ⌘K opens a quick search for pages, projects and actions.
 
 ## Tech stack
 
@@ -23,7 +23,7 @@ Every project has its own page (`/en/work/<slug>`) with a share preview image. B
 - [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS 4](https://tailwindcss.com/)
-- CSS animations for page motion; [Framer Motion](https://www.framer.com/motion/) only for the system diagrams and the journey timeline, loaded when needed
+- CSS animations for page motion; [Framer Motion](https://www.framer.com/motion/) only for the journey timeline
 
 ## Local development
 

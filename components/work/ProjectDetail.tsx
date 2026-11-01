@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Code2, FileText } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { ProjectVisual } from "@/components/work/ProjectVisual";
@@ -41,13 +41,13 @@ export function ProjectDetail({ slug }: { slug: string }) {
             </div>
             {media && (
               <div className="anim-rise col-span-12 flex flex-wrap gap-3 lg:col-span-4 lg:justify-end" style={{ animationDelay: "180ms" }}>
-                <a href={media.demo} target="_blank" rel="noopener noreferrer" className="btn-primary flex-1 justify-center sm:flex-none">
-                  {dict.common.liveDemo}
+                <a href={media.demo} target="_blank" rel="noopener noreferrer" className="btn-primary flex-1 justify-center whitespace-nowrap sm:flex-none">
+                  {media.live ? dict.common.liveSite : dict.common.liveDemo}
                   <ArrowUpRight size={14} aria-hidden />
                 </a>
-                <a href={media.source} target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 justify-center sm:flex-none">
-                  <Code2 size={14} aria-hidden />
-                  {dict.common.sourceCode}
+                <a href={media.source} target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 justify-center whitespace-nowrap sm:flex-none">
+                  {media.live ? <FileText size={14} aria-hidden /> : <Code2 size={14} aria-hidden />}
+                  {media.live ? dict.common.caseStudy : dict.common.sourceCode}
                 </a>
               </div>
             )}
@@ -58,14 +58,12 @@ export function ProjectDetail({ slug }: { slug: string }) {
             style={{ animationDelay: "200ms" }}
           >
             <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">
-              {media ? dict.common.interface : dict.common.processFlow}
+              {dict.common.interface}
             </p>
             <ProjectVisual
               slug={slug}
               alt={`${project.title}: ${dict.common.screenshotsAlt}`}
-              fill
               priority
-              scrollOnSmall
               sizes="(min-width: 1088px) 68rem, 100vw"
             />
           </div>

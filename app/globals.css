@@ -631,18 +631,6 @@ main { position: relative; z-index: 1; }
   .project-card:hover .project-card-media > * { transform: scale(1.025); }
 }
 
-/* Swipeable diagram on phones: thin scrollbar, snaps back to the start edge. */
-.diagram-scroll { scrollbar-width: thin; scrollbar-color: var(--accent-border) transparent; overscroll-behavior-x: contain; }
-
-/* Space held for a diagram while its chunk loads. */
-@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
-.diagram-placeholder {
-  min-height: clamp(220px, 30vw, 380px);
-  border-radius: var(--radius-md);
-  background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--accent) 7%, transparent) 50%, transparent 100%) 0 0 / 200% 100%;
-  animation: shimmer 1.6s linear infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; }
   .hero-layer-grid, .hero-layer-net { transform: none; }

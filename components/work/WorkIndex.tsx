@@ -64,8 +64,6 @@ export function WorkIndex() {
                     <ProjectVisual
                       slug={project.slug}
                       alt={`${project.title}: ${dict.common.screenshotsAlt}`}
-                      fill
-                      animated={false}
                       sizes="(min-width: 768px) 34rem, 100vw"
                     />
                   </div>

@@ -47,7 +47,7 @@ export function HomeFeatured() {
                   </div>
                   <div className="col-span-12 flex flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-4 sm:p-6 md:p-8 lg:col-span-7">
                     <div className="flex flex-1 flex-col">
-                      <ProjectVisual slug={featured.slug} alt={featured.title} fill scrollOnSmall />
+                      <ProjectVisual slug={featured.slug} alt={`${featured.title}: ${dict.common.screenshotsAlt}`} sizes="(min-width: 1024px) 50vw, 100vw" />
                     </div>
                   </div>
                 </div>
