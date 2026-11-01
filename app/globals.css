@@ -61,10 +61,10 @@
 
   /* Typography */
   --text-massive: clamp(4rem, 13vw, 11rem);
-  --text-colossal: clamp(3rem, 9vw, 8rem);
+  --text-colossal: clamp(3.25rem, 9vw, 10rem);
   --text-hero: clamp(2.5rem, 6.5vw, 6rem);
-  --text-display: clamp(2rem, 5vw, 4.5rem);
-  --text-section: clamp(1.75rem, 3.5vw, 3.25rem);
+  --text-display: clamp(2.25rem, 5vw, 5.5rem);
+  --text-section: clamp(1.875rem, 3.5vw, 3.75rem);
   --text-project: clamp(1.625rem, 3vw, 2.75rem);
   --text-statement: clamp(1.375rem, 2.2vw, 2rem);
   --text-h1: clamp(1.375rem, 2vw, 2rem);
@@ -85,12 +85,12 @@
   --space-xs: clamp(0.5rem, 1vw, 0.75rem);
   --space-sm: clamp(1rem, 2vw, 1.5rem);
   --space-md: clamp(2rem, 4vw, 3rem);
-  --space-lg: clamp(3.5rem, 7vw, 5.5rem);
-  --space-xl: clamp(5rem, 9vw, 8rem);
+  --space-lg: clamp(3rem, 7vw, 5.5rem);
+  --space-xl: clamp(4rem, 9vw, 8rem);
   --space-2xl: clamp(6rem, 12vw, 11rem);
-  --container-max: 68rem;
+  --container-max: 120rem;
   --container-wide: 90rem;
-  --container-padding: clamp(1.25rem, 4vw, 3rem);
+  --container-padding: clamp(1.25rem, 5vw, 6rem);
   --grid-columns: 12;
   --grid-gap: clamp(1rem, 2vw, 1.75rem);
 
@@ -238,7 +238,12 @@ body {
   background: var(--line);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .pro-cap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
   .pro-cap-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -246,7 +251,7 @@ body {
 
 .pro-cap-card {
   background: var(--ink-muted);
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   transition: background var(--duration-medium) var(--ease-form);
 }
 
@@ -325,6 +330,7 @@ body {
   transition: transform var(--duration-medium) var(--ease-form);
 }
 .link-form:hover::after { transform: scaleX(1); }
+.link-form::before { content: ""; position: absolute; inset: -12px -6px; }
 
 .link-axis, .link-prism {
   position: relative;
@@ -624,6 +630,9 @@ main { position: relative; z-index: 1; }
   }
   .project-card:hover .project-card-media > * { transform: scale(1.025); }
 }
+
+/* Swipeable diagram on phones: thin scrollbar, snaps back to the start edge. */
+.diagram-scroll { scrollbar-width: thin; scrollbar-color: var(--accent-border) transparent; overscroll-behavior-x: contain; }
 
 /* Space held for a diagram while its chunk loads. */
 @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }

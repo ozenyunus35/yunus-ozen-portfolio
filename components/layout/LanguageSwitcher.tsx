@@ -25,7 +25,7 @@ export function LanguageSwitcher() {
             key={locale}
             href={switchLocalePath(pathname, locale)}
             className={cn(
-              "px-2.5 py-1 text-meta transition-colors",
+              "px-3.5 py-2 text-meta transition-colors md:px-2.5 md:py-1",
               active ? "bg-[var(--accent)] text-white" : "text-muted-foreground hover:text-foreground",
             )}
             aria-current={active ? "true" : undefined}

@@ -80,7 +80,7 @@ export function InteractiveTimeline({
             aria-selected={filter === item.id}
             onClick={() => setFilter(item.id)}
             className={cn(
-              "tag transition-colors duration-300",
+              "tag min-h-10 transition-colors duration-300 md:min-h-0",
               filter === item.id
                 ? "border-[var(--accent)] bg-[var(--accent-subtle)] text-[var(--accent-light)]"
                 : "hover:border-[var(--accent-border)] hover:text-foreground",
@@ -151,7 +151,7 @@ export function InteractiveTimeline({
                     {href && milestone.type === "project" ? (
                       <Link
                         href={path(href)}
-                        className="text-h1 mt-2 inline-flex items-center gap-2 hover:text-[var(--accent-light)]"
+                        className="text-h1 mt-1 inline-flex items-center gap-2 py-1 hover:text-[var(--accent-light)]"
                         data-cursor="project"
                       >
                         {milestone.title}
@@ -162,7 +162,7 @@ export function InteractiveTimeline({
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-h1 mt-2 inline-flex items-center gap-2 hover:text-[var(--accent-light)]"
+                        className="text-h1 mt-1 inline-flex items-center gap-2 py-1 hover:text-[var(--accent-light)]"
                         data-cursor="external"
                       >
                         {milestone.title}

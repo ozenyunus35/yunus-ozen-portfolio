@@ -19,7 +19,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--line)] bg-[var(--ink-soft)]">
       <div className="container-editorial py-14 md:py-16">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <p className="font-display text-h1 text-foreground">{dict.site.name}</p>
             <p className="text-body mt-3 text-muted-foreground">{dict.site.role}</p>
@@ -28,12 +28,12 @@ export function Footer() {
 
           <div className="md:col-span-3">
             <p className="text-meta text-muted-foreground">{dict.common.pages}</p>
-            <ul className="mt-4 space-y-2" role="list">
+            <ul className="mt-3 md:mt-4 md:space-y-1" role="list">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={path(link.href)}
-                    className="text-body text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block py-2 text-body text-muted-foreground transition-colors hover:text-foreground md:py-1"
                   >
                     {link.label}
                   </Link>
@@ -44,11 +44,11 @@ export function Footer() {
 
           <div className="md:col-span-4">
             <p className="text-meta text-muted-foreground">{dict.common.channels}</p>
-            <ul className="mt-4 space-y-2" role="list">
+            <ul className="mt-3 md:mt-4 md:space-y-1" role="list">
               <li>
                 <a
                   href={`mailto:${dict.site.email}`}
-                  className="text-body text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-block py-2 text-body text-muted-foreground transition-colors hover:text-foreground md:py-1"
                 >
                   {dict.site.email}
                 </a>
@@ -59,7 +59,7 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block py-2 text-body text-muted-foreground transition-colors hover:text-foreground md:py-1"
                   >
                     {link.label}
                   </Link>

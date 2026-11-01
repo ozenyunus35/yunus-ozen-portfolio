@@ -23,8 +23,11 @@ function DiagramPlaceholder() {
   return <div className="diagram-placeholder flex-1" aria-hidden="true" />;
 }
 
-/** Mounts its children once the box is within one screen of the viewport. */
-function WhenNear({ children }: { children: React.ReactNode }) {
+/**
+ * Mounts its children once the box is within one screen of the viewport.
+ * With `scroll`, phones get the diagram at a readable width and swipe across it.
+ */
+function WhenNear({ children, scroll = false }: { children: React.ReactNode; scroll?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
 
@@ -43,9 +46,17 @@ function WhenNear({ children }: { children: React.ReactNode }) {
     return () => io.disconnect();
   }, []);
 
+  if (!scroll) {
+    return (
+      <div ref={ref} className="flex flex-1 flex-col">
+        {near ? children : <DiagramPlaceholder />}
+      </div>
+    );
+  }
+
   return (
-    <div ref={ref} className="flex flex-1 flex-col">
-      {near ? children : <DiagramPlaceholder />}
+    <div ref={ref} className="diagram-scroll -mx-4 flex flex-1 flex-col overflow-x-auto px-4 sm:mx-0 sm:overflow-visible sm:px-0">
+      <div className="flex min-w-[600px] flex-1 flex-col sm:min-w-0">{near ? children : <DiagramPlaceholder />}</div>
     </div>
   );
 }
@@ -58,20 +69,22 @@ type ProjectVisualProps = {
   animated?: boolean;
   priority?: boolean;
   sizes?: string;
+  /** Let phones swipe across the diagram instead of shrinking its labels. */
+  scrollOnSmall?: boolean;
 };
 
 /** Screenshot pair for demo projects, system diagram for the others. */
-export function ProjectVisual({ slug, alt, fill = false, animated = true, priority, sizes }: ProjectVisualProps) {
+export function ProjectVisual({ slug, alt, fill = false, animated = true, priority, sizes, scrollOnSmall = false }: ProjectVisualProps) {
   switch (slug) {
     case "bisevk":
       return (
-        <WhenNear>
+        <WhenNear scroll={scrollOnSmall}>
           <BisevkSystemVisual phase="full" animated={animated} fill={fill} />
         </WhenNear>
       );
     case "tavuk-da-tavuk":
       return (
-        <WhenNear>
+        <WhenNear scroll={scrollOnSmall}>
           <TavukPhysicalVisual animated={animated} fill={fill} />
         </WhenNear>
       );

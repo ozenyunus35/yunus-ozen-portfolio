@@ -32,7 +32,7 @@ export function HomeFeatured() {
             >
               <article className="pro-panel overflow-hidden">
                 <div className="editorial-grid items-stretch">
-                  <div className="col-span-12 border-b border-[var(--line)] p-8 md:p-10 lg:col-span-5 lg:border-b-0 lg:border-r">
+                  <div className="col-span-12 border-b border-[var(--line)] p-6 sm:p-8 md:p-10 lg:col-span-5 lg:border-b-0 lg:border-r">
                     <p className="text-meta text-muted-foreground">{featured.period}</p>
                     <h3 className="text-project mt-4 font-display transition-colors group-hover:text-[var(--accent-light)]">
                       {featured.title}
@@ -45,9 +45,9 @@ export function HomeFeatured() {
                       ))}
                     </ul>
                   </div>
-                  <div className="col-span-12 flex flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-6 md:p-8 lg:col-span-7">
+                  <div className="col-span-12 flex flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-4 sm:p-6 md:p-8 lg:col-span-7">
                     <div className="flex flex-1 flex-col">
-                      <ProjectVisual slug={featured.slug} alt={featured.title} fill />
+                      <ProjectVisual slug={featured.slug} alt={featured.title} fill scrollOnSmall />
                     </div>
                   </div>
                 </div>

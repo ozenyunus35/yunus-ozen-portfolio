@@ -195,7 +195,7 @@ export function CommandMenu() {
   let lastGroup = "";
 
   return (
-    <div className="cmdk-backdrop fixed inset-0 z-[200] flex items-start justify-center px-4 pt-[12vh]" onMouseDown={close}>
+    <div className="cmdk-backdrop fixed inset-0 z-[200] flex items-start justify-center px-3 pt-[10vh] sm:px-4 sm:pt-[12vh]" onMouseDown={close}>
       <div
         role="dialog"
         aria-modal="true"
@@ -248,7 +248,7 @@ export function CommandMenu() {
                     onMouseMove={() => i !== current && setActive(i)}
                     onClick={item.run}
                     className={cn(
-                      "flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2.5 transition-colors duration-100",
+                      "flex min-h-11 cursor-pointer items-center gap-3 rounded-sm px-3 py-2.5 transition-colors duration-100",
                       i === current ? "bg-[var(--accent-subtle)] text-foreground" : "text-muted-foreground",
                     )}
                   >
@@ -263,7 +263,7 @@ export function CommandMenu() {
           </ul>
         )}
 
-        <div className="text-meta flex items-center gap-4 border-t border-[var(--line)] px-4 py-2.5 text-muted-foreground">
+        <div className="text-meta hidden items-center gap-4 border-t sm:flex border-[var(--line)] px-4 py-2.5 text-muted-foreground">
           <span>↑↓ {t.navigate}</span>
           <span>↵ {t.select}</span>
         </div>

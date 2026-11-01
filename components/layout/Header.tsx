@@ -48,7 +48,7 @@ export function Header() {
       )}
     >
       <div className="container-editorial flex h-16 items-center justify-between gap-6">
-        <Link href={path("/")} className="group flex items-baseline gap-2" aria-label={`${dict.site.name} — Home`}>
+        <Link href={path("/")} className="group -my-2 flex items-baseline gap-2 py-3" aria-label={`${dict.site.name} — Home`}>
           <span className="text-meta text-[var(--accent)]">{dict.site.initials}</span>
           <span className="hidden text-meta text-muted-foreground transition-colors group-hover:text-foreground sm:inline">
             {dict.site.name}
@@ -75,7 +75,7 @@ export function Header() {
           <button
             type="button"
             onClick={openCommandMenu}
-            className="kbd-hint"
+            className="kbd-hint h-10 w-10 justify-center px-0 lg:h-8 lg:w-auto lg:px-2.5"
             aria-label={dict.command.open}
           >
             <Search size={13} aria-hidden />
@@ -86,7 +86,7 @@ export function Header() {
           </div>
           <button
             type="button"
-            className="relative flex h-9 w-9 items-center justify-center md:hidden"
+            className="relative -mr-2 flex h-10 w-10 items-center justify-center md:hidden"
             onClick={() => setOpenedAt(open ? null : pathname)}
             aria-expanded={open}
             aria-controls="mobile-nav"

@@ -31,7 +31,7 @@ export function AboutProfile() {
         <div className="container-editorial editorial-grid">
           <div className="col-span-12 lg:col-span-7">
             <ScrollReveal>
-              <div className="space-y-6">
+              <div className="max-w-3xl space-y-6">
                 {about.paragraphs.map((p) => (
                   <p key={p.slice(0, 30)} className="text-body text-muted-foreground">{p}</p>
                 ))}

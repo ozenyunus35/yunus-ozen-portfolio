@@ -41,11 +41,11 @@ export function ProjectDetail({ slug }: { slug: string }) {
             </div>
             {media && (
               <div className="anim-rise col-span-12 flex flex-wrap gap-3 lg:col-span-4 lg:justify-end" style={{ animationDelay: "180ms" }}>
-                <a href={media.demo} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href={media.demo} target="_blank" rel="noopener noreferrer" className="btn-primary flex-1 justify-center sm:flex-none">
                   {dict.common.liveDemo}
                   <ArrowUpRight size={14} aria-hidden />
                 </a>
-                <a href={media.source} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                <a href={media.source} target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 justify-center sm:flex-none">
                   <Code2 size={14} aria-hidden />
                   {dict.common.sourceCode}
                 </a>
@@ -54,7 +54,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
           </div>
 
           <div
-            className="anim-rise-lg mt-12 flex min-h-[260px] flex-col overflow-hidden rounded-[var(--radius-md)] border border-[var(--line)] bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-5 md:p-10"
+            className="anim-rise-lg mt-10 flex min-h-[220px] flex-col overflow-hidden rounded-[var(--radius-md)] border border-[var(--line)] bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-4 sm:mt-12 sm:p-6 md:p-10"
             style={{ animationDelay: "200ms" }}
           >
             <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">
@@ -65,6 +65,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
               alt={`${project.title}: ${dict.common.screenshotsAlt}`}
               fill
               priority
+              scrollOnSmall
               sizes="(min-width: 1088px) 68rem, 100vw"
             />
           </div>
@@ -74,7 +75,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
       <SectionChapter theme="void" className="py-[var(--space-xl)]">
         <div className="container-editorial editorial-grid gap-y-12">
           <ScrollReveal className="col-span-12 lg:col-span-7">
-            <p className="text-body text-[1.0625rem] leading-[1.8] text-foreground/90 md:text-lg">{project.description}</p>
+            <p className="text-body max-w-3xl text-[1.0625rem] leading-[1.8] text-foreground/90 md:text-lg">{project.description}</p>
             <div className="pro-quote mt-10">
               <p className="text-meta text-muted-foreground">{dict.common.whatIDid}</p>
               <p className="text-h2 mt-3">{project.techInvolvement}</p>
@@ -121,7 +122,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
             <Link
               key={label}
               href={path(`/work/${p.slug}`)}
-              className={`project-card group flex flex-col p-6 md:p-8 ${i === 1 ? "md:items-end md:text-right" : ""}`}
+              className={`project-card group flex min-w-0 flex-col p-5 sm:p-6 md:p-8 ${i === 1 ? "md:items-end md:text-right" : ""}`}
             >
               <span className="text-meta inline-flex items-center gap-2 text-muted-foreground">
                 {i === 0 && <Icon size={13} className="transition-transform group-hover:-translate-x-1" aria-hidden />}

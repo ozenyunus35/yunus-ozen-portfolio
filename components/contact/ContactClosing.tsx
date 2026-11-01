@@ -80,7 +80,7 @@ export function ContactClosing() {
             <div className="col-span-12 lg:col-span-4 lg:col-start-9">
               <ScrollReveal delay={0.08}>
                 <HoverTilt maxTilt={5}>
-                  <aside className="pro-panel relative overflow-hidden p-8">
+                  <aside className="pro-panel relative overflow-hidden p-6 sm:p-8">
                     <div
                       className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[var(--accent-glow)] opacity-20 blur-3xl"
                       aria-hidden="true"
@@ -137,7 +137,7 @@ export function ContactClosing() {
                         href={link.href}
                         {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         {...(link.download ? { download: true } : {})}
-                        className="group pro-panel relative flex h-full flex-col justify-between overflow-hidden p-8 transition-colors hover:bg-[color-mix(in_srgb,var(--accent)_3%,var(--ink-soft))]"
+                        className="group pro-panel relative flex h-full flex-col justify-between overflow-hidden p-6 sm:p-8 transition-colors hover:bg-[color-mix(in_srgb,var(--accent)_3%,var(--ink-soft))]"
                         data-cursor={link.external ? "external" : undefined}
                       >
                         <div

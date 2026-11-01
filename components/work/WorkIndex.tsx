@@ -36,7 +36,7 @@ export function WorkIndex() {
                 onClick={() => setFilter(f)}
                 aria-pressed={filter === f}
                 className={cn(
-                  "tag inline-flex items-center gap-2 transition-colors duration-200",
+                  "tag inline-flex min-h-10 items-center gap-2 transition-colors duration-200 md:min-h-0",
                   filter === f
                     ? "border-[var(--accent)] bg-[var(--accent-subtle)] text-[var(--accent-light)]"
                     : "hover:border-[var(--accent-border)] hover:text-foreground",
@@ -51,7 +51,7 @@ export function WorkIndex() {
       </SectionChapter>
 
       <SectionChapter theme="frost" className="py-[var(--space-lg)]">
-        <ul className="container-editorial grid gap-5 md:grid-cols-2" role="list" aria-live="polite">
+        <ul className="container-editorial grid gap-4 sm:gap-5 md:grid-cols-2 2xl:grid-cols-3" role="list" aria-live="polite">
           {visible.map((project, i) => {
             const num = String(projects.findIndex((p) => p.slug === project.slug) + 1).padStart(2, "0");
             return (
