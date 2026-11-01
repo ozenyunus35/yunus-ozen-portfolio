@@ -5,16 +5,18 @@ import { SectionChapter } from "@/components/axis/SectionChapter";
 import { SectionLabel } from "@/components/prism/SectionLabel";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { useI18n } from "@/lib/i18n/I18nProvider";
-import {
-  OPEN_SOURCE_ALSO,
-  OPEN_SOURCE_REPOS,
-  OPEN_SOURCE_TOTAL,
-  mergedPrsUrl,
-} from "@/lib/data/open-source";
+import { OPEN_SOURCE_ALSO, mergedPrsUrl, type OpenSourceStats } from "@/lib/data/open-source";
 
-export function HomeOpenSource() {
-  const { dict } = useI18n();
+export function HomeOpenSource({ stats }: { stats: OpenSourceStats }) {
+  const { dict, locale } = useI18n();
   const { openSource } = dict;
+  const countedAt = stats.countedAt
+    ? new Date(stats.countedAt).toLocaleDateString(locale === "tr" ? "tr-TR" : "en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
 
   return (
     <SectionChapter theme="void" id="open-source" className="py-[var(--space-xl)]">
@@ -24,14 +26,22 @@ export function HomeOpenSource() {
           <h2 className="text-section mt-6 max-w-2xl font-display">{openSource.headline}</h2>
           <p className="text-body mt-6 max-w-2xl text-muted-foreground">{openSource.intro}</p>
           <p className="mt-8 flex items-baseline gap-3">
-            <span className="text-section font-display">{OPEN_SOURCE_TOTAL}</span>
-            <span className="text-meta text-muted-foreground">{openSource.totalLabel}</span>
+            <span className="text-section font-display tabular-nums">{stats.total}</span>
+            <span className="text-meta text-muted-foreground">
+              {openSource.totalLabel.replace("{repos}", String(stats.repoCount))}
+            </span>
           </p>
+          {countedAt && (
+            <p className="text-meta mt-2 flex items-center gap-2 text-muted-foreground/70">
+              <span className="live-dot" aria-hidden />
+              {openSource.updatedLabel.replace("{date}", countedAt)}
+            </p>
+          )}
         </ScrollReveal>
 
         <ScrollReveal delay={0.06} className="mt-12">
           <ul className="pro-cap-grid" role="list">
-            {OPEN_SOURCE_REPOS.map((item) => (
+            {stats.repos.map((item) => (
               <li key={item.repo}>
                 <a
                   href={mergedPrsUrl(item.repo)}

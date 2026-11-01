@@ -1,29 +1,18 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Command, Download } from "lucide-react";
 import { ImmersiveHeroField } from "@/components/cinematic/ImmersiveHeroField";
 import { SectionChapter } from "@/components/axis/SectionChapter";
+import { openCommandMenu } from "@/components/layout/CommandMenu";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
-const nameReveal = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.85,
-      delay: 0.15 + i * 0.12,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  }),
-};
+/** Entrance delays in ms; the text is in the HTML from the start, CSS only fades it in. */
+const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
 
 export function HomeHero() {
   const { dict, path } = useI18n();
   const cv = dict.site.cv;
-  const reducedMotion = useReducedMotion();
   const nameParts = dict.site.name.split(" ");
 
   return (
@@ -33,68 +22,33 @@ export function HomeHero() {
       <div className="container-editorial relative flex min-h-[100svh] flex-col justify-end pb-[var(--space-lg)] pt-24">
         <div className="editorial-grid items-end gap-y-12">
           <div className="col-span-12 lg:col-span-9">
-            <motion.p
-              className="text-meta text-muted-foreground"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
+            <p className="anim-fade text-meta text-muted-foreground">
               {dict.site.location} · {dict.site.role}
-            </motion.p>
+            </p>
 
             <h1 className="mt-6 overflow-hidden">
               {nameParts.map((part, i) => (
-                <motion.span
-                  key={part}
-                  className="text-colossal block font-display"
-                  custom={i}
-                  initial="hidden"
-                  animate="visible"
-                  variants={nameReveal}
-                >
+                <span key={part} className="anim-rise-lg text-colossal block font-display" style={delay(80 + i * 90)}>
                   {part}
-                </motion.span>
+                </span>
               ))}
             </h1>
 
-            <motion.p
-              className="text-statement mt-10 max-w-xl text-muted-foreground"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <p className="anim-rise text-statement mt-10 max-w-xl text-muted-foreground" style={delay(300)}>
               {dict.hero.tagline}
-            </motion.p>
+            </p>
           </div>
 
-          <motion.div
-            className="col-span-12 lg:col-span-3 lg:text-right"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-          >
-            <ul className="space-y-2" role="list">
-              {dict.site.focus.map((item, i) => (
-                <motion.li
-                  key={item}
-                  className="text-meta text-[var(--accent-light)]"
-                  initial={{ opacity: 0, x: 12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 + i * 0.08 }}
-                >
-                  {item}
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+          <ul className="col-span-12 space-y-2 lg:col-span-3 lg:text-right" role="list">
+            {dict.site.focus.map((item, i) => (
+              <li key={item} className="anim-slide text-meta text-[var(--accent-light)]" style={delay(380 + i * 60)}>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <motion.div
-          className="mt-14 flex flex-wrap items-center gap-4 border-t border-[var(--line)] pt-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.85 }}
-        >
+        <div className="anim-fade mt-14 flex flex-wrap items-center gap-3 border-t border-[var(--line)] pt-10" style={delay(450)}>
           <Link href={path("/work")} className="btn-primary">
             {dict.hero.viewWork}
             <ArrowUpRight size={14} />
@@ -108,25 +62,15 @@ export function HomeHero() {
               {dict.common.cv}
             </a>
           )}
-        </motion.div>
+          <button type="button" onClick={openCommandMenu} className="kbd-hint ml-auto hidden md:inline-flex">
+            <Command size={12} aria-hidden />K <span className="text-muted-foreground">{dict.command.hint}</span>
+          </button>
+        </div>
 
-        {!reducedMotion && (
-          <motion.div
-            className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            aria-hidden="true"
-          >
-            <span className="text-meta text-muted-foreground">Scroll</span>
-            <motion.span
-              className="block h-8 w-px bg-[var(--accent)]"
-              animate={{ scaleY: [1, 0.3, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              style={{ transformOrigin: "top" }}
-            />
-          </motion.div>
-        )}
+        <div className="anim-fade absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex" style={delay(900)} aria-hidden="true">
+          <span className="text-meta text-muted-foreground">Scroll</span>
+          <span className="scroll-cue block h-8 w-px bg-[var(--accent)]" />
+        </div>
       </div>
     </SectionChapter>
   );

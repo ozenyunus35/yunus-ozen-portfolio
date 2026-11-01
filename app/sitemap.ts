@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: "/about", priority: 0.9 },
       { path: "/journey", priority: 0.9 },
       { path: "/contact", priority: 0.9 },
+      ...dict.projects.map((p) => ({ path: `/work/${p.slug}`, priority: 0.8 })),
     ];
 
     for (const page of pages) {

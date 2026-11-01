@@ -11,7 +11,7 @@ export default function OpenGraphImage() {
     (
       <div
         style={{
-          background: "#090908",
+          background: "radial-gradient(ellipse 80% 70% at 70% 30%, #0f2a5c 0%, #050508 65%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -48,12 +48,12 @@ export default function OpenGraphImage() {
           style={{
             fontSize: 32,
             marginTop: 24,
-            color: "#c4b896",
+            color: "#60a5fa",
             maxWidth: 800,
             lineHeight: 1.3,
           }}
         >
-          Product & Project Management
+          AI Product Engineer · Full-Stack
         </div>
       </div>
     ),

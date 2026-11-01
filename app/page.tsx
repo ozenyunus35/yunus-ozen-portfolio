@@ -1,21 +1,34 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import { HomeContent } from "@/components/home/HomeContent";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { withBasePath } from "@/lib/data/base-path";
-import { defaultLocale, isLocale } from "@/lib/i18n/config";
+import { defaultLocale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { localizedPath } from "@/lib/i18n/paths";
+import { createPageMetadata } from "@/lib/seo/metadata";
 
-const LOCALE_STORAGE_KEY = "NEXT_LOCALE";
+const dict = getDictionary(defaultLocale);
 
-export default function RootRedirectPage() {
-  useEffect(() => {
-    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    const locale = stored && isLocale(stored) ? stored : defaultLocale;
-    window.location.replace(withBasePath(`/${locale}/`));
-  }, []);
+export const metadata: Metadata = createPageMetadata(
+  dict.pages.home.title,
+  dict.pages.home.description,
+  localizedPath("/", defaultLocale),
+  defaultLocale,
+);
 
+/**
+ * The root shows the English home straight away instead of a "Redirecting…"
+ * page. Visitors who picked Turkish before are sent on before the first paint.
+ */
+const rememberLocale = `try{var l=localStorage.getItem("NEXT_LOCALE");if(l&&l!=="${defaultLocale}"&&/^(tr|en)$/.test(l))location.replace("${withBasePath("/")}"+l+"/")}catch(e){}`;
+
+export default function RootPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-body text-muted-foreground">Redirecting…</p>
-    </main>
+    <>
+      <script dangerouslySetInnerHTML={{ __html: rememberLocale }} />
+      <SiteShell locale={defaultLocale}>
+        <HomeContent />
+      </SiteShell>
+    </>
   );
 }

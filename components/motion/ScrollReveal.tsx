@@ -1,65 +1,52 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { gsap, registerGsapPlugins } from "@/lib/motion/gsap";
-import { useMotionContext } from "@/components/motion/MotionProvider";
 import { cn } from "@/lib/utils/cn";
 
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
-  y?: number;
+  /** Seconds, kept short so content never waits on the animation. */
   delay?: number;
-  duration?: number;
-  start?: string;
 };
 
-export function ScrollReveal({
-  children,
-  className,
-  y = 56,
-  delay = 0,
-  duration = 1.1,
-  start = "top 88%",
-}: ScrollRevealProps) {
+let observer: IntersectionObserver | null = null;
+
+/** One observer for every reveal on the page; each element is unobserved after it appears. */
+function getObserver(): IntersectionObserver {
+  observer ??= new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-in");
+        observer?.unobserve(entry.target);
+      }
+    },
+    { rootMargin: "0px 0px -8% 0px" },
+  );
+  return observer;
+}
+
+/**
+ * Fades content up as it scrolls into view. The hidden state only applies once
+ * the `js` class is on <html>, so the content is never lost without JavaScript.
+ */
+export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const { reducedMotion } = useMotionContext();
 
   useEffect(() => {
-    if (reducedMotion) return;
-
     const el = ref.current;
     if (!el) return;
-
-    registerGsapPlugins();
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { y, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start,
-            toggleActions: "play none none none",
-          },
-        },
-      );
-    }, el);
-
-    return () => ctx.revert();
-  }, [reducedMotion, y, delay, duration, start]);
+    const io = getObserver();
+    io.observe(el);
+    return () => io.unobserve(el);
+  }, []);
 
   return (
     <div
       ref={ref}
-      className={cn(className)}
-      style={reducedMotion ? undefined : { opacity: 0 }}
+      className={cn("reveal", className)}
+      style={delay ? { transitionDelay: `${Math.min(delay, 0.3)}s` } : undefined}
     >
       {children}
     </div>

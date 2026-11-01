@@ -1,130 +1,110 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
-import { HoverTilt } from "@/components/motion/HoverTilt";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { BisevkSystemVisual } from "@/components/visuals/BisevkSystemVisual";
-import { TavukPhysicalVisual } from "@/components/visuals/TavukPhysicalVisual";
-import { withBasePath } from "@/lib/data/base-path";
-import { PROJECT_MEDIA } from "@/lib/data/project-media";
+import { ProjectVisual } from "@/components/work/ProjectVisual";
+import { PROJECT_CATEGORIES, PROJECT_CATEGORY_MAP, type ProjectCategory } from "@/lib/data/project-categories";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+import { cn } from "@/lib/utils/cn";
 
-function ProjectVisual({ slug, alt, fill = false }: { slug: string; alt: string; fill?: boolean }) {
-  switch (slug) {
-    case "bisevk":
-      return <BisevkSystemVisual phase="full" animated fill={fill} />;
-    case "tavuk-da-tavuk":
-      return <TavukPhysicalVisual fill={fill} />;
-  }
-  const media = PROJECT_MEDIA[slug];
-  if (!media) return null;
-  return (
-    <div className="flex flex-1 items-center justify-center">
-      <Image
-        src={withBasePath(media.image)}
-        alt={alt}
-        width={1600}
-        height={1032}
-        sizes="(min-width: 1024px) 58vw, 100vw"
-        className="h-auto w-full"
-      />
-    </div>
-  );
-}
+type Filter = ProjectCategory | "all";
 
 export function WorkIndex() {
-  const { dict } = useI18n();
+  const { dict, path } = useI18n();
   const projects = dict.projects;
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const count = (f: Filter) =>
+    f === "all" ? projects.length : projects.filter((p) => PROJECT_CATEGORY_MAP[p.slug]?.includes(f)).length;
+  const visible = filter === "all" ? projects : projects.filter((p) => PROJECT_CATEGORY_MAP[p.slug]?.includes(filter));
 
   return (
     <div>
-      <SectionChapter theme="void" className="pt-16 pb-[var(--space-lg)]">
+      <SectionChapter theme="void" className="pt-16 pb-[var(--space-md)]">
         <div className="container-editorial py-[var(--space-md)]">
           <PageHeader label={dict.nav[0].label} title={dict.work.indexHeadline} />
+
+          <div className="anim-rise mt-10 flex flex-wrap gap-2" role="group" aria-label={dict.common.all} style={{ animationDelay: "160ms" }}>
+            {(["all", ...PROJECT_CATEGORIES] as Filter[]).map((f) => (
+              <button
+                key={f}
+                type="button"
+                onClick={() => setFilter(f)}
+                aria-pressed={filter === f}
+                className={cn(
+                  "tag inline-flex items-center gap-2 transition-colors duration-200",
+                  filter === f
+                    ? "border-[var(--accent)] bg-[var(--accent-subtle)] text-[var(--accent-light)]"
+                    : "hover:border-[var(--accent-border)] hover:text-foreground",
+                )}
+              >
+                {dict.work.filters[f]}
+                <span className="tabular-nums opacity-60">{count(f)}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </SectionChapter>
 
-      {projects.map((project, index) => {
-        const num = String(index + 1).padStart(2, "0");
-        const isEven = index % 2 === 0;
-        const media = PROJECT_MEDIA[project.slug];
-
-        return (
-          <SectionChapter
-            key={project.slug}
-            id={project.slug}
-            theme={isEven ? "frost" : "chalk"}
-            className="py-[var(--space-xl)] scroll-mt-24"
-          >
-            <div className="container-editorial">
-              <ScrollReveal>
-                <HoverTilt maxTilt={4}>
-                  <article className="pro-panel overflow-hidden">
-                    <div className="editorial-grid items-stretch">
-                      <div
-                        className={`col-span-12 border-b border-[var(--line)] p-8 md:p-10 lg:col-span-5 ${
-                          isEven ? "lg:border-b-0 lg:border-r" : "lg:order-2 lg:border-b-0 lg:border-l"
-                        }`}
-                      >
-                        <p className="text-meta text-muted-foreground">{num} — {project.period}</p>
-                        <h2 className="text-project mt-4 font-display">{project.title}</h2>
-                        <p className="text-meta mt-3 accent-text">{project.industry}</p>
-                        <p className="text-body mt-6 text-muted-foreground">{project.description}</p>
-                        <ul className="mt-8 flex flex-wrap gap-2" role="list">
-                          {project.roles.map((role) => (
-                            <li key={role} className="tag">{role}</li>
-                          ))}
-                        </ul>
-                        <ul className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Technologies" lang="en">
-                          {project.technologies.map((tech) => (
-                            <li
-                              key={tech}
-                              className="tag border-[var(--accent-border)] text-[var(--accent-light)]"
-                            >
-                              {tech}
-                            </li>
-                          ))}
-                        </ul>
-                        {media && (
-                          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-                            <a href={media.demo} target="_blank" rel="noopener noreferrer" className="link-form text-meta">
-                              {dict.common.liveDemo}
-                              <ArrowUpRight size={13} aria-hidden />
-                            </a>
-                            <a
-                              href={media.source}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="link-form text-meta text-muted-foreground"
-                            >
-                              {dict.common.sourceCode}
-                              <ArrowUpRight size={13} aria-hidden />
-                            </a>
-                          </div>
-                        )}
-                      </div>
-
-                      <div
-                        className={`col-span-12 flex h-full min-h-0 flex-col p-6 md:p-8 lg:col-span-7 ${
-                          isEven ? "" : "lg:order-1"
-                        } bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))]`}
-                      >
-                        <p className="text-meta mb-4 shrink-0 text-[var(--accent)]">
-                          {media ? dict.common.interface : dict.common.processFlow}
-                        </p>
-                        <ProjectVisual slug={project.slug} alt={`${project.title}: ${dict.common.screenshotsAlt}`} fill />
-                      </div>
+      <SectionChapter theme="frost" className="py-[var(--space-lg)]">
+        <ul className="container-editorial grid gap-5 md:grid-cols-2" role="list" aria-live="polite">
+          {visible.map((project, i) => {
+            const num = String(projects.findIndex((p) => p.slug === project.slug) + 1).padStart(2, "0");
+            return (
+              <li key={`${filter}-${project.slug}`} className="anim-rise" style={{ animationDelay: `${Math.min(i, 5) * 50}ms` }}>
+                <Link
+                  href={path(`/work/${project.slug}`)}
+                  className="project-card group flex h-full flex-col overflow-hidden"
+                >
+                  <div className="project-card-media relative flex aspect-[16/10] flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-4 md:p-5">
+                    <ProjectVisual
+                      slug={project.slug}
+                      alt={`${project.title}: ${dict.common.screenshotsAlt}`}
+                      fill
+                      animated={false}
+                      sizes="(min-width: 768px) 34rem, 100vw"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col border-t border-[var(--line)] p-6 md:p-7">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <p className="text-meta text-muted-foreground">
+                        {num} — {project.period}
+                      </p>
+                      <ArrowUpRight
+                        size={16}
+                        className="shrink-0 text-muted-foreground transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--accent-light)]"
+                        aria-hidden
+                      />
                     </div>
-                  </article>
-                </HoverTilt>
-              </ScrollReveal>
-            </div>
-          </SectionChapter>
-        );
-      })}
+                    <h2 className="text-project mt-3 font-display transition-colors group-hover:text-[var(--accent-light)]">
+                      {project.title}
+                    </h2>
+                    <p className="text-meta mt-2 accent-text">{project.industry}</p>
+                    <p className="text-body mt-4 flex-1 text-muted-foreground">{project.tagline}</p>
+                    <ul className="mt-6 flex flex-wrap gap-2" role="list" lang="en">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <li key={tech} className="tag">
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        <ScrollReveal className="container-editorial mt-12">
+          <p className="text-meta text-muted-foreground">
+            {visible.length} {dict.common.projectCount}
+          </p>
+        </ScrollReveal>
+      </SectionChapter>
     </div>
   );
 }

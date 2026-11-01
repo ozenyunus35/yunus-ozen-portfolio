@@ -32,6 +32,14 @@ export const dictionaryTr = {
     copied: "Kopyalandı",
     skipToContent: "Ana içeriğe atla",
     language: "Dil",
+    backToProjects: "Tüm projeler",
+    previous: "Önceki",
+    whatIDid: "Neler yaptım",
+    stack: "Teknolojiler",
+    roles: "Roller",
+    period: "Dönem",
+    field: "Alan",
+    projectCount: "proje",
     pages: "Sayfalar",
     footerNav: {
       work: "Projeler",
@@ -83,6 +91,20 @@ export const dictionaryTr = {
     { index: "04", label: "İLETİŞİM", href: "/contact", mode: "contact" as const },
   ],
 
+  command: {
+    open: "Sitede ara",
+    hint: "ile her yere atla",
+    placeholder: "Sayfa, proje veya işlem ara…",
+    empty: "Sonuç yok.",
+    home: "Ana Sayfa",
+    copyEmail: "E-posta adresini kopyala",
+    copied: "E-posta adresi kopyalandı",
+    switchLanguage: "Switch to English",
+    navigate: "gezin",
+    select: "aç",
+    groups: { pages: "Sayfalar", projects: "Projeler", actions: "İşlemler", links: "Bağlantılar" },
+  },
+
   hero: {
     tagline:
       "Ürünleri fikirden canlıya kadar geliştiriyorum: gereksinimler, kullanıcı akışları, arayüz ve kod.",
@@ -101,6 +123,7 @@ export const dictionaryTr = {
       period: "Dönem",
     },
     indexHeadline: "Lojistik, restoran, yapay zekâ ve iş araçları alanlarındaki projeler.",
+    filters: { all: "Tümü", ai: "Yapay zekâ", web: "Web", mobile: "Mobil", automation: "Otomasyon" },
   },
 
   approach: {
@@ -146,7 +169,8 @@ export const dictionaryTr = {
     intro:
       "Ekim 2026'dan beri açık kaynak projelerde hata düzeltip özellik ekliyorum; her değişiklik testli ve proje sahiplerinin incelemesinden geçiyor.",
     mergedLabel: "merge edilen PR",
-    totalLabel: "merge edilen pull request, 33 açık kaynak projede",
+    totalLabel: "merge edilen pull request, {repos} açık kaynak projede",
+    updatedLabel: "GitHub'dan {date} tarihinde sayıldı",
     alsoLabel: "Ayrıca",
     descriptions: {
       "repowise-dev/repowise": "Kod içe aktarma, tsconfig proje referansları, Ktor ve Javalin için HTTP rota tespiti.",
@@ -266,7 +290,7 @@ export const dictionaryTr = {
         description:
           "Yük sahiplerini tır sürücüleriyle buluşturan lojistik pazar yeri. Ürünü yönettim; web, yönetim paneli ve mobil uygulamaları koordine ettim.",
         type: "project" as const,
-        href: "/work#bisevk",
+        href: "/work/bisevk",
       },
       {
         id: "tavuk-da-tavuk",
@@ -276,7 +300,7 @@ export const dictionaryTr = {
         description:
           "Kurumsal web varlığı ve QR menü platformu — duyarlı arayüz tasarımı ve geliştirme.",
         type: "project" as const,
-        href: "/work#tavuk-da-tavuk",
+        href: "/work/tavuk-da-tavuk",
       },
       {
         id: "lead-scraper",
@@ -286,7 +310,7 @@ export const dictionaryTr = {
         description:
           "Bir firma rehberini temiz ve tekrarsız bir müşteri adayı listesine dönüştüren günlük tarayıcı.",
         type: "project" as const,
-        href: "/work#lead-scraper",
+        href: "/work/lead-scraper",
       },
       {
         id: "pdf-to-excel",
@@ -296,7 +320,7 @@ export const dictionaryTr = {
         description:
           "PDF raporlarındaki tabloları temiz Excel dosyalarına dönüştüren tarayıcı aracı.",
         type: "project" as const,
-        href: "/work#pdf-to-excel",
+        href: "/work/pdf-to-excel",
       },
       {
         id: "atlas-portal",
@@ -306,7 +330,7 @@ export const dictionaryTr = {
         description:
           "İki rollü, sahte arka uçlu yönetim paneli ve müşteri dosya portalı demosu.",
         type: "project" as const,
-        href: "/work#atlas-portal",
+        href: "/work/atlas-portal",
       },
       {
         id: "relay",
@@ -316,7 +340,7 @@ export const dictionaryTr = {
         description:
           "Yapay zekâ destek asistanı demosu — kaynak göstererek yanıtlar, emin değilse kişiye devreder, ekip için yönetim paneli.",
         type: "project" as const,
-        href: "/work#relay",
+        href: "/work/relay",
       },
       {
         id: "fieldline",
@@ -326,7 +350,7 @@ export const dictionaryTr = {
         description:
           "Saha teknisyenleri için Flutter uygulaması — rota, kontrol listeleri, parça, imza ve fatura; çevrimdışı çalışır, sonra senkronize olur.",
         type: "project" as const,
-        href: "/work#fieldline",
+        href: "/work/fieldline",
       },
       {
         id: "cadence",
@@ -336,7 +360,7 @@ export const dictionaryTr = {
         description:
           "Kuaför için online randevu demosu — canlı uygunluk, online değiştirme ve iptal, sürükle-bırak personel takvimi.",
         type: "project" as const,
-        href: "/work#cadence",
+        href: "/work/cadence",
       },
     ],
   },
@@ -365,7 +389,7 @@ export const dictionaryTr = {
       roles: ["Ürün Sahipliği", "UI/UX", "Ekip Koordinasyonu", "Geliştirme"],
       technologies: ["React", "Flutter", "Kotlin", "Spring Boot", "MongoDB", "WebSockets", "Figma"],
       techInvolvement: "Ürün stratejisi, gereksinimler ve UI/UX; web, yönetim paneli ve mobil uygulamaların koordinasyonu ve kod katkısı",
-      href: "/work#bisevk",
+      href: "/work/bisevk",
       status: "completed" as const,
       visual: "logistics-vertical" as const,
     },
@@ -382,7 +406,7 @@ export const dictionaryTr = {
       roles: ["Ürün Tasarımı", "Mobil Geliştirme", "UI/UX", "Test"],
       technologies: ["Flutter", "Dart", "Material 3", "shared_preferences", "Playwright"],
       techInvolvement: "Uçtan uca tasarım ve geliştirme: iş akışı, çevrimdışı kuyruk ve senkronizasyon, imza alanı, fatura ve tarayıcı testleri",
-      href: "/work#fieldline",
+      href: "/work/fieldline",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -399,7 +423,7 @@ export const dictionaryTr = {
       roles: ["Ürün Tasarımı", "Full-Stack Geliştirme", "UI/UX", "Test"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Vitest", "Playwright"],
       techInvolvement: "Uçtan uca tasarım ve geliştirme: uygunluk motoru, randevu akışı, personel takvimi ve tarayıcı testleri",
-      href: "/work#cadence",
+      href: "/work/cadence",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -416,7 +440,7 @@ export const dictionaryTr = {
       roles: ["Ürün Tasarımı", "Full-Stack Geliştirme", "UI/UX", "Test"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "BM25 Retrieval", "Recharts", "Playwright"],
       techInvolvement: "Uçtan uca tasarım ve geliştirme: arama motoru, sohbet widget'ı, yönetim paneli ve tarayıcı testleri",
-      href: "/work#relay",
+      href: "/work/relay",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -433,7 +457,7 @@ export const dictionaryTr = {
       roles: ["Ürün Tasarımı", "Full-Stack Geliştirme", "UI/UX", "Test"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PDF.js", "Playwright"],
       techInvolvement: "Uçtan uca tasarım ve geliştirme: rol bazlı ekranlar, sahte arka uç, dosya önizleme ve testler",
-      href: "/work#atlas-portal",
+      href: "/work/atlas-portal",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -450,7 +474,7 @@ export const dictionaryTr = {
       roles: ["Geliştirme", "UI/UX"],
       technologies: ["TypeScript", "Vite", "pdf.js", "ExcelJS"],
       techInvolvement: "Tablo tespiti, temizleme kuralları ve Excel dışa aktarımı",
-      href: "/work#pdf-to-excel",
+      href: "/work/pdf-to-excel",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -467,7 +491,7 @@ export const dictionaryTr = {
       roles: ["Geliştirme", "Veri Temizleme", "Otomasyon"],
       technologies: ["Python", "Requests", "BeautifulSoup", "openpyxl", "GitHub Actions"],
       techInvolvement: "Tarayıcı, veri temizleme, Excel dışa aktarımı ve günlük otomasyon",
-      href: "/work#lead-scraper",
+      href: "/work/lead-scraper",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -484,7 +508,7 @@ export const dictionaryTr = {
       roles: ["Web Tasarım & Geliştirme", "Duyarlı UI/UX"],
       technologies: ["Next.js", "React", "Tailwind CSS", "Supabase", "Vercel", "QR Menu"],
       techInvolvement: "Kurumsal web sitesi ve QR menü platformunun tasarımı ve geliştirmesi",
-      href: "/work#tavuk-da-tavuk",
+      href: "/work/tavuk-da-tavuk",
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },

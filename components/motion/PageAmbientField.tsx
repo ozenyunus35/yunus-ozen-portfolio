@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils/cn";
 
 const NODES = [
@@ -15,117 +14,98 @@ const NODES = [
   { x: 54, y: 88 },
 ] as const;
 
+const SIGNAL_PATH = "M 0 62 Q 28 38 52 56 T 100 42";
+
 type PageAmbientFieldProps = {
   className?: string;
   variant?: "field" | "signal";
 };
 
+/** Quiet background for page headers. CSS loops only, paused off screen; the glow follows the cursor via CSS variables. */
 export function PageAmbientField({ className, variant = "field" }: PageAmbientFieldProps) {
-  const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (reducedMotion) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    function handleMove(event: MouseEvent) {
-      const el = containerRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const nx = (event.clientX - rect.left) / rect.width - 0.5;
-      const ny = (event.clientY - rect.top) / rect.height - 0.5;
-      setParallax({ x: nx * 22, y: ny * 16 });
+    const io = new IntersectionObserver(([entry]) => {
+      el.dataset.paused = String(!entry.isIntersecting);
+    });
+    io.observe(el);
+
+    if (!matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches) {
+      return () => io.disconnect();
     }
 
-    window.addEventListener("mousemove", handleMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [reducedMotion]);
+    let frame = 0;
+    let nx = 0;
+    let ny = 0;
+    const apply = () => {
+      frame = 0;
+      el.style.setProperty("--px", nx.toFixed(3));
+      el.style.setProperty("--py", ny.toFixed(3));
+    };
+    const onMove = (event: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      nx = (event.clientX - rect.left) / rect.width - 0.5;
+      ny = (event.clientY - rect.top) / rect.height - 0.5;
+      if (!frame) frame = requestAnimationFrame(apply);
+    };
 
-  const glowX = 50 + (reducedMotion ? 0 : parallax.x * 0.35);
-  const glowY = 38 + (reducedMotion ? 0 : parallax.y * 0.4);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", onMove);
+    };
+  }, []);
 
   return (
     <div
       ref={containerRef}
-      className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
+      className={cn("hero-field ambient-field pointer-events-none absolute inset-0 overflow-hidden", className)}
       aria-hidden="true"
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `radial-gradient(ellipse 65% 55% at ${glowX}% ${glowY}%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 72%)`,
-        }}
-      />
+      <div className="ambient-glow absolute inset-0" />
+      <div className="hero-grid hero-layer-grid absolute inset-[-48px]" />
 
-      <motion.div
-        className="hero-grid absolute inset-[-48px] opacity-40"
-        style={{
-          transform: reducedMotion
-            ? undefined
-            : `translate(${parallax.x * 0.2}px, ${parallax.y * 0.2}px)`,
-        }}
-        animate={reducedMotion ? undefined : { opacity: [0.28, 0.46, 0.28] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
         {variant === "signal" && (
           <>
-            <motion.path
-              d="M 0 62 Q 28 38 52 56 T 100 42"
+            <path
+              d={SIGNAL_PATH}
+              pathLength={1}
+              className="hero-orbit"
               fill="none"
               stroke="var(--accent)"
               strokeWidth="0.18"
               strokeOpacity="0.35"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+              style={{ animationDuration: "1.4s" }}
             />
-            <motion.path
+            <path
               d="M 0 78 Q 36 58 64 72 T 100 60"
+              pathLength={1}
+              className="hero-orbit"
               fill="none"
               stroke="var(--accent-light)"
               strokeWidth="0.12"
               strokeOpacity="0.22"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              style={{ animationDuration: "1.7s", animationDelay: "0.15s" }}
             />
-            {!reducedMotion && (
-              <motion.circle
-                r="0.7"
-                fill="var(--accent-light)"
-                animate={{ offsetDistance: ["0%", "100%"], opacity: [0, 1, 1, 0] }}
-                style={{ offsetPath: "path('M 0 62 Q 28 38 52 56 T 100 42')" }}
-                transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
-              />
-            )}
+            <circle r="0.7" className="ambient-traveller" fill="var(--accent-light)" style={{ offsetPath: `path('${SIGNAL_PATH}')` }} />
           </>
         )}
 
         {NODES.map((node, i) => (
-          <motion.circle
+          <circle
             key={`${node.x}-${node.y}`}
             cx={node.x}
             cy={node.y}
             r={i % 3 === 0 ? 0.55 : 0.38}
+            className="hero-node"
             fill="var(--accent-light)"
-            initial={{ opacity: 0 }}
-            animate={
-              reducedMotion
-                ? { opacity: 0.35 }
-                : { opacity: [0.18, 0.7, 0.18], r: [0.32, 0.55, 0.32] }
-            }
-            transition={{ duration: 3.4 + i * 0.25, repeat: Infinity, delay: i * 0.18 }}
-            style={{
-              transform: reducedMotion
-                ? undefined
-                : `translate(${parallax.x * 0.04}px, ${parallax.y * 0.04}px)`,
-            }}
+            style={{ animationDuration: `${3.4 + i * 0.25}s`, animationDelay: `${i * 0.18}s` }}
           />
         ))}
       </svg>

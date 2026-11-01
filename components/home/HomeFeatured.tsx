@@ -5,9 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { SectionLabel } from "@/components/prism/SectionLabel";
 import { HoverTilt } from "@/components/motion/HoverTilt";
-import { ParallaxLayer } from "@/components/motion/ParallaxLayer";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { BisevkSystemVisual } from "@/components/visuals/BisevkSystemVisual";
+import { ProjectVisual } from "@/components/work/ProjectVisual";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 export function HomeFeatured() {
@@ -47,9 +46,9 @@ export function HomeFeatured() {
                     </ul>
                   </div>
                   <div className="col-span-12 flex flex-col overflow-hidden bg-[color-mix(in_srgb,var(--accent)_8%,var(--ink-muted))] p-6 md:p-8 lg:col-span-7">
-                    <ParallaxLayer speed={32} className="flex flex-1 flex-col">
-                      <BisevkSystemVisual phase="full" animated fill />
-                    </ParallaxLayer>
+                    <div className="flex flex-1 flex-col">
+                      <ProjectVisual slug={featured.slug} alt={featured.title} fill />
+                    </div>
                   </div>
                 </div>
               </article>

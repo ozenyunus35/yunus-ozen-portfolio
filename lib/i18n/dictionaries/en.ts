@@ -32,6 +32,14 @@ export const dictionaryEn = {
     copied: "Copied",
     skipToContent: "Skip to main content",
     language: "Language",
+    backToProjects: "All projects",
+    previous: "Previous",
+    whatIDid: "What I did",
+    stack: "Stack",
+    roles: "Roles",
+    period: "Period",
+    field: "Field",
+    projectCount: "projects",
     pages: "Pages",
     footerNav: {
       work: "Projects",
@@ -83,6 +91,20 @@ export const dictionaryEn = {
     { index: "04", label: "CONTACT", href: "/contact", mode: "contact" as const },
   ],
 
+  command: {
+    open: "Search the site",
+    hint: "to jump anywhere",
+    placeholder: "Search pages, projects, actions…",
+    empty: "Nothing found.",
+    home: "Home",
+    copyEmail: "Copy email address",
+    copied: "Email address copied",
+    switchLanguage: "Türkçe'ye geç",
+    navigate: "move",
+    select: "open",
+    groups: { pages: "Pages", projects: "Projects", actions: "Actions", links: "Links" },
+  },
+
   hero: {
     tagline:
       "I build products from the first idea to a live release: requirements, user flows, UI and code.",
@@ -101,6 +123,7 @@ export const dictionaryEn = {
       period: "Period",
     },
     indexHeadline: "Projects across logistics, hospitality, AI, and business tools.",
+    filters: { all: "All", ai: "AI", web: "Web", mobile: "Mobile", automation: "Automation" },
   },
 
   approach: {
@@ -146,7 +169,8 @@ export const dictionaryEn = {
     intro:
       "Since October 2026 I fix bugs and add features in public repositories, each change with tests and reviewed by the maintainers.",
     mergedLabel: "merged PRs",
-    totalLabel: "merged pull requests in 33 public repositories",
+    totalLabel: "merged pull requests in {repos} public repositories",
+    updatedLabel: "Counted from GitHub on {date}",
     alsoLabel: "Also merged in",
     descriptions: {
       "repowise-dev/repowise": "Code ingestion, tsconfig project references, HTTP route detection for Ktor and Javalin.",
@@ -266,7 +290,7 @@ export const dictionaryEn = {
         description:
           "Logistics marketplace connecting cargo owners with truck drivers. Led the product and coordinated the web, admin and mobile apps.",
         type: "project" as const,
-        href: "/work#bisevk",
+        href: "/work/bisevk",
       },
       {
         id: "tavuk-da-tavuk",
@@ -276,7 +300,7 @@ export const dictionaryEn = {
         description:
           "Corporate web presence and QR menu platform — responsive interface design and development.",
         type: "project" as const,
-        href: "/work#tavuk-da-tavuk",
+        href: "/work/tavuk-da-tavuk",
       },
       {
         id: "lead-scraper",
@@ -286,7 +310,7 @@ export const dictionaryEn = {
         description:
           "Daily scraper that turns a business directory into a clean, de-duplicated lead list.",
         type: "project" as const,
-        href: "/work#lead-scraper",
+        href: "/work/lead-scraper",
       },
       {
         id: "pdf-to-excel",
@@ -296,7 +320,7 @@ export const dictionaryEn = {
         description:
           "Browser tool that turns tables in PDF reports into clean Excel files.",
         type: "project" as const,
-        href: "/work#pdf-to-excel",
+        href: "/work/pdf-to-excel",
       },
       {
         id: "atlas-portal",
@@ -306,7 +330,7 @@ export const dictionaryEn = {
         description:
           "Admin dashboard and client file portal demo with two roles and a mock backend.",
         type: "project" as const,
-        href: "/work#atlas-portal",
+        href: "/work/atlas-portal",
       },
       {
         id: "relay",
@@ -316,7 +340,7 @@ export const dictionaryEn = {
         description:
           "AI support assistant demo — answers with sources, hands off to a person when unsure, admin console for the team.",
         type: "project" as const,
-        href: "/work#relay",
+        href: "/work/relay",
       },
       {
         id: "fieldline",
@@ -326,7 +350,7 @@ export const dictionaryEn = {
         description:
           "Flutter app for service technicians — route, checklists, parts, signature and invoice, works offline and syncs later.",
         type: "project" as const,
-        href: "/work#fieldline",
+        href: "/work/fieldline",
       },
       {
         id: "cadence",
@@ -336,7 +360,7 @@ export const dictionaryEn = {
         description:
           "Online booking demo for a salon — live availability, reschedule or cancel online, staff calendar with drag to move.",
         type: "project" as const,
-        href: "/work#cadence",
+        href: "/work/cadence",
       },
     ],
   },
@@ -365,7 +389,7 @@ export const dictionaryEn = {
       roles: ["Product Ownership", "UI/UX", "Team Coordination", "Development"],
       technologies: ["React", "Flutter", "Kotlin", "Spring Boot", "MongoDB", "WebSockets", "Figma"],
       techInvolvement: "Product strategy, requirements and UI/UX; coordinated the web, admin and mobile apps and contributed code",
-      href: "/work#bisevk",
+      href: "/work/bisevk",
       status: "completed" as const,
       visual: "logistics-vertical" as const,
     },
@@ -382,7 +406,7 @@ export const dictionaryEn = {
       roles: ["Product Design", "Mobile Development", "UI/UX", "Testing"],
       technologies: ["Flutter", "Dart", "Material 3", "shared_preferences", "Playwright"],
       techInvolvement: "Designed and built end to end: job flow, offline queue and sync, signature pad, invoice and browser tests",
-      href: "/work#fieldline",
+      href: "/work/fieldline",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -399,7 +423,7 @@ export const dictionaryEn = {
       roles: ["Product Design", "Full-Stack Development", "UI/UX", "Testing"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Vitest", "Playwright"],
       techInvolvement: "Designed and built end to end: availability engine, booking flow, staff calendar and browser tests",
-      href: "/work#cadence",
+      href: "/work/cadence",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -416,7 +440,7 @@ export const dictionaryEn = {
       roles: ["Product Design", "Full-Stack Development", "UI/UX", "Testing"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "BM25 Retrieval", "Recharts", "Playwright"],
       techInvolvement: "Designed and built end to end: retrieval engine, chat widget, admin console and browser tests",
-      href: "/work#relay",
+      href: "/work/relay",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -433,7 +457,7 @@ export const dictionaryEn = {
       roles: ["Product Design", "Full-Stack Development", "UI/UX", "Testing"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PDF.js", "Playwright"],
       techInvolvement: "Designed and built end to end: role-based screens, mock backend, file previews and tests",
-      href: "/work#atlas-portal",
+      href: "/work/atlas-portal",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -450,7 +474,7 @@ export const dictionaryEn = {
       roles: ["Development", "UI/UX"],
       technologies: ["TypeScript", "Vite", "pdf.js", "ExcelJS"],
       techInvolvement: "Built the table detection, cleanup rules and Excel export",
-      href: "/work#pdf-to-excel",
+      href: "/work/pdf-to-excel",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -467,7 +491,7 @@ export const dictionaryEn = {
       roles: ["Development", "Data Cleaning", "Automation"],
       technologies: ["Python", "Requests", "BeautifulSoup", "openpyxl", "GitHub Actions"],
       techInvolvement: "Built the crawler, data cleaning, Excel export and the daily automation",
-      href: "/work#lead-scraper",
+      href: "/work/lead-scraper",
       status: "completed" as const,
       visual: "screenshots" as const,
     },
@@ -484,7 +508,7 @@ export const dictionaryEn = {
       roles: ["Web Design & Development", "Responsive UI/UX"],
       technologies: ["Next.js", "React", "Tailwind CSS", "Supabase", "Vercel", "QR Menu"],
       techInvolvement: "Design and development of the corporate website and QR menu platform",
-      href: "/work#tavuk-da-tavuk",
+      href: "/work/tavuk-da-tavuk",
       status: "completed" as const,
       visual: "mobile-qr" as const,
     },

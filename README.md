@@ -15,7 +15,7 @@ Personal portfolio site documenting selected product and engineering work, proce
 - **Lead Scraper** — Daily scraper that turns a business directory into a clean lead list ([live demo](https://ozenyunus35.github.io/lead-scraper/))
 - **Tavuk da Tavuk** — Corporate website and QR menu platform
 
-Bi-Sevk and Tavuk da Tavuk have system diagrams with process context; the demo projects show their interface on a MacBook and an iPhone, with links to the live demo and source code.
+Every project has its own page (`/en/work/<slug>`) with a share preview image. Bi-Sevk and Tavuk da Tavuk have system diagrams with process context; the demo projects show their interface on a MacBook and an iPhone, with links to the live demo and source code. The project index can be filtered by AI, web, mobile and automation, and ⌘K opens a quick search for pages, projects and actions.
 
 ## Tech stack
 
@@ -23,7 +23,7 @@ Bi-Sevk and Tavuk da Tavuk have system diagrams with process context; the demo p
 - [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS 4](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/), [GSAP](https://gsap.com/), [Lenis](https://lenis.darkroom.engineering/)
+- CSS animations for page motion; [Framer Motion](https://www.framer.com/motion/) only for the system diagrams and the journey timeline, loaded when needed
 
 ## Local development
 
@@ -75,6 +75,7 @@ This repository deploys automatically via GitHub Actions on pushes to `main`.
    - `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`
    - `NEXT_PUBLIC_SITE_URL=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}`
 4. Static files are uploaded from the `out/` directory.
+5. The workflow also runs every day at 05:00 UTC. The build counts merged open source pull requests through the GitHub search API (with the workflow's `GITHUB_TOKEN`), so the numbers on the home page stay current; if GitHub cannot be reached, the build uses the fallback numbers in `lib/data/open-source.ts`.
 
 For manual local parity, copy `.env.example` to `.env.local` and adjust values if needed.
 

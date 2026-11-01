@@ -21,9 +21,6 @@ export const MOTION_EASE = {
   out: [0.22, 1, 0.36, 1] as const,
   /** Subtle entrance */
   inOut: [0.65, 0, 0.35, 1] as const,
-  /** GSAP-compatible string */
-  gsapOut: "power3.out",
-  gsapInOut: "power2.inOut",
 } as const;
 
 export const MOTION_STAGGER = {

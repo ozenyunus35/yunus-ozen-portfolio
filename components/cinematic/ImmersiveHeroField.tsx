@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { SchematicGlowDefs } from "@/components/motion/SchematicPulse";
+import { useEffect, useRef, type CSSProperties } from "react";
+import { SchematicGlowDefs } from "@/components/motion/SchematicGlowDefs";
 
+/** Node positions in percent of the 1100 × 600 view box. */
 const NODES = [
   { x: 8, y: 22, r: 3 },
   { x: 22, y: 48, r: 4 },
@@ -28,37 +28,57 @@ const ORBITS = [
   "M 160 480 Q 420 320 680 400 T 1040 160",
 ];
 
+const W = 1100;
+const H = 600;
+const px = (n: { x: number; y: number }) => ({ x: (n.x / 100) * W, y: (n.y / 100) * H });
+
+type Vars = CSSProperties & Record<`--${string}`, string | number>;
+
+/**
+ * Hero background: a grid, three orbits and a pulsing node network. All loops
+ * are CSS animations; the cursor parallax writes CSS variables on the container,
+ * and everything pauses while the hero is off screen.
+ */
 export function ImmersiveHeroField() {
-  const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (reducedMotion) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    const container = containerRef.current;
-    if (!container) return;
+    const io = new IntersectionObserver(([entry]) => {
+      el.dataset.paused = String(!entry.isIntersecting);
+    });
+    io.observe(el);
 
-    function handleMove(event: MouseEvent) {
-      const el = containerRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const nx = (event.clientX - rect.left) / rect.width - 0.5;
-      const ny = (event.clientY - rect.top) / rect.height - 0.5;
-      setParallax({ x: nx * 28, y: ny * 20 });
+    if (!matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches) {
+      return () => io.disconnect();
     }
 
-    window.addEventListener("mousemove", handleMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [reducedMotion]);
+    let frame = 0;
+    let nx = 0;
+    let ny = 0;
+    const apply = () => {
+      frame = 0;
+      el.style.setProperty("--px", nx.toFixed(3));
+      el.style.setProperty("--py", ny.toFixed(3));
+    };
+    const onMove = (event: MouseEvent) => {
+      nx = event.clientX / window.innerWidth - 0.5;
+      ny = event.clientY / window.innerHeight - 0.5;
+      if (!frame) frame = requestAnimationFrame(apply);
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(frame);
+      window.removeEventListener("mousemove", onMove);
+    };
+  }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="pointer-events-none absolute inset-0 overflow-hidden"
-      aria-hidden="true"
-    >
-      {/* Radial glow */}
+    <div ref={containerRef} className="hero-field pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div
         className="absolute inset-0"
         style={{
@@ -67,29 +87,9 @@ export function ImmersiveHeroField() {
         }}
       />
 
-      {/* Animated grid */}
-      <motion.div
-        className="hero-grid absolute inset-[-60px] opacity-60"
-        style={{
-          transform: reducedMotion
-            ? undefined
-            : `translate(${parallax.x * 0.25}px, ${parallax.y * 0.25}px)`,
-        }}
-        animate={reducedMotion ? undefined : { opacity: [0.35, 0.55, 0.35] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+      <div className="hero-grid hero-layer-grid absolute inset-[-60px]" />
 
-      {/* Orbital paths */}
-      <motion.svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 1100 600"
-        preserveAspectRatio="xMidYMid slice"
-        style={{
-          transform: reducedMotion
-            ? undefined
-            : `translate(${parallax.x * 0.6}px, ${parallax.y * 0.45}px)`,
-        }}
-      >
+      <svg className="hero-layer-net absolute inset-0 h-full w-full" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice">
         <defs>
           <SchematicGlowDefs />
           <linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -100,118 +100,89 @@ export function ImmersiveHeroField() {
         </defs>
 
         {ORBITS.map((d, i) => (
-          <motion.path
+          <path
             key={d}
             d={d}
+            pathLength={1}
+            className="hero-orbit"
             fill="none"
             stroke={i === 0 ? "url(#orbit-gradient)" : "var(--line-strong)"}
             strokeWidth={i === 0 ? 1.5 : 1}
             strokeOpacity={i === 0 ? 1 : 0.25}
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{
-              duration: reducedMotion ? 0 : 2.8 + i * 0.5,
-              delay: i * 0.35,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            style={{ animationDuration: `${1.6 + i * 0.3}s`, animationDelay: `${i * 0.15}s` }}
           />
         ))}
 
-        {CONNECTIONS.map(([from, to], index) => {
-          const a = NODES[from];
-          const b = NODES[to];
+        {CONNECTIONS.map(([from, to], i) => {
+          const a = px(NODES[from]);
+          const b = px(NODES[to]);
           return (
-            <motion.line
+            <line
               key={`${from}-${to}`}
-              x1={`${a.x}%`}
-              y1={`${a.y}%`}
-              x2={`${b.x}%`}
-              y2={`${b.y}%`}
+              x1={a.x}
+              y1={a.y}
+              x2={b.x}
+              y2={b.y}
+              className="hero-link"
               stroke="var(--accent)"
               strokeWidth="1"
-              initial={{ opacity: 0.1 }}
-              animate={
-                reducedMotion
-                  ? { opacity: 0.2 }
-                  : { opacity: [0.08, 0.35, 0.08] }
-              }
-              transition={{
-                duration: 4 + index * 0.3,
-                repeat: Infinity,
-                ease: "linear",
-              }}
+              style={{ animationDuration: `${4 + i * 0.3}s` }}
             />
           );
         })}
 
-        {NODES.map((node, index) => (
-          <g key={index}>
-            <motion.circle
-              cx={`${node.x}%`}
-              cy={`${node.y}%`}
-              r={node.r * 4}
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="1"
-              strokeOpacity="0.2"
-              animate={
-                reducedMotion
-                  ? { opacity: 0.2 }
-                  : { opacity: [0.1, 0.35, 0.1], scale: [1, 1.15, 1] }
-              }
-              transition={{
-                duration: 5 + index * 0.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.circle
-              cx={`${node.x}%`}
-              cy={`${node.y}%`}
-              r={node.r}
-              fill="var(--accent)"
-              filter="url(#schematic-glow)"
-              animate={
-                reducedMotion
-                  ? { opacity: 0.5 }
-                  : { opacity: [0.35, 0.9, 0.35] }
-              }
-              transition={{
-                duration: 3 + index * 0.25,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </g>
-        ))}
-
-        {!reducedMotion &&
-          CONNECTIONS.slice(0, 6).map(([from, to], index) => {
-            const a = NODES[from];
-            const b = NODES[to];
-            return (
-              <motion.circle
-                key={`pulse-${from}-${to}`}
-                r="4"
+        {NODES.map((node, i) => {
+          const p = px(node);
+          return (
+            <g key={i}>
+              <circle
+                cx={p.x}
+                cy={p.y}
+                r={node.r * 4}
+                className="hero-halo"
+                fill="none"
+                stroke="var(--accent)"
+                strokeWidth="1"
+                strokeOpacity="0.2"
+                style={{ animationDuration: `${5 + i * 0.4}s` }}
+              />
+              <circle
+                cx={p.x}
+                cy={p.y}
+                r={node.r}
+                className="hero-node"
                 fill="var(--accent)"
                 filter="url(#schematic-glow)"
-                animate={{
-                  cx: [`${a.x}%`, `${b.x}%`],
-                  cy: [`${a.y}%`, `${b.y}%`],
-                  opacity: [0, 0.95, 0],
-                }}
-                transition={{
-                  duration: 2.5 + index * 0.35,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: index * 0.6,
-                }}
+                style={{ animationDuration: `${3 + i * 0.25}s` }}
               />
-            );
-          })}
-      </motion.svg>
+            </g>
+          );
+        })}
 
-      {/* Vignette */}
+        {CONNECTIONS.slice(0, 6).map(([from, to], i) => {
+          const a = px(NODES[from]);
+          const b = px(NODES[to]);
+          const vars: Vars = {
+            "--dx": `${b.x - a.x}px`,
+            "--dy": `${b.y - a.y}px`,
+            animationDuration: `${2.5 + i * 0.35}s`,
+            animationDelay: `${i * 0.6}s`,
+          };
+          return (
+            <circle
+              key={`pulse-${from}-${to}`}
+              cx={a.x}
+              cy={a.y}
+              r="4"
+              className="hero-pulse"
+              fill="var(--accent)"
+              filter="url(#schematic-glow)"
+              style={vars}
+            />
+          );
+        })}
+      </svg>
+
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-transparent to-[var(--background)]" />
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)]/80 via-transparent to-[var(--background)]/60" />
     </div>

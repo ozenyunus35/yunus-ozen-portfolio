@@ -4,6 +4,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import { MOTION_DURATION } from "@/lib/motion/constants";
 
+export { SchematicGlowDefs } from "@/components/motion/SchematicGlowDefs";
+
 type SchematicPulseProps = {
   x1: number;
   y1: number;
@@ -59,20 +61,6 @@ export function SchematicPulse({
         transition={{ duration, repeat: Infinity, ease: "linear", delay }}
       />
     </g>
-  );
-}
-
-export function SchematicGlowDefs() {
-  return (
-    <defs>
-      <filter id="schematic-glow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="4" result="blur" />
-        <feMerge>
-          <feMergeNode in="blur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
-    </defs>
   );
 }
 

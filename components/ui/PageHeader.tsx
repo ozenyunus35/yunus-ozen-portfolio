@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/prism/SectionLabel";
 
 type PageHeaderProps = {
@@ -14,25 +11,21 @@ type PageHeaderProps = {
 export function PageHeader({ label, title, titleMuted, description, className }: PageHeaderProps) {
   return (
     <header className={className}>
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <SectionLabel label={label} />
-        <h1 className="text-display mt-6 max-w-3xl font-display">
-          {title}
-          {titleMuted && (
-            <>
-              {" "}
-              <span className="text-muted-foreground">{titleMuted}</span>
-            </>
-          )}
-        </h1>
-        {description && (
-          <p className="text-body mt-6 max-w-2xl text-muted-foreground">{description}</p>
+      <SectionLabel label={label} className="anim-rise" />
+      <h1 className="text-display anim-rise mt-6 max-w-3xl font-display" style={{ animationDelay: "60ms" }}>
+        {title}
+        {titleMuted && (
+          <>
+            {" "}
+            <span className="text-muted-foreground">{titleMuted}</span>
+          </>
         )}
-      </motion.div>
+      </h1>
+      {description && (
+        <p className="text-body anim-rise mt-6 max-w-2xl text-muted-foreground" style={{ animationDelay: "120ms" }}>
+          {description}
+        </p>
+      )}
     </header>
   );
 }

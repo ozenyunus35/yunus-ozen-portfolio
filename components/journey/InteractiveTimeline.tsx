@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { MOTION_EASE } from "@/lib/motion/constants";
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 import { cn } from "@/lib/utils/cn";
 
@@ -98,7 +97,7 @@ export function InteractiveTimeline({
           className="absolute left-[5px] top-2 w-px origin-top bg-[var(--accent)]"
           aria-hidden="true"
           animate={{ scaleY: progress }}
-          transition={{ duration: reducedMotion ? 0 : 0.45, ease: MOTION_EASE.out }}
+          transition={{ duration: reducedMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
           style={{ height: "calc(100% - 1rem)", transformOrigin: "top" }}
         />
 

@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localeLabels, locales, type Locale } from "@/lib/i18n/config";
+import { useI18n } from "@/lib/i18n/I18nProvider";
 import { switchLocalePath } from "@/lib/i18n/paths";
 import { cn } from "@/lib/utils/cn";
 
 export function LanguageSwitcher() {
   const pathname = usePathname();
+  const { locale: current } = useI18n();
 
   return (
     <div
@@ -16,18 +18,15 @@ export function LanguageSwitcher() {
       aria-label="Language"
     >
       {locales.map((locale) => {
-        const href = switchLocalePath(pathname, locale);
-        const active = pathname.startsWith(`/${locale}`);
+        const active = locale === current;
 
         return (
           <Link
             key={locale}
-            href={href}
+            href={switchLocalePath(pathname, locale)}
             className={cn(
               "px-2.5 py-1 text-meta transition-colors",
-              active
-                ? "bg-[var(--accent)] text-white"
-                : "text-muted-foreground hover:text-foreground",
+              active ? "bg-[var(--accent)] text-white" : "text-muted-foreground hover:text-foreground",
             )}
             aria-current={active ? "true" : undefined}
           >

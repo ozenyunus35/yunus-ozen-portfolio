@@ -92,7 +92,13 @@ export function createProjectMetadata(
     ...base,
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        tr: `${dict.site.url}${localizedPath(`/work/${slug}`, "tr")}`,
+        en: `${dict.site.url}${localizedPath(`/work/${slug}`, "en")}`,
+      },
+    },
     openGraph: {
       ...base.openGraph,
       title,

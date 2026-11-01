@@ -30,7 +30,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning lang="tr" className={`${serif.variable} ${inter.variable} ${jetbrains.variable} h-full`}>
+    <html
+      suppressHydrationWarning
+      lang="tr"
+      data-scroll-behavior="smooth"
+      className={`${serif.variable} ${inter.variable} ${jetbrains.variable} h-full`}
+    >
+      <head>
+        {/* Scroll reveals only hide content once we know JavaScript is running. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="flex min-h-full flex-col antialiased">{children}</body>
     </html>
   );
