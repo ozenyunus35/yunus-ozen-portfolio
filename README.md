@@ -6,6 +6,7 @@ Personal portfolio site documenting selected product and engineering work, proce
 
 ## Featured projects
 
+- **Tally** — Invoice, receipt and bank statement reader with VAT and balance checks, payment matching and Excel export, all in the browser ([live demo](https://ozenyunus35.github.io/invoice-extractor/))
 - **Bi-Sevk** — Logistics marketplace connecting shippers with carriers
 - **Fieldline** — Field service mobile app for technicians, built with Flutter ([live demo](https://ozenyunus35.github.io/field-service-app/))
 - **Cadence** — Online booking page and staff calendar for a salon ([live demo](https://ozenyunus35.github.io/booking-scheduler/))

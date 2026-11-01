@@ -13,6 +13,10 @@ export type ProjectDateRange = {
 
 /** Canonical project date ranges — used for ordering and display copy. */
 export const PROJECT_DATE_RANGES = {
+  tally: {
+    start: { month: 11, year: 2026, day: 1 },
+    end: { month: 11, year: 2026 },
+  },
   "tavuk-da-tavuk": {
     start: { month: 3, year: 2026 },
     end: { month: 3, year: 2026 },

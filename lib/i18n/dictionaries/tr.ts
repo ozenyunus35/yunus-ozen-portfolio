@@ -302,6 +302,16 @@ export const dictionaryTr = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "tally",
+        period: formatProjectPeriod("tally", "tr"),
+        title: "Tally",
+        context: "Fintek / Belge Okuma",
+        description:
+          "KDV ve bakiye kontrolü, ödeme eşleştirme ve Excel çıktısıyla tarayıcıda çalışan fatura, fiş ve banka ekstresi okuyucu.",
+        type: "project" as const,
+        href: "/work/tally",
+      },
+      {
         id: "lead-scraper",
         period: formatProjectPeriod("lead-scraper", "tr"),
         title: "Lead Scraper",
@@ -375,6 +385,23 @@ export const dictionaryTr = {
   },
 
   projects: [
+    {
+      slug: "tally",
+      title: "Tally",
+      displayTitle: "TALLY",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("tally", "tr"),
+      industry: "FİNTEK / BELGE OKUMA",
+      tagline: "Fatura, fiş ve banka ekstresini tarayıcıda okur, sonra rakamları kontrol eder",
+      description:
+        "PDF'leri ve telefon fotoğraflarını tarayıcıdaki OCR ile kontrol edilmiş veriye çevirir: satıcı, tarihler, kalemler, KDV ve toplamlar ya da ekstredeki her işlem. KDV'yi, toplamları ve bakiye zincirini doğrular, faturaları onları ödeyen banka hareketleriyle eşleştirir, mükerrer ve vadesi geçmiş faturaları işaretler ve tek bir Excel dosyasına aktarır. Hiçbir şey yüklenmez, API yoktur.",
+      roles: ["Ürün", "Geliştirme", "Test"],
+      technologies: ["TypeScript", "Next.js", "tesseract.js", "pdf.js", "ExcelJS", "Playwright"],
+      techInvolvement: "Çıkarma kuralları, ekstre mutabakatı, inceleme arayüzü ve test altyapısı",
+      href: "/work/tally",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "bisevk",
       title: "Bi-Sevk",

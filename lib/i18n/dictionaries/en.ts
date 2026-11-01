@@ -302,6 +302,16 @@ export const dictionaryEn = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "tally",
+        period: formatProjectPeriod("tally", "en"),
+        title: "Tally",
+        context: "Fintech / Document AI",
+        description:
+          "Invoice, receipt and bank statement reader with VAT and balance checks, payment matching and Excel export, all in the browser.",
+        type: "project" as const,
+        href: "/work/tally",
+      },
+      {
         id: "lead-scraper",
         period: formatProjectPeriod("lead-scraper", "en"),
         title: "Lead Scraper",
@@ -375,6 +385,23 @@ export const dictionaryEn = {
   },
 
   projects: [
+    {
+      slug: "tally",
+      title: "Tally",
+      displayTitle: "TALLY",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("tally", "en"),
+      industry: "FINTECH / DOCUMENT AI",
+      tagline: "Reads invoices, receipts and bank statements in the browser, then checks the numbers",
+      description:
+        "OCR in the browser turns PDFs and phone photos into checked data: vendor, dates, line items, VAT and totals, or every bank transaction. It verifies VAT, totals and running balances, matches invoices to the bank lines that paid them, flags duplicates and overdue bills, and exports one Excel workbook. Nothing is uploaded and there is no API.",
+      roles: ["Product", "Development", "Testing"],
+      technologies: ["TypeScript", "Next.js", "tesseract.js", "pdf.js", "ExcelJS", "Playwright"],
+      techInvolvement: "Built the extraction rules, the statement reconciliation, the review UI and the test suite",
+      href: "/work/tally",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "bisevk",
       title: "Bi-Sevk",
