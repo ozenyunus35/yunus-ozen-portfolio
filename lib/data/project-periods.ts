@@ -1,6 +1,8 @@
 export type MonthYear = {
   month: number;
   year: number;
+  /** Day of the month — only used to order projects that start in the same month. */
+  day?: number;
 };
 
 export type ProjectDateRange = {
@@ -20,27 +22,27 @@ export const PROJECT_DATE_RANGES = {
     end: { month: 10, year: 2026 },
   },
   fieldline: {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 29 },
     end: { month: 10, year: 2026 },
   },
   cadence: {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 29 },
     end: { month: 10, year: 2026 },
   },
   relay: {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 29 },
     end: { month: 10, year: 2026 },
   },
   "atlas-portal": {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 28 },
     end: { month: 10, year: 2026 },
   },
   "pdf-to-excel": {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 26 },
     end: { month: 10, year: 2026 },
   },
   "lead-scraper": {
-    start: { month: 10, year: 2026 },
+    start: { month: 10, year: 2026, day: 26 },
     end: { month: 10, year: 2026 },
   },
 } satisfies Record<string, ProjectDateRange>;
@@ -103,10 +105,19 @@ export function formatProjectPeriod(
   return `${start} — ${end}`;
 }
 
+/** Same-day starts, latest first (from each repo's first commit). */
+const SAME_DAY_ORDER = ["fieldline", "cadence", "relay", "lead-scraper", "pdf-to-excel"];
+
+function startKey(slug: string) {
+  const range: ProjectDateRange | undefined = PROJECT_DATE_RANGES[slug as keyof typeof PROJECT_DATE_RANGES];
+  if (!range) return 0;
+  const { year, month, day = 1 } = range.start;
+  return (year * 12 + month) * 32 + day;
+}
+
+/** Sort comparator: the most recently started project comes first. */
 export function compareProjectsByDate(a: string, b: string) {
-  const rangeA = PROJECT_DATE_RANGES[a as keyof typeof PROJECT_DATE_RANGES];
-  const rangeB = PROJECT_DATE_RANGES[b as keyof typeof PROJECT_DATE_RANGES];
-  const keyA = rangeA.start.year * 12 + rangeA.start.month;
-  const keyB = rangeB.start.year * 12 + rangeB.start.month;
-  return keyB - keyA;
+  const diff = startKey(b) - startKey(a);
+  if (diff !== 0) return diff;
+  return SAME_DAY_ORDER.indexOf(a) - SAME_DAY_ORDER.indexOf(b);
 }
