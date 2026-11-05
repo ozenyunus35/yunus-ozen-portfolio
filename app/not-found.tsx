@@ -11,7 +11,7 @@ export default function NotFound() {
       </div>
       <div className="hero-grid-fade absolute inset-0 -z-10" aria-hidden />
       <div className="container-editorial">
-        <Logo size={44} className="mb-8" />
+        <Logo size={56} framed className="mb-8" />
         <p className="text-mono text-muted-foreground">
           <span className="text-[var(--accent-light)]">404</span> · GET {"/…"} → not found
         </p>

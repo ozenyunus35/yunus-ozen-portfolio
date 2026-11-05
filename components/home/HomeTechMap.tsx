@@ -67,7 +67,7 @@ export function HomeTechMap() {
             <div className="orbit-core">
               <span className="orbit-halo" />
               <span className="orbit-halo orbit-halo-2" />
-              <Logo size={84} className="orbit-mark" />
+              <Logo size={84} framed className="orbit-mark" />
               <span className="orbit-caption">{home.techCenter}</span>
             </div>
           </div>

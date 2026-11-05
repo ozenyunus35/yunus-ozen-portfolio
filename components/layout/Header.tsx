@@ -66,7 +66,7 @@ export function Header() {
     >
       <div className="container-editorial site-bar flex h-16 items-center justify-between gap-6">
         <Link href={path("/")} className="group -my-2 flex items-center gap-2.5 py-3" aria-label={`${dict.site.name} — Home`}>
-          <Logo size={30} />
+          <Logo size={28} />
           <span className="hidden text-[0.9375rem] font-medium tracking-tight text-foreground sm:inline">
             {dict.site.name}
           </span>

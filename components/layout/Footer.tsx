@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <p className="flex items-center gap-3">
-              <Logo size={34} />
+              <Logo size={32} />
               <span className="text-h1 text-foreground">{dict.site.name}</span>
             </p>
             <p className="text-body mt-3 text-muted-foreground">{dict.site.role}</p>

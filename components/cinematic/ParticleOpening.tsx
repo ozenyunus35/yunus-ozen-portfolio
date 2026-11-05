@@ -44,8 +44,8 @@ export function ParticleOpening() {
       dots = [];
       while (dots.length < count) {
         // Distance from the nearer edge, mostly small: a full cloud on the right, behind the card, and a thin one on the left.
-        const right = Math.random() < 0.86;
-        const d = Math.abs(gauss()) * (narrow ? 0.2 : right ? 0.3 : 0.1);
+        const right = Math.random() < 0.9;
+        const d = Math.abs(gauss()) * (narrow ? 0.16 : right ? 0.3 : 0.045);
         if (d > 0.48) continue;
         const hx = (right ? 1 - d : d) * w;
         const hy = h * (right ? 0.45 : 0.6) + gauss() * h * 0.42;

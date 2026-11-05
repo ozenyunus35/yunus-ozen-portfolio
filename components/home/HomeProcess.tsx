@@ -60,7 +60,7 @@ export function HomeProcess() {
           </ol>
 
           <div className="relative hidden lg:block">
-            <div className="sticky top-[calc(50vh-160px)]">
+            <div className="sticky top-0 flex h-screen flex-col justify-center">
               {VISUALS.map((Visual, i) => (
                 <div key={i} className={cn("transition-all duration-500", i === active ? "relative opacity-100" : "pointer-events-none absolute inset-0 translate-y-2 opacity-0")}>
                   <Visual on={reduced || i === active} />

@@ -1321,13 +1321,14 @@ a:hover > .avatar { transform: scale(1.06); box-shadow: 0 0 0 2px var(--accent-b
 }
 .timeline-year { margin: 0.75rem 0 0.875rem; font-family: var(--font-tight), var(--font-inter), sans-serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: -0.04em; color: var(--foreground-subtle); }
 
-/* Logo: lifts and redraws its line on hover. */
-.logo { flex: none; border-radius: 9px; box-shadow: 0 6px 16px -6px var(--accent-glow); transition: transform 400ms var(--ease-reveal); }
-.logo-path { stroke-dasharray: 30; stroke-dashoffset: 0; }
-a:hover > .logo { transform: rotate(-6deg) scale(1.06); }
-a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
-@keyframes logo-draw { from { stroke-dashoffset: 30; } }
-.orbit-mark.logo { width: clamp(3.5rem, 14cqw, 5.25rem); height: auto; border-radius: 22%; box-shadow: 0 0 0 4px var(--ink), 0 0 0 5px var(--accent-border), 0 12px 40px -10px var(--accent-glow); }
+/* Logo: the commit graph redraws itself on hover. */
+.logo { display: inline-grid; flex: none; color: var(--foreground); }
+.logo-framed > svg { width: 62% !important; height: 62% !important; }
+.logo-framed { place-items: center; border: 1px solid var(--line-strong); border-radius: 26%; background: var(--ink-soft); box-shadow: var(--shadow-float); }
+.logo-path { stroke-dasharray: 40; stroke-dashoffset: 0; }
+a:hover > .logo .logo-path { animation: logo-draw 800ms var(--ease-reveal); }
+@keyframes logo-draw { from { stroke-dashoffset: 40; } }
+.orbit-mark.logo { width: clamp(3.75rem, 15cqw, 5.5rem) !important; height: clamp(3.75rem, 15cqw, 5.5rem) !important; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--ink), 0 14px 40px -12px var(--accent-glow); }
 
 /* About: a short vertical path. Contact: the compose form. */
 .path { position: relative; display: grid; gap: 0.75rem; padding-left: 1.5rem; }
@@ -1364,3 +1365,7 @@ a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
     @keyframes rise-in { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
   }
 }
+
+/* While the header floats, a soft fade behind it keeps the page from showing around the pill. */
+header.is-floating::before { content: ""; position: absolute; inset: 0 0 -1.5rem 0; z-index: -1; background: linear-gradient(to bottom, var(--ink) 35%, color-mix(in srgb, var(--ink) 0%, transparent)); pointer-events: none; }
+.text-small, .text-h2, figcaption { text-wrap: pretty; }
