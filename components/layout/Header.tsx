@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 import { openCommandMenu } from "@/components/layout/CommandMenu";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
@@ -41,16 +42,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-300",
+        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
         scrolled || open
-          ? "border-[var(--line)] bg-[var(--background)]/85 backdrop-blur-md"
+          ? "border-[var(--line)] bg-[color-mix(in_srgb,var(--ink)_78%,transparent)] backdrop-blur-xl backdrop-saturate-150"
           : "border-transparent bg-transparent",
       )}
     >
       <div className="container-editorial flex h-16 items-center justify-between gap-6">
-        <Link href={path("/")} className="group -my-2 flex items-baseline gap-2 py-3" aria-label={`${dict.site.name} — Home`}>
-          <span className="text-meta text-[var(--accent)]">{dict.site.initials}</span>
-          <span className="hidden text-meta text-muted-foreground transition-colors group-hover:text-foreground sm:inline">
+        <Link href={path("/")} className="group -my-2 flex items-center gap-2.5 py-3" aria-label={`${dict.site.name} — Home`}>
+          <span className="brand-mark" aria-hidden>{dict.site.initials}</span>
+          <span className="hidden text-[0.9375rem] font-medium tracking-tight text-foreground sm:inline">
             {dict.site.name}
           </span>
         </Link>
@@ -62,8 +63,8 @@ export function Header() {
               href={path(item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                "nav-link rounded-sm px-3 py-2 text-meta transition-colors",
-                isActive(item.href) ? "text-[var(--accent-light)]" : "text-muted-foreground hover:text-foreground",
+                "nav-link rounded-full px-3.5 py-2 text-[0.875rem] transition-colors",
+                isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",
               )}
             >
               {item.label}
@@ -81,6 +82,7 @@ export function Header() {
             <Search size={13} aria-hidden />
             <span className="hidden lg:inline">⌘K</span>
           </button>
+          <ThemeToggle />
           <div className="hidden md:block">
             <LanguageSwitcher />
           </div>

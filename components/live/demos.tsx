@@ -9,7 +9,7 @@ import { useStep } from "./useStep";
 /** Four scripted product demos. Every name, number and message in them is made up. */
 
 const Badge = ({ show, children }: { show: boolean; children: React.ReactNode }) => (
-  <span className={cn("inline-flex items-center gap-1 rounded border border-emerald-400/30 bg-emerald-400/10 px-1.5 py-0.5 text-[10px] text-emerald-300 transition-all duration-500", show ? "opacity-100" : "opacity-0")}>
+  <span className={cn("inline-flex items-center gap-1 rounded border border-[color-mix(in_srgb,var(--success)_35%,transparent)] bg-[color-mix(in_srgb,var(--success)_10%,transparent)] px-1.5 py-0.5 text-[10px] text-[var(--success)] transition-all duration-500", show ? "opacity-100" : "opacity-0")}>
     <Check size={10} /> {children}
   </span>
 );
@@ -26,7 +26,7 @@ export function TallyDemo() {
     <div ref={ref}>
       <DemoFrame title="tally · invoice INV-2041.pdf">
         <div className="grid gap-4 sm:grid-cols-[1.1fr_1fr]">
-          <div className="rounded border border-[var(--line)] bg-white/[0.03] p-3">
+          <div className="rounded border border-[var(--line)] bg-[var(--tint)] p-3">
             <p className={cn("font-medium transition-colors duration-500", s >= 1 && "text-[var(--accent-light)]")}>Northwind Outdoor Ltd</p>
             <p className={cn("text-muted-foreground transition-colors duration-500", s >= 1 && "text-[var(--accent-light)]")}>Issued 12 Oct 2026 · Due 11 Nov</p>
             <div className="mt-3 space-y-1.5">
@@ -73,10 +73,10 @@ export function RelayDemo() {
           <Pop show={s >= 0} className="ml-auto w-fit max-w-[88%] rounded-xl rounded-tr-sm bg-[var(--accent)] px-3 py-2 text-white">
             Do you ship to Canada and can I return a used tent after 45 days?
           </Pop>
-          <Pop show={s >= 1} className="max-w-[92%] rounded-xl rounded-tl-sm bg-white/[0.06] px-3 py-2">
+          <Pop show={s >= 1} className="max-w-[92%] rounded-xl rounded-tl-sm bg-[var(--tint-2)] px-3 py-2">
             <span className="text-muted-foreground">Shipping:</span> Yes. 5 to 10 business days, free over $150, otherwise a flat $19.
           </Pop>
-          <Pop show={s >= 2} className="max-w-[92%] rounded-xl rounded-tl-sm bg-white/[0.06] px-3 py-2">
+          <Pop show={s >= 2} className="max-w-[92%] rounded-xl rounded-tl-sm bg-[var(--tint-2)] px-3 py-2">
             <span className="text-muted-foreground">Return:</span> Used gear can go back for store credit within 30 days. At 45 days you are past that limit; a defect is a separate warranty path.
           </Pop>
           <Pop show={s >= 4} className="flex flex-wrap items-center gap-1.5 text-[10px]">
@@ -110,12 +110,12 @@ export function AtlasDemo() {
           {files.map((f) => {
             const progress = s < f.at ? 0 : s === f.at ? 55 : 100;
             return (
-              <Pop key={f.name} show={s >= f.at} className="rounded border border-[var(--line)] bg-white/[0.03] p-2.5">
+              <Pop key={f.name} show={s >= f.at} className="rounded border border-[var(--line)] bg-[var(--tint)] p-2.5">
                 <div className="flex items-center justify-between gap-2">
                   <span>{f.name}</span>
-                  <span className={cn("text-[10px]", progress === 100 ? "text-emerald-300" : "text-muted-foreground")}>{progress === 100 ? "Shared with client" : "Uploading…"}</span>
+                  <span className={cn("text-[10px]", progress === 100 ? "text-[var(--success)]" : "text-muted-foreground")}>{progress === 100 ? "Shared with client" : "Uploading…"}</span>
                 </div>
-                <div className="mt-2 h-1 overflow-hidden rounded bg-white/10">
+                <div className="mt-2 h-1 overflow-hidden rounded bg-[var(--tint-2)]">
                   <div className="h-full rounded bg-[var(--accent)] transition-all duration-700 ease-out" style={{ width: `${progress}%` }} />
                 </div>
               </Pop>

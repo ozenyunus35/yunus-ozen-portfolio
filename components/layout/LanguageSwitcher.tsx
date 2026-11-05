@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-sm border border-[var(--line-strong)] p-0.5"
+      className="flex items-center gap-0.5 rounded-full border border-[var(--line-strong)] p-0.5"
       role="group"
       aria-label="Language"
     >
@@ -25,8 +25,8 @@ export function LanguageSwitcher() {
             key={locale}
             href={switchLocalePath(pathname, locale)}
             className={cn(
-              "px-3.5 py-2 text-meta transition-colors md:px-2.5 md:py-1",
-              active ? "bg-[var(--accent)] text-white" : "text-muted-foreground hover:text-foreground",
+              "rounded-full px-3.5 py-2 text-meta transition-colors md:px-2.5 md:py-1",
+              active ? "bg-[var(--foreground)] text-[var(--background)]" : "text-muted-foreground hover:text-foreground",
             )}
             aria-current={active ? "true" : undefined}
           >

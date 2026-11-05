@@ -193,6 +193,38 @@ export const dictionaryTr = {
     products: "geliştirilen ürün",
   },
 
+  home: {
+    headline: { lead: "İlk fikirden", accent: "canlı", tail: "yayına, çalışan ürünler." },
+    marqueeLabel: "Kodumun birleştirildiği projeler",
+    statsLabel: "Rakamlarla",
+    statsNotes: {
+      merged: "Açık kaynak projelerin bakımcıları tarafından incelenip birleştirildi.",
+      repos: "Aralarında Grafana, Nuxt, OpenTelemetry ve oxc var.",
+      products: "Her birinin canlı demosu ya da yayındaki sitesi var.",
+    },
+    tourHint: "Bir ürün seçin ya da turun oynamasına izin verin.",
+    techCenter: "Her proje bunların bir kısmını kullanır",
+    projectsCta: "Tüm projeler",
+    faq: {
+      sectionLabel: "SSS",
+      headline: "İşe alımcıların sorduğu sorular.",
+      items: [
+        { q: "Hangi rolleri arıyorsun?", a: "Software, AI ve Product Engineer rolleri; uzaktan, hibrit veya ofiste." },
+        { q: "Taşınmaya açık mısın?", a: "Evet: ABD, Avrupa, Körfez ülkeleri ya da başka bir yere." },
+        { q: "Ne zaman mezun oluyorsun?", a: "Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisiyim, 2027'de mezun oluyorum." },
+        { q: "Hangi teknolojileri kullanıyorsun?", a: "Arayüz için TypeScript, React ve Next.js; arkada PostgreSQL veya MongoDB ile Node.js, Python, Kotlin ve Spring Boot; mobil için Flutter." },
+        { q: "İşinde yapay zekâyı nasıl kullanıyorsun?", a: "Claude Code ve LLM API'leri gibi yapay zekâ araçlarını araştırma ve gereksinimlerden koda, testlere ve yayına kadar tüm süreçte kullanıyorum." },
+        { q: "Projelerini deneyebilir miyim?", a: "Evet. Her proje sayfasında canlı demo ya da yayındaki site bağlantısı var; demolar kaynak kodlarına da bağlanıyor." },
+      ],
+    },
+    cta: {
+      lead: "Birlikte",
+      accent: "çalışan",
+      tail: "bir ürün geliştirelim.",
+      text: "Bana ulaşmanın en hızlı yolu e-posta ya da LinkedIn.",
+    },
+  },
+
   openSource: {
     sectionLabel: "Açık Kaynak",
     headline: "Başka ekiplerin kullandığı projelere merge edilen kod.",

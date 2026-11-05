@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { getSocialNav } from "@/lib/i18n/helpers";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 export function Footer() {
   const { dict, path } = useI18n();
@@ -17,11 +18,14 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-[var(--line)] bg-[var(--ink-soft)]">
+    <footer className="relative overflow-hidden border-t border-[var(--line)] bg-[var(--ink-soft)]">
       <div className="container-editorial py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <p className="font-display text-h1 text-foreground">{dict.site.name}</p>
+            <p className="flex items-center gap-3">
+              <span className="brand-mark" aria-hidden>{dict.site.initials}</span>
+              <span className="text-h1 text-foreground">{dict.site.name}</span>
+            </p>
             <p className="text-body mt-3 text-muted-foreground">{dict.site.role}</p>
             <p className="text-body mt-4 max-w-sm text-muted-foreground">{dict.common.footerTagline}</p>
           </div>
@@ -72,10 +76,16 @@ export function Footer() {
 
         <div className="rule mt-12" />
 
-        <p className="text-meta mt-6 text-muted-foreground">
-          © {year} {dict.site.name}. {dict.common.footerCopyright} {dict.site.portfolioYear}.
-        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-small text-muted-foreground">
+            © {year} {dict.site.name}. {dict.common.footerCopyright} {dict.site.portfolioYear}.
+          </p>
+          <ThemeToggle />
+        </div>
       </div>
+      <p className="footer-wordmark" aria-hidden>
+        {dict.site.name}
+      </p>
     </footer>
   );
 }

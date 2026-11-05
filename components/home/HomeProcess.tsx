@@ -35,11 +35,11 @@ export function HomeProcess() {
   }, []);
 
   return (
-    <SectionChapter theme="frost" id="process" className="py-[var(--space-xl)]">
+    <SectionChapter theme="void" id="process" className="py-[var(--space-xl)]">
       <div className="container-editorial">
         <ScrollReveal>
-          <SectionLabel number="03" label={process.sectionLabel} />
-          <h2 className="text-section mt-6 max-w-2xl font-display">{process.headline}</h2>
+          <SectionLabel label={process.sectionLabel} />
+          <h2 className="text-section font-display mt-6 max-w-2xl">{process.headline}</h2>
         </ScrollReveal>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
@@ -47,8 +47,8 @@ export function HomeProcess() {
             {process.steps.map((step, i) => {
               const Visual = VISUALS[i];
               return (
-                <li key={step.title} data-step={i} ref={(el) => { stepRefs.current[i] = el; }} className="lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center">
-                  <p className="text-meta text-[var(--accent-light)]">0{i + 1}</p>
+                <li key={step.title} data-step={i} ref={(el) => { stepRefs.current[i] = el; }} className={cn("process-step lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center lg:pl-8", active === i && "is-active")}>
+                  <p className="process-num">0{i + 1}</p>
                   <h3 className={cn("text-project mt-3 font-display transition-opacity duration-500", active === i ? "opacity-100" : "lg:opacity-40")}>{step.title}</h3>
                   <p className={cn("text-body mt-4 max-w-md text-muted-foreground transition-opacity duration-500", active === i ? "opacity-100" : "lg:opacity-40")}>{step.text}</p>
                   <div className="mt-6 lg:hidden">
@@ -60,7 +60,7 @@ export function HomeProcess() {
           </ol>
 
           <div className="relative hidden lg:block">
-            <div className="sticky top-28">
+            <div className="sticky top-[calc(50vh-160px)]">
               {VISUALS.map((Visual, i) => (
                 <div key={i} className={cn("transition-all duration-500", i === active ? "relative opacity-100" : "pointer-events-none absolute inset-0 translate-y-2 opacity-0")}>
                   <Visual on={reduced || i === active} />

@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+
+/** True where a demo appears after a click (the product tour), so it opens on step 0 instead of the finished state. */
+export const DemoFromStart = createContext(false);
 
 /**
  * Steps a scripted demo forward while it is on screen. The first render shows the finished state, so the
@@ -9,7 +12,8 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
  */
 export function useStep(count: number, stepMs: number, active: boolean) {
   const reduced = useReducedMotion();
-  const [step, setStep] = useState(count - 1);
+  const fromStart = useContext(DemoFromStart);
+  const [step, setStep] = useState(fromStart ? 0 : count - 1);
 
   useEffect(() => {
     if (!active || reduced) return;

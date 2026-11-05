@@ -193,6 +193,38 @@ export const dictionaryEn = {
     products: "products built",
   },
 
+  home: {
+    headline: { lead: "Products that work, from the first idea to a", accent: "live", tail: "release." },
+    marqueeLabel: "Code merged into",
+    statsLabel: "In numbers",
+    statsNotes: {
+      merged: "Reviewed and merged by the maintainers of public projects.",
+      repos: "Including Grafana, Nuxt, OpenTelemetry and oxc.",
+      products: "Each one with a live demo or a live site.",
+    },
+    tourHint: "Pick a product, or let the tour play.",
+    techCenter: "Every project uses some of these",
+    projectsCta: "All projects",
+    faq: {
+      sectionLabel: "FAQ",
+      headline: "Questions recruiters ask.",
+      items: [
+        { q: "What roles are you looking for?", a: "Software, AI and Product Engineer roles, remote, hybrid or on-site." },
+        { q: "Are you open to relocating?", a: "Yes: to the US, Europe, the Gulf or elsewhere." },
+        { q: "When do you graduate?", a: "I'm a final-year Software Engineering student at Fırat University, graduating in 2027." },
+        { q: "What is your stack?", a: "TypeScript, React and Next.js for the interface; Node.js, Python, Kotlin and Spring Boot with PostgreSQL or MongoDB behind it; Flutter for mobile." },
+        { q: "How do you use AI in your work?", a: "I use AI tools such as Claude Code and LLM APIs across the whole cycle, from research and specs to code, tests and release." },
+        { q: "Can I try your projects?", a: "Yes. Every project page links to a live demo or the live site, and the demos link to their source code." },
+      ],
+    },
+    cta: {
+      lead: "Let's build something that",
+      accent: "works.",
+      tail: "",
+      text: "The fastest way to reach me is email or LinkedIn.",
+    },
+  },
+
   openSource: {
     sectionLabel: "Open Source",
     headline: "Code merged into projects other teams depend on.",

@@ -27,16 +27,16 @@ export function FlowVisual({ on }: { on: boolean }) {
       <div className="flex flex-wrap items-center gap-2">
         {blocks.map((b, i) => (
           <span key={b} className={cn("flex items-center gap-2 transition-all duration-500", on ? "opacity-100" : "opacity-0")} style={{ transitionDelay: `${i * 160}ms` }}>
-            <span className="rounded border border-[var(--line-strong)] bg-white/[0.04] px-2.5 py-1.5">{b}</span>
+            <span className="rounded border border-[var(--line-strong)] bg-[var(--tint)] px-2.5 py-1.5">{b}</span>
             {i < blocks.length - 1 && <span className="text-muted-foreground">→</span>}
           </span>
         ))}
       </div>
       <div className="mt-5 grid grid-cols-3 gap-2">
         {[0, 1, 2].map((i) => (
-          <div key={i} className={cn("h-24 rounded border border-[var(--line)] bg-white/[0.03] transition-all duration-700", on ? "scale-100 opacity-100" : "scale-95 opacity-0")} style={{ transitionDelay: `${500 + i * 150}ms` }}>
-            <div className="m-2 h-2 w-1/2 rounded bg-white/15" />
-            <div className="m-2 h-2 w-3/4 rounded bg-white/10" />
+          <div key={i} className={cn("h-24 rounded border border-[var(--line)] bg-[var(--tint)] transition-all duration-700", on ? "scale-100 opacity-100" : "scale-95 opacity-0")} style={{ transitionDelay: `${500 + i * 150}ms` }}>
+            <div className="m-2 h-2 w-1/2 rounded bg-[var(--tint-3)]" />
+            <div className="m-2 h-2 w-3/4 rounded bg-[var(--tint-2)]" />
             <div className="m-2 mt-6 h-2 w-2/3 rounded bg-[var(--accent)]/50" />
           </div>
         ))}
@@ -52,7 +52,7 @@ export function CodeVisual({ on }: { on: boolean }) {
       <p className="text-muted-foreground">$ npm test</p>
       <div className="mt-2 space-y-1.5 font-mono text-[11px]">
         {lines.map((l, i) => (
-          <Pop key={l} show={on} className="text-emerald-300/90">
+          <Pop key={l} show={on} className="text-[var(--success)]">
             <span style={{ transitionDelay: `${i * 220}ms` }} className="block transition-all">{l}</span>
           </Pop>
         ))}
@@ -68,7 +68,7 @@ export function ReleaseVisual({ on }: { on: boolean }) {
       <ol className="space-y-3">
         {steps.map((t, i) => (
           <li key={t} className={cn("flex items-center gap-3 transition-all duration-500", on ? "opacity-100" : "opacity-30")} style={{ transitionDelay: `${i * 260}ms` }}>
-            <span className={cn("grid size-5 place-items-center rounded-full border text-[10px] transition-colors duration-500", on ? "border-emerald-400/50 bg-emerald-400/10 text-emerald-300" : "border-[var(--line-strong)]")} style={{ transitionDelay: `${i * 260}ms` }}>
+            <span className={cn("grid size-5 place-items-center rounded-full border text-[10px] transition-colors duration-500", on ? "border-[color-mix(in_srgb,var(--success)_45%,transparent)] bg-[color-mix(in_srgb,var(--success)_10%,transparent)] text-[var(--success)]" : "border-[var(--line-strong)]")} style={{ transitionDelay: `${i * 260}ms` }}>
               ✓
             </span>
             {t}
