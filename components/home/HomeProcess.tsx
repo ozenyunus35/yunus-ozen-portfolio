@@ -20,7 +20,7 @@ export function HomeProcess() {
   const { process } = dict;
   const reduced = useReducedMotion();
   const [active, setActive] = useState(0);
-  const stepRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
     // The step crossing the middle of the viewport is the active one.
@@ -28,7 +28,7 @@ export function HomeProcess() {
       (entries) => {
         for (const e of entries) if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.step));
       },
-      { rootMargin: "-45% 0px -45% 0px" },
+      { rootMargin: "-40% 0px -40% 0px" },
     );
     for (const el of stepRefs.current) if (el) io.observe(el);
     return () => io.disconnect();
@@ -47,10 +47,13 @@ export function HomeProcess() {
             {process.steps.map((step, i) => {
               const Visual = VISUALS[i];
               return (
-                <li key={step.title} data-step={i} ref={(el) => { stepRefs.current[i] = el; }} className={cn("process-step lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center lg:pl-8", active === i && "is-active")}>
+                <li key={step.title} className={cn("process-step lg:flex lg:min-h-[70vh] lg:flex-col lg:justify-center lg:pl-8", active === i && "is-active")}>
+                  {/* The text block itself is observed, so the panel changes when the words reach the middle of the screen. */}
+                  <div data-step={i} ref={(el) => { stepRefs.current[i] = el; }}>
                   <p className="process-num">0{i + 1}</p>
                   <h3 className={cn("text-project mt-3 font-display transition-opacity duration-500", active === i ? "opacity-100" : "lg:opacity-40")}>{step.title}</h3>
                   <p className={cn("text-body mt-4 max-w-md text-muted-foreground transition-opacity duration-500", active === i ? "opacity-100" : "lg:opacity-40")}>{step.text}</p>
+                  </div>
                   <div className="mt-6 lg:hidden">
                     <Visual on />
                   </div>
@@ -60,12 +63,19 @@ export function HomeProcess() {
           </ol>
 
           <div className="relative hidden lg:block">
-            <div className="sticky top-0 flex h-screen flex-col justify-center">
-              {VISUALS.map((Visual, i) => (
-                <div key={i} className={cn("transition-all duration-500", i === active ? "relative opacity-100" : "pointer-events-none absolute inset-0 translate-y-2 opacity-0")}>
-                  <Visual on={reduced || i === active} />
-                </div>
-              ))}
+            <div className="sticky top-0 flex h-screen items-center">
+              {/* All four panels share one grid cell, so they cross-fade in place. */}
+              <div className="grid w-full">
+                {VISUALS.map((Visual, i) => (
+                  <div
+                    key={i}
+                    aria-hidden={i !== active}
+                    className={cn("[grid-area:1/1] transition-[opacity,translate] duration-500 ease-out", i === active ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0")}
+                  >
+                    <Visual on={reduced || i === active} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

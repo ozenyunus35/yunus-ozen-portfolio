@@ -11,7 +11,7 @@ export function HomeCta({ tier = "theme-void" }: { tier?: string }) {
   const { cta } = dict.home;
 
   return (
-    <section className={`${tier} pb-[var(--space-xl)]`}>
+    <section className={`${tier} pb-[var(--space-xl)] pt-[var(--space-md)]`}>
       <div className="container-editorial">
         <ScrollReveal>
           <div className="cta-band">

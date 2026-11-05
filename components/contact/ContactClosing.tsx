@@ -114,9 +114,7 @@ export function ContactClosing() {
         </div>
       </section>
 
-      <div className="theme-frost">
-        <HomeFaq />
-      </div>
+      <HomeFaq tier="theme-frost" />
     </div>
   );
 }

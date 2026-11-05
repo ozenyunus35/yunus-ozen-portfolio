@@ -235,11 +235,11 @@ body {
 .text-meta { font-family: var(--font-inter), system-ui, sans-serif; font-size: var(--text-meta); letter-spacing: var(--tracking-meta); text-transform: uppercase; line-height: 1.4; font-weight: 500; }
 .text-mono { font-family: var(--font-jetbrains), monospace; font-size: var(--text-meta); letter-spacing: 0.02em; line-height: 1.4; }
 
-/* Section tiers: small shifts of the page colour, in either theme. */
+/* Section tiers: one page colour everywhere, so no section edge ever shows as a band. Cards carry the contrast. */
 .theme-void { --background: var(--ink); background-color: var(--background); color: var(--foreground); }
-.theme-frost { --background: var(--tier-frost); background-color: var(--background); color: var(--foreground); }
-.theme-chalk { --background: var(--tier-chalk); background-color: var(--background); color: var(--foreground); }
-.theme-slate { --background: var(--tier-slate); background-color: var(--background); color: var(--foreground); }
+.theme-frost { --background: var(--ink); background-color: var(--background); color: var(--foreground); }
+.theme-chalk { --background: var(--ink); background-color: var(--background); color: var(--foreground); }
+.theme-slate { --background: var(--ink); background-color: var(--background); color: var(--foreground); }
 .scheme-dark { --background: var(--ink); background-color: var(--background); color: var(--foreground); }
 
 .editorial-grid { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--grid-gap); }
@@ -530,11 +530,10 @@ main { position: relative; z-index: 1; }
 /* Scroll reveal: hidden only when JS runs, shown by ScrollReveal's observer. */
 .js .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  filter: blur(6px);
-  transition: opacity 550ms var(--ease-reveal), transform 650ms var(--ease-reveal), filter 550ms var(--ease-reveal);
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-reveal), transform 600ms var(--ease-reveal);
 }
-.js .reveal.is-in { opacity: 1; transform: none; filter: none; }
+.js .reveal.is-in { opacity: 1; transform: none; }
 
 /* Entrance keyframes — the text is in the HTML, CSS only fades it in. */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
@@ -699,7 +698,8 @@ a:hover > .brand-mark { transform: rotate(-6deg) scale(1.05); }
    HOME HERO
    ═══════════════════════════════════════════════════════════════════ */
 .hero-section { background: var(--ink); }
-.hero-wash { position: absolute; inset: 0; z-index: -20; overflow: hidden; }
+.hero-section canvas { mask-image: linear-gradient(to bottom, black 75%, transparent 100%); }
+.hero-wash { position: absolute; inset: 0; z-index: -20; overflow: hidden; mask-image: linear-gradient(to bottom, black 55%, transparent 100%); }
 .hero-wash > span { position: absolute; border-radius: 999px; filter: blur(70px); will-change: transform; }
 .hero-wash-a { width: 46vw; height: 46vw; right: -12vw; top: -8vw; background: var(--wash-a); animation: drift-a 16s ease-in-out infinite alternate; }
 .hero-wash-b { width: 40vw; height: 40vw; left: -14vw; bottom: -10vw; background: var(--wash-b); animation: drift-b 19s ease-in-out infinite alternate; }
@@ -1321,13 +1321,16 @@ a:hover > .avatar { transform: scale(1.06); box-shadow: 0 0 0 2px var(--accent-b
 }
 .timeline-year { margin: 0.75rem 0 0.875rem; font-family: var(--font-tight), var(--font-inter), sans-serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: -0.04em; color: var(--foreground-subtle); }
 
-/* Logo: the commit graph redraws itself on hover. */
-.logo { display: inline-grid; flex: none; color: var(--foreground); }
-.logo-framed > svg { width: 62% !important; height: 62% !important; }
-.logo-framed { place-items: center; border: 1px solid var(--line-strong); border-radius: 26%; background: var(--ink-soft); box-shadow: var(--shadow-float); }
-.logo-path { stroke-dasharray: 40; stroke-dashoffset: 0; }
-a:hover > .logo .logo-path { animation: logo-draw 800ms var(--ease-reveal); }
-@keyframes logo-draw { from { stroke-dashoffset: 40; } }
+/* Logo: the monogram tile; on hover the Y redraws and the dots drop in. */
+.logo { display: inline-grid; flex: none; border-radius: 27%; box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 6px 14px -8px rgb(0 0 0 / 0.35); transition: transform 400ms var(--ease-reveal); }
+.logo-framed > svg { width: 100% !important; height: 100% !important; }
+.logo-path { stroke-dasharray: 30; stroke-dashoffset: 0; }
+a:hover > .logo { transform: translateY(-1px); }
+a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
+a:hover > .logo .logo-dot { animation: logo-dot 500ms var(--ease-reveal) both; }
+a:hover > .logo .logo-dot:last-child { animation-delay: 80ms; }
+@keyframes logo-draw { from { stroke-dashoffset: 30; } }
+@keyframes logo-dot { from { transform: translateY(-3px); opacity: 0; } }
 .orbit-mark.logo { width: clamp(3.75rem, 15cqw, 5.5rem) !important; height: clamp(3.75rem, 15cqw, 5.5rem) !important; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--ink), 0 14px 40px -12px var(--accent-glow); }
 
 /* About: a short vertical path. Contact: the compose form. */
@@ -1336,35 +1339,26 @@ a:hover > .logo .logo-path { animation: logo-draw 800ms var(--ease-reveal); }
 .path-step { position: relative; padding: 1.125rem 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--ink-soft); }
 .path-step::before { content: ""; position: absolute; left: calc(-1.5rem + 0.3125rem - 4px); top: 1.5rem; width: 9px; height: 9px; border-radius: 999px; background: var(--ink); border: 2px solid var(--accent); }
 .compose { display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--ink-soft); box-shadow: var(--shadow-card); }
-.field { display: grid; gap: 0.5rem; border: 0; margin: 0; padding: 0; }
-.field input, .field textarea {
+.field { display: grid; gap: 0.5rem; }
+.field label { font-size: 0.875rem; font-weight: 500; color: var(--foreground); }
+.field input, .field textarea, .select select {
   width: 100%;
-  padding: 0.75rem 0.875rem;
+  min-height: 2.875rem;
+  padding: 0.6875rem 0.875rem;
   border: 1px solid var(--line-strong);
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   background: var(--ink);
   color: var(--foreground);
   font: inherit;
-  transition: border-color 200ms, box-shadow 200ms;
+  font-size: 0.9375rem;
+  transition: border-color 200ms, box-shadow 200ms, background 200ms;
 }
-.field input:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-subtle); }
-.field textarea { resize: vertical; min-height: 8rem; }
-
-/* Scroll-linked motion, only where the browser ties animations to scroll and motion is welcome. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .detail-stage > *, .featured-media > *, .story-media > * {
-      animation: drift-up linear both;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-    }
-    .gallery-frame { animation: settle linear both; animation-timeline: view(inline); animation-range: entry 0% contain 30%; }
-    .stat-card, .os-card { animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
-    @keyframes drift-up { from { translate: 0 28px; } to { translate: 0 -28px; } }
-    @keyframes settle { from { opacity: 0.4; scale: 0.94; } to { opacity: 1; scale: 1; } }
-    @keyframes rise-in { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
-  }
-}
+.field input:hover, .field textarea:hover, .select select:hover { border-color: color-mix(in srgb, var(--foreground) 25%, transparent); }
+.field input:focus-visible, .field textarea:focus-visible, .select select:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-subtle); }
+.field textarea { resize: vertical; min-height: 9rem; line-height: 1.6; }
+.select { position: relative; }
+.select select { appearance: none; padding-right: 2.5rem; cursor: pointer; }
+.select svg { position: absolute; right: 0.875rem; top: 50%; translate: 0 -50%; color: var(--foreground-muted); pointer-events: none; }
 
 /* While the header floats, a soft fade behind it keeps the page from showing around the pill. */
 header.is-floating::before { content: ""; position: absolute; inset: 0 0 -1.5rem 0; z-index: -1; background: linear-gradient(to bottom, var(--ink) 35%, color-mix(in srgb, var(--ink) 0%, transparent)); pointer-events: none; }

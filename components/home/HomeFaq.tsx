@@ -6,12 +6,12 @@ import { SectionLabel } from "@/components/prism/SectionLabel";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 /** Recruiter questions, answered only with facts stated elsewhere on the site. Native <details>, so it works without JavaScript. */
-export function HomeFaq() {
+export function HomeFaq({ tier = "theme-void" }: { tier?: string }) {
   const { dict } = useI18n();
   const { faq } = dict.home;
 
   return (
-    <section id="faq" className="theme-void py-[var(--space-xl)]">
+    <section id="faq" className={`${tier} py-[var(--space-xl)]`}>
       <div className="container-editorial grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <ScrollReveal>
           <SectionLabel number="06" label={faq.sectionLabel} />

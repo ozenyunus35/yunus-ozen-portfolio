@@ -16,7 +16,7 @@ export function HomeStats({ stats }: { stats: OpenSourceStats }) {
   ];
 
   return (
-    <section aria-label={home.statsLabel} className="theme-void pb-[var(--space-lg)]">
+    <section aria-label={home.statsLabel} className="theme-void pb-[var(--space-lg)] pt-6">
       <div className="container-editorial">
         <ul className="grid gap-4 md:grid-cols-3" role="list">
           {items.map((item, i) => (
