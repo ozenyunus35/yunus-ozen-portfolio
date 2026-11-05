@@ -35,7 +35,7 @@ export function PageHero({ crumbs, title, accent, description, actions, aside, c
       </div>
       <div className="hero-grid-fade absolute inset-0 -z-10" aria-hidden />
 
-      <div className={cn("container-editorial relative grid gap-12 pb-16 pt-28 sm:pt-32", aside ? "lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16" : undefined)}>
+      <div className={cn("container-editorial relative grid gap-12 pb-14 pt-28 sm:pt-32", aside ? "lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16" : undefined)}>
         <div className="min-w-0">
           <nav aria-label="Breadcrumb" className="anim-fade">
             <ol className="crumbs" role="list">

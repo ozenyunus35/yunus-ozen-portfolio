@@ -36,10 +36,14 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  // The Y merge-graph mark from components/ui/Logo.tsx.
+  // The YÖ monogram from components/ui/Logo.tsx; PNGs for browsers that do not use SVG favicons (Safari).
   icons: {
-    icon: [{ url: withBasePath("/logo.svg"), type: "image/svg+xml" }],
-    apple: [{ url: withBasePath("/logo.svg") }],
+    icon: [
+      { url: withBasePath("/logo.svg"), type: "image/svg+xml" },
+      { url: withBasePath("/icon-32.png"), type: "image/png", sizes: "32x32" },
+      { url: withBasePath("/icon-192.png"), type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: withBasePath("/apple-touch-icon.png"), sizes: "180x180" }],
   },
 };
 

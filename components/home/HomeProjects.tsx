@@ -26,7 +26,7 @@ export function HomeProjects() {
           </Link>
         </ScrollReveal>
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
           {projects.map((project, i) => (
             <li key={project.slug}>
               <ScrollReveal delay={(i % 3) * 0.06} className="h-full">

@@ -39,7 +39,7 @@ export function HomeOpenSource({ stats }: { stats: OpenSourceStats }) {
           </div>
         </ScrollReveal>
 
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
           {stats.repos.map((item, i) => (
             <li key={item.repo}>
               <ScrollReveal delay={(i % 3) * 0.06} className="h-full">

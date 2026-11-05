@@ -75,7 +75,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="rule mt-12" />
+        <div className="rule mt-8" />
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
           <p className="text-small text-muted-foreground">

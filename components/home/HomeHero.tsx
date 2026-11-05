@@ -33,7 +33,7 @@ export function HomeHero({ marquee, stats }: { marquee: string[]; stats: OpenSou
       <div className="hero-grid-fade absolute inset-0 -z-10" aria-hidden />
       <ParticleOpening />
 
-      <div className="container-editorial relative grid min-h-[90svh] items-center gap-12 pb-12 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="container-editorial relative grid min-h-[78svh] items-center gap-12 pb-8 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div className="min-w-0">
           <p className="anim-fade hero-pill" style={delay(0)}>
             <span className="live-dot" aria-hidden />
@@ -123,7 +123,7 @@ export function HomeHero({ marquee, stats }: { marquee: string[]; stats: OpenSou
         </div>
       </div>
 
-      <div className="anim-fade relative pb-12" style={delay(700)}>
+      <div className="anim-fade relative pb-10" style={delay(700)}>
         <p className="text-meta text-center text-muted-foreground">{home.marqueeLabel}</p>
         <div className="marquee mt-5" lang="en">
           <ul className="marquee-track" role="list">

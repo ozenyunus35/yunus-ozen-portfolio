@@ -42,7 +42,7 @@ export function HomeProcess() {
           <h2 className="text-section font-display mt-6 max-w-2xl">{process.headline}</h2>
         </ScrollReveal>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
           <ol className="space-y-12 lg:space-y-0" role="list">
             {process.steps.map((step, i) => {
               const Visual = VISUALS[i];
