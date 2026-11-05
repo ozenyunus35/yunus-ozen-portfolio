@@ -162,6 +162,37 @@ export const dictionaryTr = {
     ],
   },
 
+  live: {
+    sectionLabel: "Canlı",
+    headline: "Ürünlerin nasıl göründüğünü değil, nasıl çalıştığını görün.",
+    intro: "Her kart, ekrandayken ürünün yaptığı işi yeniden oynatır: fatura okumak, tek mesajdaki iki soruyu cevaplamak, dosya paylaşmak, potansiyel müşteri listesi çıkarmak.",
+    note: "Uydurma verilerle oynatılır. Proje sayfalarında gerçek demoların bağlantısı var.",
+    open: "Projeyi aç",
+    cards: {
+      tally: { title: "Tally", caption: "Faturayı okur, KDV'yi ve toplamları kontrol eder, ödendiği banka hareketiyle eşleştirir." },
+      relay: { title: "Relay", caption: "Mesajdaki her soruyu cevaplar, kaynağını gösterir ve politikada yazmayan hiçbir şeyi vaat etmez." },
+      atlas: { title: "Atlas Portal", caption: "Müşteri için dosya yükler, paylaşır ve müşterinin ne zaman açtığını gösterir." },
+      scraper: { title: "Lead Scraper", caption: "Her gün çalışır, tekrarları ayıklar ve temiz bir müşteri listesi kaydeder." },
+    },
+  },
+
+  process: {
+    sectionLabel: "Süreç",
+    headline: "İlk fikirden canlı yayına.",
+    steps: [
+      { title: "Gereksinimler", text: "Kullanıcının yapması gereken işten başlarım ve bunu ürünün geçmesi gereken kontroller olarak yazarım; asla yapmaması gerekenler dahil." },
+      { title: "Akışlar ve ekranlar", text: "Sonra ürün içindeki yol: hangi ekran sonra gelir, bir bilgi eksikse ne olur, bir insan nerede devralır." },
+      { title: "Kod ve testler", text: "Her kuralın bir testi olur ve ürün, hiç ayar yapılmamış sorularla ölçülür; böylece sayılar bir şey ifade eder." },
+      { title: "Yayın", text: "Her yayından önce lint, tip kontrolü, build ve tarayıcı testleri çalışır; sonuç herkesin deneyebileceği açık bir bağlantıdır." },
+    ],
+  },
+
+  stats: {
+    merged: "birleştirilmiş pull request",
+    repos: "açık kaynak depo",
+    products: "geliştirilen ürün",
+  },
+
   openSource: {
     sectionLabel: "Açık Kaynak",
     headline: "Başka ekiplerin kullandığı projelere merge edilen kod.",

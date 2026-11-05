@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { SectionLabel } from "@/components/prism/SectionLabel";
+import { CountUp } from "@/components/motion/CountUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { OPEN_SOURCE_ALSO, mergedPrsUrl, type OpenSourceStats } from "@/lib/data/open-source";
@@ -22,15 +23,23 @@ export function HomeOpenSource({ stats }: { stats: OpenSourceStats }) {
     <SectionChapter theme="void" id="open-source" className="py-[var(--space-xl)]">
       <div className="container-editorial">
         <ScrollReveal>
-          <SectionLabel number="03" label={openSource.sectionLabel} />
+          <SectionLabel number="05" label={openSource.sectionLabel} />
           <h2 className="text-section mt-6 max-w-2xl font-display">{openSource.headline}</h2>
           <p className="text-body mt-6 max-w-2xl text-muted-foreground">{openSource.intro}</p>
-          <p className="mt-8 flex items-baseline gap-3">
-            <span className="text-section font-display tabular-nums">{stats.total}</span>
-            <span className="text-meta text-muted-foreground">
-              {openSource.totalLabel.replace("{repos}", String(stats.repoCount))}
-            </span>
-          </p>
+          <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3">
+            {[
+              { value: stats.total, label: dict.stats.merged },
+              { value: stats.repoCount, label: dict.stats.repos },
+              { value: dict.projects.length, label: dict.stats.products },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col-reverse gap-2 bg-[var(--ink-soft)] p-6">
+                <dt className="text-meta text-muted-foreground">{item.label}</dt>
+                <dd className="text-section font-display tabular-nums">
+                  <CountUp value={item.value} />
+                </dd>
+              </div>
+            ))}
+          </dl>
           {countedAt && (
             <p className="text-meta mt-2 flex items-center gap-2 text-muted-foreground/70">
               <span className="live-dot" aria-hidden />

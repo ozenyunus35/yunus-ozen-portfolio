@@ -162,6 +162,37 @@ export const dictionaryEn = {
     ],
   },
 
+  live: {
+    sectionLabel: "Live",
+    headline: "See the products work, not just how they look.",
+    intro: "Each card replays what the product does while it is on screen: reading an invoice, answering two questions at once, sharing a file, building a lead list.",
+    note: "Replays with made-up data. The project pages link to the real demos.",
+    open: "Open project",
+    cards: {
+      tally: { title: "Tally", caption: "Reads an invoice, checks VAT and totals, and matches it to the bank line that paid it." },
+      relay: { title: "Relay", caption: "Answers every question in a message, cites its sources and promises nothing the policy does not state." },
+      atlas: { title: "Atlas Portal", caption: "Uploads files for a client, shares them and shows when the client opened them." },
+      scraper: { title: "Lead Scraper", caption: "Runs every day, removes duplicates and saves a clean list of leads." },
+    },
+  },
+
+  process: {
+    sectionLabel: "Process",
+    headline: "From the first idea to a live release.",
+    steps: [
+      { title: "Requirements", text: "I start from what the user has to get done and write it down as checks the product must pass, including what it must never do." },
+      { title: "Flows and screens", text: "Then the path through the product: which screen comes next, what happens when something is missing, where a person takes over." },
+      { title: "Code and tests", text: "Every rule gets a test, and the product is measured on questions it was never tuned on, so the numbers mean something." },
+      { title: "Release", text: "Lint, type check, build and browser tests run before every release, and the result is a public link anyone can try." },
+    ],
+  },
+
+  stats: {
+    merged: "merged pull requests",
+    repos: "public repositories",
+    products: "products built",
+  },
+
   openSource: {
     sectionLabel: "Open Source",
     headline: "Code merged into projects other teams depend on.",

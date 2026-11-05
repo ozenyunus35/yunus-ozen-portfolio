@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Command, Download } from "lucide-react";
 import { ImmersiveHeroField } from "@/components/cinematic/ImmersiveHeroField";
+import { ParticleOpening } from "@/components/cinematic/ParticleOpening";
 import { SectionChapter } from "@/components/axis/SectionChapter";
 import { openCommandMenu } from "@/components/layout/CommandMenu";
 import { useI18n } from "@/lib/i18n/I18nProvider";
@@ -18,6 +19,7 @@ export function HomeHero() {
   return (
     <SectionChapter theme="void" id="hero" className="relative min-h-[100svh]">
       <ImmersiveHeroField />
+      <ParticleOpening />
 
       <div className="container-editorial relative flex min-h-[100svh] flex-col justify-end pb-[var(--space-lg)] pt-24">
         <div className="editorial-grid items-end gap-y-12">

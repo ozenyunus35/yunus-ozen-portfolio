@@ -1,6 +1,8 @@
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeHero } from "@/components/home/HomeHero";
+import { HomeLiveDemos } from "@/components/home/HomeLiveDemos";
 import { HomeOpenSource } from "@/components/home/HomeOpenSource";
+import { HomeProcess } from "@/components/home/HomeProcess";
 import { HomeTechStack } from "@/components/home/HomeTechStack";
 import { getOpenSourceStats } from "@/lib/data/open-source";
 
@@ -12,6 +14,8 @@ export async function HomeContent() {
     <>
       <HomeHero />
       <HomeFeatured />
+      <HomeLiveDemos />
+      <HomeProcess />
       <HomeTechStack />
       <HomeOpenSource stats={stats} />
     </>
