@@ -13,6 +13,16 @@ export function AboutProfile() {
   const { dict, locale } = useI18n();
   const { about, inner, tech, exploring } = dict;
   const [lead, ...rest] = about.paragraphs;
+  const byId = (id: string) => dict.journey.milestones.find((m) => m.id === id);
+  // Education, the hackathon, the product I led, and open source: each line already stated elsewhere on the site.
+  const path = [
+    byId("education"),
+    byId("nasa-2022"),
+    byId("bisevk"),
+    { period: "2026", title: dict.openSource.sectionLabel, description: dict.openSource.intro },
+  ]
+    .filter((m): m is NonNullable<typeof m> => Boolean(m))
+    .map((m) => ({ when: m.period, title: m.title, text: m.description }));
 
   return (
     <div>
@@ -45,9 +55,30 @@ export function AboutProfile() {
       </section>
 
       <section className="theme-frost py-[var(--space-xl)]">
+        <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+          <ScrollReveal>
+            <SectionLabel number="02" label={inner.milestones} />
+          </ScrollReveal>
+          <ol className="path" role="list">
+            {path.map((step, i) => (
+              <li key={step.title}>
+                <ScrollReveal delay={Math.min(i, 3) * 0.05}>
+                  <div className="path-step">
+                    <p className="text-mono text-[0.6875rem] uppercase tracking-[0.06em] text-[var(--accent-light)]">{step.when}</p>
+                    <p className="text-h2 mt-1.5">{step.title}</p>
+                    <p className="text-small mt-1.5 text-muted-foreground">{step.text}</p>
+                  </div>
+                </ScrollReveal>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="theme-void py-[var(--space-xl)]">
         <div className="container-editorial">
           <ScrollReveal>
-            <SectionLabel number="02" label={inner.glance} />
+            <SectionLabel number="03" label={inner.glance} />
           </ScrollReveal>
           <ul className="mt-8 grid gap-4 md:grid-cols-3" role="list">
             {about.meta.map((item, i) => (
@@ -64,10 +95,10 @@ export function AboutProfile() {
         </div>
       </section>
 
-      <section className="theme-void py-[var(--space-xl)]">
+      <section className="theme-frost py-[var(--space-xl)]">
         <div className="container-editorial">
           <ScrollReveal className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-            <SectionLabel number="03" label={inner.stack} />
+            <SectionLabel number="04" label={inner.stack} />
             <div>
               <h2 className="text-section font-display">{tech.headline}</h2>
               <p className="text-body mt-5 max-w-2xl text-muted-foreground">{tech.intro}</p>
@@ -97,10 +128,10 @@ export function AboutProfile() {
         </div>
       </section>
 
-      <section className="theme-frost py-[var(--space-xl)]">
+      <section className="theme-void py-[var(--space-xl)]">
         <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <ScrollReveal>
-            <SectionLabel number="04" label={exploring.sectionLabel} />
+            <SectionLabel number="05" label={exploring.sectionLabel} />
             <h2 className="text-section font-display mt-6">{exploring.heading}</h2>
             <p className="text-body mt-4 text-muted-foreground">{exploring.supporting}</p>
           </ScrollReveal>

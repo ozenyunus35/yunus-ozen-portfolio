@@ -115,7 +115,7 @@ export const dictionaryEn = {
 
   work: {
     sectionLabel: "Projects",
-    headline: "Digital products shaped by real needs.",
+    headline: "Products you can open and try today.",
     table: {
       no: "No.",
       project: "Project",
@@ -141,7 +141,7 @@ export const dictionaryEn = {
 
   tech: {
     sectionLabel: "Technology",
-    headline: "Engineering tools across my projects.",
+    headline: "The stack I ship with.",
     intro:
       "The tools I use to design, build and ship products, from the interface to the server and the release.",
     stackLabel: "Core stack",
@@ -241,6 +241,23 @@ export const dictionaryEn = {
     channels: "Channels",
     status: "Status",
     moreProjects: "More projects",
+    problem: "The problem",
+    approach: "The approach",
+    features: "What it does",
+    quality: "Testing and quality",
+    screens: "Screens",
+    viewGrid: "Grid",
+    viewList: "List",
+    byKind: "By kind",
+    compose: {
+      title: "Write to me",
+      name: "Your name",
+      topic: "Topic",
+      topics: ["A role I could fill", "A project", "Something else"],
+      message: "Message",
+      send: "Open in your email app",
+      note: "This opens your own email app with the message filled in. Nothing is sent from this page.",
+    },
   },
 
   openSource: {

@@ -2,7 +2,7 @@
 
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { SectionLabel } from "@/components/prism/SectionLabel";
-import { Avatar } from "@/components/ui/Avatar";
+import { Logo } from "@/components/ui/Logo";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 /** Ring sizes as a share of the orbit's width, and how long one turn takes. */
@@ -67,7 +67,7 @@ export function HomeTechMap() {
             <div className="orbit-core">
               <span className="orbit-halo" />
               <span className="orbit-halo orbit-halo-2" />
-              <Avatar size={84} className="orbit-mark" />
+              <Logo size={84} className="orbit-mark" />
               <span className="orbit-caption">{home.techCenter}</span>
             </div>
           </div>

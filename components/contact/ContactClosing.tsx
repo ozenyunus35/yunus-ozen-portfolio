@@ -10,6 +10,7 @@ import {
   Mail,
   type LucideIcon,
 } from "lucide-react";
+import { ComposeForm } from "@/components/contact/ComposeForm";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { MagneticLink } from "@/components/motion/MagneticLink";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -102,7 +103,20 @@ export function ContactClosing() {
         </div>
       </section>
 
-      <HomeFaq />
+      <section className="theme-void py-[var(--space-xl)]">
+        <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+          <ScrollReveal>
+            <SectionLabel number="02" label={dict.inner.compose.title} />
+          </ScrollReveal>
+          <ScrollReveal delay={0.06}>
+            <ComposeForm />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <div className="theme-frost">
+        <HomeFaq />
+      </div>
     </div>
   );
 }

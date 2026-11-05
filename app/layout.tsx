@@ -36,10 +36,10 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  // The profile photo is the site's mark, in the tab as well.
+  // The Y merge-graph mark from components/ui/Logo.tsx.
   icons: {
-    icon: [{ url: withBasePath("/images/avatar.jpg"), type: "image/jpeg" }],
-    apple: [{ url: withBasePath("/images/avatar.jpg") }],
+    icon: [{ url: withBasePath("/logo.svg"), type: "image/svg+xml" }],
+    apple: [{ url: withBasePath("/logo.svg") }],
   },
 };
 

@@ -115,7 +115,7 @@ export const dictionaryTr = {
 
   work: {
     sectionLabel: "Projeler",
-    headline: "Gerçek ihtiyaçlardan doğan dijital ürünler.",
+    headline: "Bugün açıp deneyebileceğiniz ürünler.",
     table: {
       no: "No.",
       project: "Proje",
@@ -141,7 +141,7 @@ export const dictionaryTr = {
 
   tech: {
     sectionLabel: "Teknoloji",
-    headline: "Projelerde kullandığım mühendislik araçları.",
+    headline: "Ürün çıkardığım teknolojiler.",
     intro:
       "Ürünleri tasarlamak, geliştirmek ve yayına almak için kullandığım araçlar: arayüzden sunucuya ve yayına kadar.",
     stackLabel: "Genel yığın",
@@ -241,6 +241,23 @@ export const dictionaryTr = {
     channels: "Kanallar",
     status: "Durum",
     moreProjects: "Diğer projeler",
+    problem: "Problem",
+    approach: "Yaklaşım",
+    features: "Neler yapıyor",
+    quality: "Test ve kalite",
+    screens: "Ekranlar",
+    viewGrid: "Izgara",
+    viewList: "Liste",
+    byKind: "Türe göre",
+    compose: {
+      title: "Bana yazın",
+      name: "Adınız",
+      topic: "Konu",
+      topics: ["Uygun olabileceğim bir rol", "Bir proje", "Başka bir konu"],
+      message: "Mesaj",
+      send: "E-posta uygulamanızda açın",
+      note: "Mesaj dolu olarak kendi e-posta uygulamanızda açılır. Bu sayfadan hiçbir şey gönderilmez.",
+    },
   },
 
   openSource: {

@@ -16,15 +16,15 @@
   --tier-slate: #efefea;
 
   --foreground: #161618;
-  --foreground-muted: #5b5b65;
-  --foreground-subtle: #8a8a94;
+  --foreground-muted: #55555f;
+  --foreground-subtle: #6b6b76;
 
   --accent: #5b5bd6;
   --accent-mid: #4a4ac6;
   --accent-light: #4747c2;
   --accent-hot: #2f7bf5;
   --accent-foreground: #ffffff;
-  --success: #0e8a5c;
+  --success: #0a7550;
 
   --line: rgb(22 22 30 / 0.08);
   --line-strong: rgb(22 22 30 / 0.15);
@@ -55,7 +55,7 @@
 
   --foreground: #ededf2;
   --foreground-muted: #9d9daf;
-  --foreground-subtle: #6f6f82;
+  --foreground-subtle: #8b8b9e;
 
   --accent: #7d7cf6;
   --accent-mid: #6c6bec;
@@ -471,8 +471,9 @@ body {
   left: var(--container-padding);
   z-index: 10000;
   padding: 0.75rem 1rem;
-  background: var(--accent);
-  color: #fff;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 999px;
   font-size: var(--text-small);
   text-decoration: none;
   transition: top var(--duration-micro) var(--ease-form);
@@ -1168,6 +1169,7 @@ a:hover > .avatar { transform: scale(1.06); box-shadow: 0 0 0 2px var(--accent-b
    INNER PAGES
    ═══════════════════════════════════════════════════════════════════ */
 .page-hero { background: var(--ink); border-bottom: 1px solid var(--line); }
+.page-hero > .container-editorial { min-height: min(78svh, 46rem); align-content: center; }
 .page-hero .text-display { --text-display: clamp(2.5rem, 5.6vw, 4.75rem); }
 .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; font-family: var(--font-jetbrains), monospace; font-size: 0.75rem; color: var(--foreground-subtle); }
 .crumbs li { display: inline-flex; align-items: center; gap: 0.375rem; }
@@ -1231,3 +1233,134 @@ a:hover > .avatar { transform: scale(1.06); box-shadow: 0 0 0 2px var(--accent-b
 .profile-status { position: absolute; left: 1rem; bottom: 1rem; z-index: 1; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.3125rem 0.75rem; border: 1px solid var(--line-strong); border-radius: 999px; background: color-mix(in srgb, var(--ink-soft) 80%, transparent); backdrop-filter: blur(10px); font-size: 0.8125rem; font-weight: 500; }
 .channel-card { display: flex; flex-direction: column; height: 100%; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--ink-soft); box-shadow: var(--shadow-card); transition: transform 500ms var(--ease-reveal), box-shadow 500ms var(--ease-reveal), border-color 300ms; }
 @media (hover: hover) { .channel-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-float); border-color: var(--accent-border); } }
+
+/* Case study: numbered features and a sideways gallery. */
+.feature-list { display: grid; gap: 0.75rem; }
+.feature-item { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; align-items: start; padding: 1.125rem 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--ink-soft); transition: border-color 300ms, transform 400ms var(--ease-reveal); }
+.feature-item:hover { border-color: var(--accent-border); transform: translateX(4px); }
+.feature-num { font-family: var(--font-jetbrains), monospace; font-size: 0.75rem; color: var(--accent-light); padding-top: 0.25rem; }
+.gallery {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--container-padding);
+  padding: 0.5rem var(--container-padding) 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.gallery-item { flex: none; width: min(52rem, 86vw); scroll-snap-align: start; }
+.gallery-phone { width: min(17rem, 62vw); }
+.gallery-frame { overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--radius-lg); background: var(--ink-muted); box-shadow: var(--shadow-float); }
+.gallery-frame img { display: block; width: 100%; height: auto; transition: transform 900ms var(--ease-reveal); }
+@media (hover: hover) { .gallery-item:hover .gallery-frame img { transform: scale(1.02); } }
+
+/* Light display weights read thin on a dark page; give them a little more body there. */
+[data-theme="dark"] .font-display, [data-theme="dark"] .text-display, [data-theme="dark"] .text-section, [data-theme="dark"] .text-hero, [data-theme="dark"] .text-project { font-weight: 350; }
+.scheme-dark .text-section { font-weight: 350; }
+.text-body { text-wrap: pretty; }
+
+/* Floating header: once the page scrolls, the bar shrinks into a pill. */
+.site-bar { transition: max-width 500ms var(--ease-reveal), margin 500ms var(--ease-reveal), padding 500ms var(--ease-reveal), background 300ms, border-color 300ms, box-shadow 400ms, border-radius 500ms var(--ease-reveal); border: 1px solid transparent; }
+.is-floating .site-bar {
+  max-width: 68rem;
+  margin-top: 0.625rem;
+  padding-inline: 0.75rem 0.5rem;
+  border-color: var(--line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink-soft) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: var(--shadow-float);
+}
+.nav-track { position: relative; }
+.nav-indicator { position: absolute; top: 50%; left: 0; height: 2.125rem; width: var(--w, 0); translate: var(--x, 0) -50%; border-radius: 999px; background: var(--tint-2); opacity: var(--o, 0); transition: translate 400ms var(--ease-reveal), width 400ms var(--ease-reveal), opacity 200ms; pointer-events: none; }
+.nav-track .nav-link { position: relative; z-index: 1; }
+.nav-track .nav-link::after { display: none; }
+
+/* Project index: flagship row, kind breakdown and the compact list. */
+.featured {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius-lg) + 8px);
+  background: var(--ink-soft);
+  box-shadow: var(--shadow-float);
+  transition: border-color 300ms, transform 500ms var(--ease-reveal);
+}
+@media (min-width: 1024px) { .featured { grid-template-columns: 1.15fr 0.85fr; } }
+.featured-media {
+  display: flex;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(ellipse 70% 70% at 85% 0%, var(--wash-a), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 0% 100%, var(--wash-b), transparent 70%),
+    var(--ink-muted);
+}
+.featured-media > * { transition: transform 900ms var(--ease-reveal); }
+@media (hover: hover) {
+  .featured:hover { border-color: var(--accent-border); }
+  .featured:hover .featured-media > * { transform: scale(1.025); }
+}
+.kind-row { display: grid; gap: 0.5rem; cursor: pointer; transition: background 200ms; }
+.kind-row:hover { background: var(--tint); }
+.project-table { border-top: 1px solid var(--line); }
+.project-row {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.125rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  transition: background 200ms, padding 300ms var(--ease-reveal);
+}
+@media (min-width: 640px) { .project-row { grid-template-columns: 2.5rem minmax(0, 1fr) 7rem auto; } }
+@media (min-width: 768px) { .project-row { grid-template-columns: 2.5rem minmax(0, 1fr) 16rem 7rem auto; } }
+@media (hover: hover) {
+  .project-row:hover { background: var(--tint); padding-left: 1.25rem; }
+  .project-row:hover .story-arrow { background: var(--foreground); color: var(--background); border-color: var(--foreground); transform: rotate(45deg); }
+}
+.timeline-year { margin: 0.75rem 0 0.875rem; font-family: var(--font-tight), var(--font-inter), sans-serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: -0.04em; color: var(--foreground-subtle); }
+
+/* Logo: lifts and redraws its line on hover. */
+.logo { flex: none; border-radius: 9px; box-shadow: 0 6px 16px -6px var(--accent-glow); transition: transform 400ms var(--ease-reveal); }
+.logo-path { stroke-dasharray: 30; stroke-dashoffset: 0; }
+a:hover > .logo { transform: rotate(-6deg) scale(1.06); }
+a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
+@keyframes logo-draw { from { stroke-dashoffset: 30; } }
+.orbit-mark.logo { width: clamp(3.5rem, 14cqw, 5.25rem); height: auto; border-radius: 22%; box-shadow: 0 0 0 4px var(--ink), 0 0 0 5px var(--accent-border), 0 12px 40px -10px var(--accent-glow); }
+
+/* About: a short vertical path. Contact: the compose form. */
+.path { position: relative; display: grid; gap: 0.75rem; padding-left: 1.5rem; }
+.path::before { content: ""; position: absolute; left: 0.3125rem; top: 0.75rem; bottom: 0.75rem; width: 1px; background: linear-gradient(var(--accent), var(--accent-hot) 60%, var(--line)); }
+.path-step { position: relative; padding: 1.125rem 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--ink-soft); }
+.path-step::before { content: ""; position: absolute; left: calc(-1.5rem + 0.3125rem - 4px); top: 1.5rem; width: 9px; height: 9px; border-radius: 999px; background: var(--ink); border: 2px solid var(--accent); }
+.compose { display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--ink-soft); box-shadow: var(--shadow-card); }
+.field { display: grid; gap: 0.5rem; border: 0; margin: 0; padding: 0; }
+.field input, .field textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ink);
+  color: var(--foreground);
+  font: inherit;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.field input:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-subtle); }
+.field textarea { resize: vertical; min-height: 8rem; }
+
+/* Scroll-linked motion, only where the browser ties animations to scroll and motion is welcome. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .detail-stage > *, .featured-media > *, .story-media > * {
+      animation: drift-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    .gallery-frame { animation: settle linear both; animation-timeline: view(inline); animation-range: entry 0% contain 30%; }
+    .stat-card, .os-card { animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+    @keyframes drift-up { from { translate: 0 28px; } to { translate: 0 -28px; } }
+    @keyframes settle { from { opacity: 0.4; scale: 0.94; } to { opacity: 1; scale: 1; } }
+    @keyframes rise-in { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+  }
+}

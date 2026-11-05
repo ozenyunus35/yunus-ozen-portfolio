@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 
 /** Shown for any address that does not exist. It sits outside the language routes, so it speaks both languages. */
 export default function NotFound() {
@@ -10,6 +11,7 @@ export default function NotFound() {
       </div>
       <div className="hero-grid-fade absolute inset-0 -z-10" aria-hidden />
       <div className="container-editorial">
+        <Logo size={44} className="mb-8" />
         <p className="text-mono text-muted-foreground">
           <span className="text-[var(--accent-light)]">404</span> · GET {"/…"} → not found
         </p>

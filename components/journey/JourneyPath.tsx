@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowUpRight, ExternalLink, Trophy } from "lucide-react";
+import { ExternalLink, Trophy } from "lucide-react";
 import { HomeCta } from "@/components/home/HomeCta";
 import { InteractiveTimeline } from "@/components/journey/InteractiveTimeline";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -58,24 +57,6 @@ export function JourneyPath() {
           </ScrollReveal>
           <ScrollReveal delay={0.06}>
             <InteractiveTimeline milestones={journey.milestones} types={journey.types} allLabel={dict.common.all} path={path} />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="theme-void py-[var(--space-lg)]">
-        <div className="container-editorial">
-          <ScrollReveal>
-            <SectionLabel number="02" label={dict.common.relatedWork} />
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {journey.milestones
-                .filter((m): m is typeof m & { href: string } => m.type === "project" && "href" in m && !!m.href)
-                .map((m) => (
-                  <Link key={m.id} href={path(m.href)} className="btn-ghost" data-cursor="project">
-                    {m.title}
-                    <ArrowUpRight size={14} />
-                  </Link>
-                ))}
-            </div>
           </ScrollReveal>
         </div>
       </section>

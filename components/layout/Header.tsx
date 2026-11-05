@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 import { openCommandMenu } from "@/components/layout/CommandMenu";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
-import { Avatar } from "@/components/ui/Avatar";
+import { Logo } from "@/components/ui/Logo";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { cn } from "@/lib/utils/cn";
 
@@ -34,6 +34,22 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  const navRef = useRef<HTMLElement>(null);
+  /** Moves the pill behind the nav to a link, or to the current page's link, or hides it. */
+  const pointAt = useCallback((el: HTMLElement | null) => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const target = el ?? nav.querySelector<HTMLElement>('[aria-current="page"]');
+    nav.style.setProperty("--o", target ? "1" : "0");
+    if (!target) return;
+    nav.style.setProperty("--x", `${target.offsetLeft}px`);
+    nav.style.setProperty("--w", `${target.offsetWidth}px`);
+  }, []);
+
+  useEffect(() => {
+    pointAt(null);
+  }, [pathname, pointAt]);
+
   const isActive = (href: string) => {
     const target = path(href).replace(/\/$/, "");
     const current = pathname.replace(/\/$/, "");
@@ -43,26 +59,28 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled || open
-          ? "border-[var(--line)] bg-[color-mix(in_srgb,var(--ink)_78%,transparent)] backdrop-blur-xl backdrop-saturate-150"
-          : "border-transparent bg-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color] duration-300",
+        open && "border-[var(--line)] bg-[var(--ink)]",
+        scrolled && !open && "is-floating",
       )}
     >
-      <div className="container-editorial flex h-16 items-center justify-between gap-6">
+      <div className="container-editorial site-bar flex h-16 items-center justify-between gap-6">
         <Link href={path("/")} className="group -my-2 flex items-center gap-2.5 py-3" aria-label={`${dict.site.name} — Home`}>
-          <Avatar size={30} />
+          <Logo size={30} />
           <span className="hidden text-[0.9375rem] font-medium tracking-tight text-foreground sm:inline">
             {dict.site.name}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+        <nav ref={navRef} className="nav-track hidden items-center gap-1 md:flex" aria-label="Main navigation" onMouseLeave={() => pointAt(null)}>
+          <span className="nav-indicator" aria-hidden />
           {dict.nav.map((item) => (
             <Link
               key={item.href}
               href={path(item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
+              onMouseEnter={(e) => pointAt(e.currentTarget)}
+              onFocus={(e) => pointAt(e.currentTarget)}
               className={cn(
                 "nav-link rounded-full px-3.5 py-2 text-[0.875rem] transition-colors",
                 isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",

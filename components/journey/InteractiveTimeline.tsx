@@ -17,6 +17,12 @@ type InteractiveTimelineProps = {
   path: (href: string) => string;
 };
 
+/** The year a milestone belongs to: the last year in its period, or none for an ongoing one. */
+function yearOf(period: string) {
+  const years = period.match(/\d{4}/g);
+  return years ? years[years.length - 1] : null;
+}
+
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
 }
@@ -102,6 +108,8 @@ export function InteractiveTimeline({
               const selected = milestone.id === highlightedId;
               const href = "href" in milestone ? milestone.href : undefined;
               const external = href ? isExternalHref(href) : false;
+              const year = yearOf(milestone.period);
+              const showYear = year !== null && (i === 0 || yearOf(visible[i - 1].period) !== year);
 
               return (
                 <motion.li
@@ -127,6 +135,8 @@ export function InteractiveTimeline({
                     />
                   </div>
 
+                  <div className="min-w-0">
+                  {showYear && <p className="timeline-year">{year}</p>}
                   <div
                     onMouseEnter={() => setActiveId(milestone.id)}
                     className={cn(
@@ -170,6 +180,7 @@ export function InteractiveTimeline({
                     <p className="text-body mt-3 max-w-prose text-muted-foreground">
                       {milestone.description}
                     </p>
+                  </div>
                   </div>
                 </motion.li>
               );

@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Code2, FileText } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Code2, FileText } from "lucide-react";
 import { HomeCta } from "@/components/home/HomeCta";
 import { AtlasDemo, RelayDemo, ScraperDemo, TallyDemo } from "@/components/live/demos";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { SectionLabel } from "@/components/prism/SectionLabel";
 import { PageHero } from "@/components/ui/PageHero";
 import { ProjectVisual } from "@/components/work/ProjectVisual";
+import { withBasePath } from "@/lib/data/base-path";
+import { caseStudy } from "@/lib/data/case-studies";
 import { PROJECT_MEDIA } from "@/lib/data/project-media";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
@@ -29,8 +32,9 @@ const host = (url: string) => {
 };
 
 export function ProjectDetail({ slug }: { slug: string }) {
-  const { dict, path } = useI18n();
+  const { dict, path, locale } = useI18n();
   const { inner } = dict;
+  const study = caseStudy(slug, locale);
   const projects = dict.projects;
   const index = projects.findIndex((p) => p.slug === slug);
   const project = projects[index];
@@ -133,13 +137,102 @@ export function ProjectDetail({ slug }: { slug: string }) {
             </div>
           </ScrollReveal>
         </div>
+
+        {study && (
+          <div className="container-editorial mt-[var(--space-lg)] grid gap-4 md:grid-cols-2">
+            {[
+              { label: inner.problem, text: study.problem, n: "A" },
+              { label: inner.approach, text: study.approach, n: "B" },
+            ].map((block, i) => (
+              <ScrollReveal key={block.label} delay={i * 0.06} className="h-full">
+                <div className="stat-card">
+                  <p className="spec-label flex items-center gap-2">
+                    <span className="text-[var(--accent-light)]">{block.n}</span>
+                    {block.label}
+                  </p>
+                  <p className="text-body mt-4 text-muted-foreground">{block.text}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        )}
       </section>
 
-      {demo && (
+      {study && (
         <section className="theme-frost py-[var(--space-xl)]">
+          <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+            <ScrollReveal>
+              <div className="lg:sticky lg:top-28">
+                <SectionLabel number="02" label={inner.features} />
+              </div>
+            </ScrollReveal>
+            <ol className="feature-list" role="list">
+              {study.features.map((f, i) => (
+                <li key={f}>
+                  <ScrollReveal delay={Math.min(i, 3) * 0.04}>
+                    <div className="feature-item">
+                      <span className="feature-num">{String(i + 1).padStart(2, "0")}</span>
+                      <p className="text-body">{f}</p>
+                    </div>
+                  </ScrollReveal>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {study && study.gallery.length > 0 && (
+        <section className="theme-void overflow-hidden py-[var(--space-xl)]">
+          <div className="container-editorial">
+            <ScrollReveal>
+              <SectionLabel number="03" label={inner.screens} />
+            </ScrollReveal>
+          </div>
+          <ul className="gallery mt-8" role="list">
+            {study.gallery.map((img) => (
+              <li key={img.src} className={img.phone ? "gallery-item gallery-phone" : "gallery-item"}>
+                <figure>
+                  <div className="gallery-frame">
+                    <Image src={withBasePath(img.src)} alt={img.caption} width={img.w} height={img.h} sizes={img.phone ? "18rem" : "(min-width: 1024px) 52rem, 88vw"} loading="lazy" />
+                  </div>
+                  <figcaption className="text-small mt-3 text-muted-foreground">{img.caption}</figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {study && (
+        <section className="theme-frost py-[var(--space-lg)]">
+          <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+            <ScrollReveal>
+              <SectionLabel number="04" label={inner.quality} />
+            </ScrollReveal>
+            <ul className="grid gap-3" role="list">
+              {study.quality.map((q) => (
+                <li key={q}>
+                  <ScrollReveal>
+                    <p className="flex gap-3 text-body">
+                      <span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-[color-mix(in_srgb,var(--success)_15%,transparent)] text-[var(--success)]">
+                        <Check size={12} aria-hidden />
+                      </span>
+                      {q}
+                    </p>
+                  </ScrollReveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {demo && (
+        <section className="theme-void py-[var(--space-xl)]">
           <div className="container-editorial grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             <ScrollReveal>
-              <SectionLabel number="02" label={inner.seeItWork} />
+              <SectionLabel number={study ? "05" : "02"} label={inner.seeItWork} />
               <h2 className="text-section font-display mt-6">{dict.live.cards[demo.key].title}</h2>
               <p className="text-body mt-5 max-w-md text-muted-foreground">{dict.live.cards[demo.key].caption}</p>
               <p className="text-small mt-6 text-muted-foreground">{dict.live.note}</p>
