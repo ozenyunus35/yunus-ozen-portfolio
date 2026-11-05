@@ -1,80 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { SectionChapter } from "@/components/axis/SectionChapter";
-import { HoverTilt } from "@/components/motion/HoverTilt";
-import { PageAmbientField } from "@/components/motion/PageAmbientField";
-import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { ArrowUpRight, ExternalLink, Trophy } from "lucide-react";
+import { HomeCta } from "@/components/home/HomeCta";
 import { InteractiveTimeline } from "@/components/journey/InteractiveTimeline";
-import { PageHeader } from "@/components/ui/PageHeader";
-import { useI18n } from "@/lib/i18n/I18nProvider";
+import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { SectionLabel } from "@/components/prism/SectionLabel";
+import { PageHero } from "@/components/ui/PageHero";
 import { isNasaGithubConfigured } from "@/lib/data/nasa";
+import { useI18n } from "@/lib/i18n/I18nProvider";
+
+const NASA_REPO = "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT";
 
 export function JourneyPath() {
   const { dict, path } = useI18n();
-  const { journey, nasa } = dict;
+  const { journey, nasa, inner } = dict;
+
+  const highlight = (
+    <aside className="profile-card p-6 sm:p-8">
+      <div className="flex items-center justify-between gap-4">
+        <span className="grid size-11 place-items-center rounded-xl border border-[var(--accent-border)] bg-[var(--accent-subtle)] text-[var(--accent-light)]">
+          <Trophy size={20} aria-hidden />
+        </span>
+        <span className="text-mono text-[0.6875rem] uppercase tracking-[0.06em] text-muted-foreground">{inner.highlight}</span>
+      </div>
+      <h2 className="text-h1 mt-6">{nasa.title}</h2>
+      <p className="text-mono mt-2 text-[0.6875rem] uppercase tracking-[0.06em] text-[var(--accent-light)]">
+        {nasa.year} · {nasa.location}
+      </p>
+      <p className="text-small mt-4 text-muted-foreground">{nasa.description}</p>
+      {isNasaGithubConfigured(NASA_REPO) && (
+        <a href={NASA_REPO} target="_blank" rel="noopener noreferrer" className="btn-ghost mt-6 h-9 px-4 text-[0.8125rem]" data-cursor="external">
+          {nasa.githubLinkLabel}
+          <ExternalLink size={13} aria-hidden />
+        </a>
+      )}
+    </aside>
+  );
 
   return (
     <div>
-      <SectionChapter theme="void" className="relative overflow-hidden pt-16 pb-[var(--space-lg)]">
-        <PageAmbientField />
-        <div className="container-editorial relative py-[var(--space-md)]">
-          <PageHeader
-            label={journey.sectionLabel}
-            title={journey.headline[0]}
-            titleMuted={`${journey.headline[1]} ${journey.headline[2]}`}
-            description={journey.intro}
-          />
-        </div>
-      </SectionChapter>
+      <PageHero
+        crumbs={[{ label: journey.sectionLabel.toLowerCase() }]}
+        title={`${journey.headline[0]} ${journey.headline[1]}`}
+        accent={journey.headline[2]}
+        description={journey.intro}
+        aside={highlight}
+      />
 
-      <SectionChapter theme="frost" className="py-[var(--space-xl)]">
-        <div className="container-editorial editorial-grid">
-          <div className="col-span-12 lg:col-span-7">
-            <ScrollReveal>
-              <InteractiveTimeline
-                milestones={journey.milestones}
-                types={journey.types}
-                allLabel={dict.common.all}
-                path={path}
-              />
-            </ScrollReveal>
-          </div>
-          <div className="col-span-12 mt-14 lg:col-span-4 lg:col-start-9 lg:mt-0">
-            <ScrollReveal delay={0.1}>
-              <HoverTilt maxTilt={5}>
-                <aside className="pro-panel p-8">
-                  <p className="text-meta text-muted-foreground">{nasa.sectionLabel}</p>
-                  <h2 className="text-h1 mt-4">{nasa.title}</h2>
-                  <p className="text-meta mt-2 text-muted-foreground">
-                    {nasa.year} · {nasa.location}
-                  </p>
-                  <p className="text-body mt-5 text-muted-foreground">{nasa.description}</p>
-                  {isNasaGithubConfigured("https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT") && (
-                    <a
-                      href="https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-form text-meta mt-6 inline-flex text-[var(--accent)]"
-                      data-cursor="external"
-                    >
-                      {nasa.githubLinkLabel}
-                      <ExternalLink size={12} />
-                    </a>
-                  )}
-                </aside>
-              </HoverTilt>
-            </ScrollReveal>
-          </div>
+      <section className="theme-frost py-[var(--space-xl)]">
+        <div className="container-editorial grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+          <ScrollReveal>
+            <div className="lg:sticky lg:top-28">
+              <SectionLabel number="01" label={inner.milestones} />
+              <p className="text-display font-display mt-6 tabular-nums">{journey.milestones.length}</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.06}>
+            <InteractiveTimeline milestones={journey.milestones} types={journey.types} allLabel={dict.common.all} path={path} />
+          </ScrollReveal>
         </div>
-      </SectionChapter>
+      </section>
 
-      <SectionChapter theme="void" className="py-[var(--space-lg)]">
+      <section className="theme-void py-[var(--space-lg)]">
         <div className="container-editorial">
           <ScrollReveal>
-            <p className="text-meta text-muted-foreground">{dict.common.relatedWork}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <SectionLabel number="02" label={dict.common.relatedWork} />
+            <div className="mt-6 flex flex-wrap gap-2.5">
               {journey.milestones
                 .filter((m): m is typeof m & { href: string } => m.type === "project" && "href" in m && !!m.href)
                 .map((m) => (
@@ -86,7 +78,9 @@ export function JourneyPath() {
             </div>
           </ScrollReveal>
         </div>
-      </SectionChapter>
+      </section>
+
+      <HomeCta />
     </div>
   );
 }

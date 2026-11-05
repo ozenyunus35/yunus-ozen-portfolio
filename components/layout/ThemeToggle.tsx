@@ -23,6 +23,15 @@ function apply(theme: Theme) {
   root().style.colorScheme = theme;
 }
 
+/** Flips the theme and saves the choice, without the circle animation. */
+export function switchTheme() {
+  const next: Theme = read() === "dark" ? "light" : "dark";
+  try {
+    localStorage.setItem(KEY, next);
+  } catch {}
+  apply(next);
+}
+
 /** The current theme, kept in sync with the <html> attribute. */
 export function useTheme(): Theme {
   return useSyncExternalStore(subscribe, read, () => "light");

@@ -99,6 +99,7 @@ export const dictionaryEn = {
     copyEmail: "Copy email address",
     copied: "Email address copied",
     switchLanguage: "Türkçe'ye geç",
+    theme: "Switch light / dark theme",
     navigate: "move",
     select: "open",
     groups: { pages: "Pages", projects: "Projects", actions: "Actions", links: "Links" },
@@ -227,6 +228,21 @@ export const dictionaryEn = {
     },
   },
 
+  inner: {
+    overview: "Overview",
+    details: "Details",
+    links: "Links",
+    seeItWork: "See it working",
+    glance: "At a glance",
+    story: "Story",
+    stack: "Stack",
+    milestones: "Milestones",
+    highlight: "Highlight",
+    channels: "Channels",
+    status: "Status",
+    moreProjects: "More projects",
+  },
+
   openSource: {
     sectionLabel: "Open Source",
     headline: "Code merged into projects other teams depend on.",
@@ -272,22 +288,22 @@ export const dictionaryEn = {
 
   exploring: {
     sectionLabel: "Currently Exploring",
-    heading: "AREAS OF INTEREST",
+    heading: "Areas of interest",
     supporting: "What I am learning and building next.",
     statusLearning: "Learning",
     statusDeveloping: "Developing",
     areas: [
-      { label: "AI AGENTS", status: "Developing" as const },
-      { label: "RETRIEVAL (RAG)", status: "Developing" as const },
-      { label: "LLM EVALUATION", status: "Learning" as const },
-      { label: "PRODUCT ANALYTICS", status: "Learning" as const },
-      { label: "PROCESS AUTOMATION", status: "Developing" as const },
+      { label: "AI agents", status: "Developing" as const },
+      { label: "Retrieval (RAG)", status: "Developing" as const },
+      { label: "LLM evaluation", status: "Learning" as const },
+      { label: "Product analytics", status: "Learning" as const },
+      { label: "Process automation", status: "Developing" as const },
     ],
   },
 
   contact: {
     sectionLabel: "Contact",
-    headline: ["CONTACT", "DETAILS."],
+    headline: ["Let's", "talk."],
     intro:
       "Open to Software, AI and Product Engineer roles, remote, hybrid or on-site, and open to relocating to the US, Europe, the Gulf or elsewhere. The fastest way to reach me is email or LinkedIn.",
     actions: {

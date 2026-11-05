@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { withBasePath } from "@/lib/data/base-path";
 import { getSiteUrl } from "@/lib/data/site-url";
 import "./globals.css";
 
@@ -35,6 +36,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
+  // The profile photo is the site's mark, in the tab as well.
+  icons: {
+    icon: [{ url: withBasePath("/images/avatar.jpg"), type: "image/jpeg" }],
+    apple: [{ url: withBasePath("/images/avatar.jpg") }],
+  },
 };
 
 export const viewport: Viewport = {

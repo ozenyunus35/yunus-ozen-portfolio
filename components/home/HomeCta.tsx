@@ -6,12 +6,12 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 /** Closing band: one sentence and the two fastest ways to get in touch. */
-export function HomeCta() {
+export function HomeCta({ tier = "theme-void" }: { tier?: string }) {
   const { dict, path } = useI18n();
   const { cta } = dict.home;
 
   return (
-    <section className="theme-void pb-[var(--space-xl)]">
+    <section className={`${tier} pb-[var(--space-xl)]`}>
       <div className="container-editorial">
         <ScrollReveal>
           <div className="cta-band">

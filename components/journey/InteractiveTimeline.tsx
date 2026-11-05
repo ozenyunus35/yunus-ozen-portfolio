@@ -71,7 +71,7 @@ export function InteractiveTimeline({
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label={allLabel}>
+      <div className="seg" role="tablist" aria-label={allLabel}>
         {filters.map((item) => (
           <button
             key={item.id}
@@ -79,22 +79,17 @@ export function InteractiveTimeline({
             role="tab"
             aria-selected={filter === item.id}
             onClick={() => setFilter(item.id)}
-            className={cn(
-              "tag min-h-10 transition-colors duration-300 md:min-h-0",
-              filter === item.id
-                ? "border-[var(--accent)] bg-[var(--accent-subtle)] text-[var(--accent-light)]"
-                : "hover:border-[var(--accent-border)] hover:text-foreground",
-            )}
+            className="seg-btn"
           >
             {item.label}
           </button>
         ))}
       </div>
 
-      <div className="relative mt-10">
-        <div className="absolute left-[5px] top-2 bottom-2 w-px bg-[var(--line)]" aria-hidden="true" />
+      <div className="relative mt-8">
+        <div className="absolute left-[7px] top-2 bottom-2 w-px bg-[var(--line-strong)]" aria-hidden="true" />
         <motion.div
-          className="absolute left-[5px] top-2 w-px origin-top bg-[var(--accent)]"
+          className="absolute left-[7px] top-2 w-[2px] -translate-x-[0.5px] origin-top bg-gradient-to-b from-[var(--accent)] to-[var(--accent-hot)]"
           aria-hidden="true"
           animate={{ scaleY: progress }}
           transition={{ duration: reducedMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -119,15 +114,15 @@ export function InteractiveTimeline({
                   animate={{ opacity: 1, y: 0 }}
                   exit={reducedMotion ? undefined : { opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, delay: i * 0.04 }}
-                  className="relative grid grid-cols-[12px_1fr] gap-x-8 py-8 first:pt-0 last:pb-0"
+                  className="relative grid grid-cols-[16px_1fr] gap-x-6 py-3 sm:gap-x-8"
                 >
-                  <div className="relative flex justify-center pt-2">
+                  <div className="relative flex justify-center pt-6">
                     <span
                       className={cn(
-                        "relative z-10 block h-[9px] w-[9px] rounded-full border transition-colors duration-300",
-                        selected || milestone.type === "project"
-                          ? "border-[var(--accent)] bg-[var(--accent)]"
-                          : "border-[var(--line-strong)] bg-[var(--ink-muted)]",
+                        "relative z-10 block size-[15px] rounded-full border-2 transition-all duration-300",
+                        selected
+                          ? "border-[var(--accent)] bg-[var(--ink-soft)] shadow-[0_0_0_4px_var(--accent-subtle)]"
+                          : "border-[var(--line-strong)] bg-[var(--ink-soft)]",
                       )}
                     />
                   </div>
@@ -135,16 +130,16 @@ export function InteractiveTimeline({
                   <div
                     onMouseEnter={() => setActiveId(milestone.id)}
                     className={cn(
-                      "w-full rounded-[var(--radius-md)] border p-5 text-left transition-colors duration-300",
+                      "w-full rounded-[var(--radius-lg)] border p-5 text-left transition-all duration-300 sm:p-6",
                       selected
-                        ? "border-[var(--accent-border)] bg-[var(--accent-subtle)]"
-                        : "border-transparent hover:border-[var(--line-strong)] hover:bg-[var(--ink-soft)]",
+                        ? "border-[var(--accent-border)] bg-[var(--ink-soft)] shadow-[var(--shadow-float)]"
+                        : "border-[var(--line)] bg-[color-mix(in_srgb,var(--ink-soft)_55%,transparent)] hover:border-[var(--line-strong)]",
                     )}
                   >
                     <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                      <span className="text-meta text-muted-foreground">{milestone.period}</span>
+                      <span className="text-mono text-[0.6875rem] uppercase tracking-[0.06em] text-[var(--accent-light)]">{milestone.period}</span>
                       {milestone.context && (
-                        <span className="text-meta text-muted-foreground/70">{milestone.context}</span>
+                        <span className="text-mono text-[0.6875rem] uppercase tracking-[0.06em] text-muted-foreground">{milestone.context}</span>
                       )}
                     </div>
 

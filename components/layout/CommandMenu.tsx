@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, Code2, Copy, CornerDownLeft, Download, ExternalLink, FileText, Globe, Search } from "lucide-react";
+import { ArrowRight, Code2, Copy, CornerDownLeft, Download, ExternalLink, FileText, Globe, Search, SunMoon } from "lucide-react";
+import { switchTheme } from "@/components/layout/ThemeToggle";
 import type { LucideIcon } from "lucide-react";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { switchLocalePath } from "@/lib/i18n/paths";
@@ -143,6 +144,17 @@ export function CommandMenu() {
           }]
         : []),
       {
+        id: "theme",
+        group: t.groups.actions,
+        label: t.theme,
+        keywords: "theme tema dark light koyu acik",
+        icon: SunMoon,
+        run: () => {
+          switchTheme();
+          close();
+        },
+      },
+      {
         id: "language",
         group: t.groups.actions,
         label: t.switchLanguage,
@@ -200,7 +212,7 @@ export function CommandMenu() {
         role="dialog"
         aria-modal="true"
         aria-label={t.open}
-        className="cmdk-panel w-full max-w-lg overflow-hidden rounded-[var(--radius-md)] border border-[var(--line-strong)] bg-[var(--ink-soft)] shadow-[0_30px_80px_-20px_rgb(0_0_0/0.8)]"
+        className="cmdk-panel w-full max-w-lg overflow-hidden rounded-[var(--radius-lg)] border border-[var(--line-strong)] bg-[var(--ink-soft)] shadow-[var(--shadow-float)]"
         onMouseDown={(event) => event.stopPropagation()}
         onKeyDown={onKeyDown}
       >
@@ -222,7 +234,7 @@ export function CommandMenu() {
             autoComplete="off"
             spellCheck={false}
           />
-          <kbd className="text-meta shrink-0 rounded-sm border border-[var(--line-strong)] px-1.5 py-0.5 text-muted-foreground">esc</kbd>
+          <kbd className="text-mono shrink-0 rounded-md border border-[var(--line-strong)] bg-[var(--tint)] px-1.5 py-0.5 text-[0.6875rem] text-muted-foreground">esc</kbd>
         </div>
 
         {notice ? (
@@ -248,8 +260,8 @@ export function CommandMenu() {
                     onMouseMove={() => i !== current && setActive(i)}
                     onClick={item.run}
                     className={cn(
-                      "flex min-h-11 cursor-pointer items-center gap-3 rounded-sm px-3 py-2.5 transition-colors duration-100",
-                      i === current ? "bg-[var(--accent-subtle)] text-foreground" : "text-muted-foreground",
+                      "flex min-h-11 cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 transition-colors duration-100",
+                      i === current ? "bg-[var(--tint-2)] text-foreground" : "text-muted-foreground",
                     )}
                   >
                     <Icon size={15} className={cn("shrink-0", i === current && "text-[var(--accent-light)]")} aria-hidden />

@@ -99,6 +99,7 @@ export const dictionaryTr = {
     copyEmail: "E-posta adresini kopyala",
     copied: "E-posta adresi kopyalandı",
     switchLanguage: "Switch to English",
+    theme: "Açık / koyu temaya geç",
     navigate: "gezin",
     select: "aç",
     groups: { pages: "Sayfalar", projects: "Projeler", actions: "İşlemler", links: "Bağlantılar" },
@@ -227,6 +228,21 @@ export const dictionaryTr = {
     },
   },
 
+  inner: {
+    overview: "Genel bakış",
+    details: "Detaylar",
+    links: "Bağlantılar",
+    seeItWork: "Çalışırken görün",
+    glance: "Kısaca",
+    story: "Hikâye",
+    stack: "Teknolojiler",
+    milestones: "Dönüm noktaları",
+    highlight: "Öne çıkan",
+    channels: "Kanallar",
+    status: "Durum",
+    moreProjects: "Diğer projeler",
+  },
+
   openSource: {
     sectionLabel: "Açık Kaynak",
     headline: "Başka ekiplerin kullandığı projelere merge edilen kod.",
@@ -272,22 +288,22 @@ export const dictionaryTr = {
 
   exploring: {
     sectionLabel: "Şu An Keşfettiklerim",
-    heading: "İLGİ ALANLARIM",
+    heading: "İlgi alanlarım",
     supporting: "Şu an öğrendiğim ve geliştirdiğim konular.",
     statusLearning: "Öğreniyorum",
     statusDeveloping: "Geliştiriyorum",
     areas: [
-      { label: "YAPAY ZEKÂ AJANLARI", status: "Developing" as const },
-      { label: "RETRIEVAL (RAG)", status: "Developing" as const },
-      { label: "LLM DEĞERLENDİRME", status: "Learning" as const },
-      { label: "ÜRÜN ANALİTİĞİ", status: "Learning" as const },
-      { label: "SÜREÇ OTOMASYONU", status: "Developing" as const },
+      { label: "Yapay zekâ ajanları", status: "Developing" as const },
+      { label: "Retrieval (RAG)", status: "Developing" as const },
+      { label: "LLM değerlendirme", status: "Learning" as const },
+      { label: "Ürün analitiği", status: "Learning" as const },
+      { label: "Süreç otomasyonu", status: "Developing" as const },
     ],
   },
 
   contact: {
     sectionLabel: "İletişim",
-    headline: ["İLETİŞİM", "BİLGİLERİ."],
+    headline: ["Hadi", "konuşalım."],
     intro:
       "Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste. ABD, Avrupa, Körfez ülkeleri veya başka bir ülkeye taşınmaya da açığım. En hızlı ulaşım e-posta veya LinkedIn.",
     actions: {
