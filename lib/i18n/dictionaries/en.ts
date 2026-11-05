@@ -57,13 +57,13 @@ export const dictionaryEn = {
 
   site: {
     name: "Yunus Ozen",
-    title: "Yunus Ozen — AI Product Engineer",
+    title: "Yunus Ozen — Software Engineer",
     description:
-      "AI Product Engineer and final-year Software Engineering student. Products I have designed and built, from the first idea to a live release. Based in İzmir, Türkiye.",
+      "Software engineer and AI Product Engineer, final-year Software Engineering student. Products I have designed and built, from the first idea to a live release. Based in İzmir, Türkiye.",
     url: getSiteUrl(),
     locale: "en_US",
     location: "İzmir, Türkiye",
-    role: "AI Product Engineer · Full-Stack",
+    role: "Software Engineer · AI Product Engineer",
     focus: ["Product Engineering", "Full-Stack Development", "AI Tools"],
     initials: "YÖ",
     portfolioYear: "2026",
@@ -108,7 +108,7 @@ export const dictionaryEn = {
     tagline:
       "I build products from the first idea to a live release: requirements, user flows, UI and code.",
     supporting:
-      "AI Product Engineer and final-year Software Engineering student at Fırat University. Open to Software, AI and Product Engineer roles, remote, hybrid or on-site.",
+      "Software engineer and final-year Software Engineering student at Fırat University, building full-stack and AI products. Open to Software, AI and Product Engineer roles, remote, hybrid or on-site.",
     viewWork: "View Projects",
   },
 
@@ -194,8 +194,10 @@ export const dictionaryEn = {
   },
 
   home: {
-    headline: { lead: "Products that work, from the first idea to a", accent: "live", tail: "release." },
+    headline: { lead: "Software engineer taking products from idea to", accent: "production.", tail: "" },
     marqueeLabel: "Code merged into",
+    status: "Open to new roles",
+    education: "B.Sc. Software Engineering · Fırat University · 2027",
     statsLabel: "In numbers",
     statsNotes: {
       merged: "Reviewed and merged by the maintainers of public projects.",
@@ -605,9 +607,9 @@ export const dictionaryEn = {
 
   pages: {
     home: {
-      title: "Yunus Ozen — AI Product Engineer",
+      title: "Yunus Ozen — Software Engineer",
       description:
-        "AI Product Engineer and Software Engineering student. Projects in logistics, AI support, booking and business tools.",
+        "Software engineer and AI Product Engineer. Projects in logistics, AI support, booking and business tools.",
     },
     work: {
       title: "Projects",

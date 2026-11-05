@@ -38,7 +38,7 @@ export function HomeProcess() {
     <SectionChapter theme="void" id="process" className="py-[var(--space-xl)]">
       <div className="container-editorial">
         <ScrollReveal>
-          <SectionLabel label={process.sectionLabel} />
+          <SectionLabel number="02" label={process.sectionLabel} />
           <h2 className="text-section font-display mt-6 max-w-2xl">{process.headline}</h2>
         </ScrollReveal>
 

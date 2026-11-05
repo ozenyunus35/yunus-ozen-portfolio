@@ -7,7 +7,7 @@ type Dot = { sx: number; sy: number; hx: number; hy: number; r: number; a: numbe
 const gauss = () => (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
 
 /**
- * Hero opening: dots burst out from behind the headline and settle into two soft clouds at the left and right edges,
+ * Hero opening: dots burst out from the middle and settle into a cloud at the right edge and a thin one at the left,
  * leaving the text clear. The cursor pushes dots aside. Colours come from the theme (--dot-a/b/c) and follow a theme
  * switch. It pauses off screen, and with reduced motion it draws the settled field once, without movement.
  */
@@ -43,9 +43,9 @@ export function ParticleOpening() {
       const count = Math.min(2200, Math.round((w * h) / (narrow ? 1700 : 820)));
       dots = [];
       while (dots.length < count) {
-        // Distance from the nearer edge, mostly small: two clouds that thin out towards the middle. The right one is fuller.
-        const right = Math.random() < 0.62;
-        const d = Math.abs(gauss()) * (narrow ? 0.2 : 0.3);
+        // Distance from the nearer edge, mostly small: a full cloud on the right, behind the card, and a thin one on the left.
+        const right = Math.random() < 0.86;
+        const d = Math.abs(gauss()) * (narrow ? 0.2 : right ? 0.3 : 0.1);
         if (d > 0.48) continue;
         const hx = (right ? 1 - d : d) * w;
         const hy = h * (right ? 0.45 : 0.6) + gauss() * h * 0.42;

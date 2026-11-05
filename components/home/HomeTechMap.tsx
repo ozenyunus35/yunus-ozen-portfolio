@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { SectionLabel } from "@/components/prism/SectionLabel";
+import { Avatar } from "@/components/ui/Avatar";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 
 /** Ring sizes as a share of the orbit's width, and how long one turn takes. */
@@ -17,13 +18,13 @@ const RINGS = [
  */
 export function HomeTechMap() {
   const { dict } = useI18n();
-  const { tech, home, site } = dict;
+  const { tech, home } = dict;
 
   return (
     <section id="tech" className="theme-void overflow-hidden py-[var(--space-xl)]">
       <div className="container-editorial grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <ScrollReveal>
-          <SectionLabel label={tech.sectionLabel} />
+          <SectionLabel number="04" label={tech.sectionLabel} />
           <h2 className="text-section font-display mt-6 max-w-xl">{tech.headline}</h2>
           <p className="text-body mt-5 max-w-lg text-muted-foreground">{tech.intro}</p>
           <ul className="mt-10 space-y-5" role="list">
@@ -66,7 +67,7 @@ export function HomeTechMap() {
             <div className="orbit-core">
               <span className="orbit-halo" />
               <span className="orbit-halo orbit-halo-2" />
-              <span className="brand-mark orbit-mark">{site.initials}</span>
+              <Avatar size={84} className="orbit-mark" />
               <span className="orbit-caption">{home.techCenter}</span>
             </div>
           </div>

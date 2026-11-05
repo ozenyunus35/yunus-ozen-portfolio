@@ -25,7 +25,7 @@ export function HomeProjects() {
       <div className="container-editorial">
         <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel label={work.sectionLabel} />
+            <SectionLabel number="03" label={work.sectionLabel} />
             <h2 className="text-section font-display mt-6 max-w-2xl">{work.headline}</h2>
           </div>
           <Link href={path("/work")} className="btn-ghost">

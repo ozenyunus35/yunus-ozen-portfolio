@@ -57,13 +57,13 @@ export const dictionaryTr = {
 
   site: {
     name: "Yunus Ozen",
-    title: "Yunus Ozen — AI Product Engineer",
+    title: "Yunus Ozen — Yazılım Mühendisi",
     description:
-      "AI Product Engineer ve Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. İzmir, Türkiye.",
+      "Yazılım mühendisi ve AI Product Engineer, Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. İzmir, Türkiye.",
     url: getSiteUrl(),
     locale: "tr_TR",
     location: "İzmir, Türkiye",
-    role: "AI Product Engineer · Full-Stack",
+    role: "Yazılım Mühendisi · AI Product Engineer",
     focus: ["Ürün Mühendisliği", "Full-Stack Geliştirme", "Yapay Zekâ Araçları"],
     initials: "YÖ",
     portfolioYear: "2026",
@@ -108,7 +108,7 @@ export const dictionaryTr = {
     tagline:
       "Ürünleri fikirden canlıya kadar geliştiriyorum: gereksinimler, kullanıcı akışları, arayüz ve kod.",
     supporting:
-      "AI Product Engineer ve Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisi. Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste.",
+      "Yazılım mühendisi ve Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisiyim; full-stack ve yapay zekâ ürünleri geliştiriyorum. Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste.",
     viewWork: "Projeleri Gör",
   },
 
@@ -194,8 +194,10 @@ export const dictionaryTr = {
   },
 
   home: {
-    headline: { lead: "İlk fikirden", accent: "canlı", tail: "yayına, çalışan ürünler." },
+    headline: { lead: "Ürünleri fikirden", accent: "canlıya", tail: "taşıyan yazılım mühendisi." },
     marqueeLabel: "Kodumun birleştirildiği projeler",
+    status: "Yeni rollere açığım",
+    education: "Yazılım Mühendisliği lisans · Fırat Üniversitesi · 2027",
     statsLabel: "Rakamlarla",
     statsNotes: {
       merged: "Açık kaynak projelerin bakımcıları tarafından incelenip birleştirildi.",
@@ -605,9 +607,9 @@ export const dictionaryTr = {
 
   pages: {
     home: {
-      title: "Yunus Ozen — AI Product Engineer",
+      title: "Yunus Ozen — Yazılım Mühendisi",
       description:
-        "AI Product Engineer ve Yazılım Mühendisliği öğrencisi. Lojistik, yapay zekâ destek, randevu ve iş araçları projeleri.",
+        "Yazılım mühendisi ve AI Product Engineer. Lojistik, yapay zekâ destek, randevu ve iş araçları projeleri.",
     },
     work: {
       title: "Projeler",

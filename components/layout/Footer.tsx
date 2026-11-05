@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { getSocialNav } from "@/lib/i18n/helpers";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { Avatar } from "@/components/ui/Avatar";
 
 export function Footer() {
   const { dict, path } = useI18n();
@@ -23,7 +24,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <p className="flex items-center gap-3">
-              <span className="brand-mark" aria-hidden>{dict.site.initials}</span>
+              <Avatar size={36} />
               <span className="text-h1 text-foreground">{dict.site.name}</span>
             </p>
             <p className="text-body mt-3 text-muted-foreground">{dict.site.role}</p>

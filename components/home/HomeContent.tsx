@@ -16,7 +16,7 @@ export async function HomeContent() {
 
   return (
     <>
-      <HomeHero marquee={marquee} />
+      <HomeHero marquee={marquee} stats={stats} />
       <HomeStats stats={stats} />
       <HomeProductTour />
       <HomeProcess />

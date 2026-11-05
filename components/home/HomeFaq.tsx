@@ -14,7 +14,7 @@ export function HomeFaq() {
     <section id="faq" className="theme-void py-[var(--space-xl)]">
       <div className="container-editorial grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <ScrollReveal>
-          <SectionLabel label={faq.sectionLabel} />
+          <SectionLabel number="06" label={faq.sectionLabel} />
           <h2 className="text-section font-display mt-6 max-w-md">{faq.headline}</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.06}>

@@ -25,7 +25,7 @@ export function HomeOpenSource({ stats }: { stats: OpenSourceStats }) {
       <div className="container-editorial">
         <ScrollReveal className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <SectionLabel label={openSource.sectionLabel} />
+            <SectionLabel number="05" label={openSource.sectionLabel} />
             <h2 className="text-section font-display mt-6 max-w-2xl">{openSource.headline}</h2>
           </div>
           <div>

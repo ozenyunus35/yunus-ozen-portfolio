@@ -55,7 +55,7 @@ export function HomeProductTour() {
     <section id="live" className="theme-frost py-[var(--space-xl)]">
       <div className="container-editorial">
         <ScrollReveal className="flex flex-col items-center text-center">
-          <SectionLabel label={live.sectionLabel} />
+          <SectionLabel number="01" label={live.sectionLabel} />
           <h2 className="text-section font-display mt-6 max-w-3xl">{live.headline}</h2>
           <p className="text-body mt-5 max-w-2xl text-muted-foreground">{live.intro}</p>
         </ScrollReveal>

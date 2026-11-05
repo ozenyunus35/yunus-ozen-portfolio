@@ -1,16 +1,16 @@
 import { cn } from "@/lib/utils/cn";
 
 type SectionLabelProps = {
-  /** Kept for the pages that still pass one; the label no longer shows numbers. */
   number?: string;
   label: string;
   className?: string;
 };
 
-/** Small eyebrow pill above a section heading. */
-export function SectionLabel({ label, className }: SectionLabelProps) {
+/** Monospace section label: a number, a short rule and the name. */
+export function SectionLabel({ number, label, className }: SectionLabelProps) {
   return (
     <p className={cn("eyebrow", className)}>
+      {number && <span className="eyebrow-num">{number}</span>}
       <span className="eyebrow-dot" aria-hidden />
       {label}
     </p>

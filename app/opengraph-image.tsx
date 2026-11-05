@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.3,
           }}
         >
-          AI Product Engineer · Full-Stack
+          Software Engineer · AI Product Engineer
         </div>
       </div>
     ),
