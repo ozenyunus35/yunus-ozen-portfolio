@@ -42,6 +42,11 @@ export const PROJECT_MEDIA: Record<string, ProjectMedia> = {
     demo: "https://ozenyunus35.github.io/pdf-data-extractor/",
     source: "https://github.com/ozenyunus35/pdf-data-extractor",
   },
+  quarry: {
+    image: "/projects/quarry.webp",
+    demo: "https://ozenyunus35.github.io/sql-copilot/",
+    source: "https://github.com/ozenyunus35/sql-copilot",
+  },
   tally: {
     image: "/projects/tally.webp",
     demo: "https://ozenyunus35.github.io/invoice-extractor/",

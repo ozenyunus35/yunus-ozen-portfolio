@@ -20,6 +20,52 @@ export type CaseStudy = {
 const g = (name: string, caption: Text, w = 1600, h = 1000, phone = false) => ({ src: `/projects/gallery/${name}.jpg`, w, h, caption, phone });
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  quarry: {
+    problem: {
+      en: "Most people who need numbers from a database don't write SQL, and the people who do spend their day answering the same questions. Text-to-SQL tools that guess give confident wrong answers, and a wrong revenue figure is worse than none.",
+      tr: "Veritabanından rakam isteyen çoğu kişi SQL yazmaz; yazanlar da gününü aynı soruları cevaplayarak geçirir. Tahmin yürüten metinden SQL araçları kendinden emin yanlış cevaplar verir ve yanlış bir ciro rakamı, hiç olmamasından kötüdür.",
+    },
+    approach: {
+      en: "A rule-based parser over a semantic model instead of a language model: tables, columns, values and business measures in English and Turkish, each measure with its exact SQL. The question is read into a plan (measure, groups, filters, dates, top N), the plan becomes SQL, and the card shows every piece of that reading. When it can't map a question it says so instead of guessing.",
+      tr: "Dil modeli yerine bir anlam modeli üzerinde çalışan kural tabanlı ayrıştırıcı: İngilizce ve Türkçe tablolar, sütunlar, değerler ve iş ölçüleri; her ölçünün tam SQL tanımı var. Soru bir plana (ölçü, gruplar, filtreler, tarihler, ilk N) çevrilir, plan SQL'e dönüşür ve kart bu okumanın her parçasını gösterir. Soruyu eşleyemediğinde tahmin etmek yerine bunu söyler.",
+    },
+    features: {
+      en: [
+        "Questions in English or Turkish, with Turkish suffixes, typos, 10k / 5 bin style numbers and date phrases like last quarter or son 6 ay.",
+        "Follow-up questions such as what about last year? or only Germany keep everything the new words don't change.",
+        "Answer cards with a one-sentence answer, computed observations, a chart you can switch, the table, the SQL and an explanation.",
+        "A SQL editor with tabs, completion that knows aliases, a formatter, the query plan and checks for = NULL, double counting and missing GROUP BY columns.",
+        "A finance dashboard of pinned answers, a data dictionary with every measure's SQL, and words you can teach it.",
+        "Your own CSV, TSV, Excel, JSON or SQLite files, with types, roles and relations inferred; PDFs and images are refused with a reason.",
+      ],
+      tr: [
+        "Türkçe ekler, yazım hataları, 10k / 5 bin gibi sayılar ve geçen çeyrek ya da last 6 months gibi tarih ifadeleriyle Türkçe veya İngilizce sorular.",
+        "Peki geçen yıl? ya da sadece Almanya gibi takip soruları, yeni kelimelerin değiştirmediği her şeyi korur.",
+        "Tek cümlelik cevap, hesaplanmış gözlemler, türü değiştirilebilen grafik, tablo, SQL ve açıklama içeren cevap kartları.",
+        "Sekmeler, takma adları bilen otomatik tamamlama, biçimlendirici, sorgu planı ve = NULL, çift sayma, eksik GROUP BY sütunu kontrolleri olan SQL editörü.",
+        "Sabitlenen cevaplardan oluşan finans panosu, her ölçünün SQL'ini gösteren veri sözlüğü ve ona öğretebileceğiniz kelimeler.",
+        "Kendi CSV, TSV, Excel, JSON ya da SQLite dosyalarınız; türler, roller ve ilişkiler çıkarılır, PDF ve görseller gerekçesiyle reddedilir.",
+      ],
+    },
+    quality: {
+      en: [
+        "Every answer is checked by running the engine's SQL and a hand-written reference query and comparing the results.",
+        "82% right on the first run of 56 questions written after tuning and never seen; 98 to 99% on random questions from unseen seeds. The full log is in the repository.",
+        "Unit tests for the parser, dates, imports and the SQL explainer; Playwright on desktop Chrome, desktop Safari, iPhone and Android.",
+      ],
+      tr: [
+        "Her cevap, motorun SQL'i ile elle yazılmış bir referans sorgu çalıştırılıp sonuçlar karşılaştırılarak kontrol edilir.",
+        "Ayardan sonra yazılmış, hiç görülmemiş 56 sorunun ilk çalıştırmasında %82 doğru; görülmemiş tohumlardan rastgele sorularda %98-99. Tam kayıt depoda.",
+        "Ayrıştırıcı, tarihler, dosya yükleme ve SQL açıklayıcı için birim testleri; masaüstü Chrome, masaüstü Safari, iPhone ve Android'de Playwright.",
+      ],
+    },
+    gallery: [
+      g("quarry-ask", { en: "An answer card: how the question was read, the answer, an observation and the chart", tr: "Bir cevap kartı: sorunun nasıl anlaşıldığı, cevap, bir gözlem ve grafik" }),
+      g("quarry-dash", { en: "Finance dashboard: revenue against last year, receivables and pinned charts", tr: "Finans panosu: geçen yıla göre ciro, alacaklar ve sabitlenmiş grafikler" }),
+      g("quarry-sql", { en: "SQL editor running a receivables aging query from the worked examples", tr: "Örnek sorgulardan alacak yaşlandırmasını çalıştıran SQL editörü" }),
+    ],
+  },
+
   tally: {
     problem: {
       en: "Bookkeeping starts with a pile of PDFs and phone photos. Typing invoices and statements in by hand is slow, and the mistakes (a wrong total, a VAT rate that does not match, an invoice paid twice) are found late.",

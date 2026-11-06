@@ -400,6 +400,16 @@ export const dictionaryTr = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "quarry",
+        period: formatProjectPeriod("quarry", "tr"),
+        title: "Quarry",
+        context: "Veri Analitiği / Metinden SQL",
+        description:
+          "Veritabanına Türkçe ya da İngilizce soru sorup okunur SQL, grafik ve cevap alan; SQL kontrolleri ve panosuyla tarayıcıda çalışan uygulama.",
+        type: "project" as const,
+        href: "/work/quarry",
+      },
+      {
         id: "tally",
         period: formatProjectPeriod("tally", "tr"),
         title: "Tally",
@@ -483,6 +493,23 @@ export const dictionaryTr = {
   },
 
   projects: [
+    {
+      slug: "quarry",
+      title: "Quarry",
+      displayTitle: "QUARRY",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("quarry", "tr"),
+      industry: "VERİ ANALİTİĞİ / METİNDEN SQL",
+      tagline: "Veritabanına sade Türkçe ya da İngilizce soru sorun; okunabilen, çalıştırılabilen, grafiğe ve Excel'e dökülebilen SQL alın",
+      description:
+        "Kural tabanlı bir metinden SQL motoru ile SQLite (WebAssembly) tarayıcıda yan yana çalışır. Sorular; birleştirme, filtre, tarih aralığı, ilk N ve karşılaştırma içeren SQL'e dönüşür, takip soruları bir önceki cevabın üzerine kurulur. Her cevap sorunun nasıl anlaşıldığını, grafiği, SQL'i ve sade bir açıklamayı gösterir. Ayrıca yaygın hataları işaretleyen bir SQL editörü, finans panosu, veri sözlüğü ve kendi CSV, Excel, JSON ya da SQLite dosyanızı yükleme vardır. Yapay zekâ servisi, API anahtarı ya da sunucu yoktur.",
+      roles: ["Ürün", "Geliştirme", "Test"],
+      technologies: ["TypeScript", "Next.js", "sql.js (SQLite)", "Recharts", "ExcelJS", "Playwright"],
+      techInvolvement: "Ayrıştırıcı, anlam modeli, SQL açıklayıcı ve kontrolleri, arayüz ve doğruluk testleri",
+      href: "/work/quarry",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "tally",
       title: "Tally",

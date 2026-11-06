@@ -400,6 +400,16 @@ export const dictionaryEn = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "quarry",
+        period: formatProjectPeriod("quarry", "en"),
+        title: "Quarry",
+        context: "Data Analytics / Text to SQL",
+        description:
+          "Ask a database in English or Turkish and get readable SQL, a chart and the answer, with SQL checks and a dashboard, all in the browser.",
+        type: "project" as const,
+        href: "/work/quarry",
+      },
+      {
         id: "tally",
         period: formatProjectPeriod("tally", "en"),
         title: "Tally",
@@ -483,6 +493,23 @@ export const dictionaryEn = {
   },
 
   projects: [
+    {
+      slug: "quarry",
+      title: "Quarry",
+      displayTitle: "QUARRY",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("quarry", "en"),
+      industry: "DATA ANALYTICS / TEXT TO SQL",
+      tagline: "Ask a database in plain English or Turkish and get SQL you can read, run, chart and export",
+      description:
+        "A rule-based text-to-SQL engine and SQLite (WebAssembly) running side by side in the browser. Questions become SQL with joins, filters, date ranges, top N and comparisons; follow-ups build on the last answer. Every answer shows how the question was read, a chart, the SQL and a plain-language explanation. There is also a SQL editor that flags common mistakes, a finance dashboard, a data dictionary and uploads of your own CSV, Excel, JSON or SQLite files. No AI service, no API key, no server.",
+      roles: ["Product", "Development", "Testing"],
+      technologies: ["TypeScript", "Next.js", "sql.js (SQLite)", "Recharts", "ExcelJS", "Playwright"],
+      techInvolvement: "Built the parser, the semantic model, the SQL explainer and checks, the interface and the accuracy tests",
+      href: "/work/quarry",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "tally",
       title: "Tally",
