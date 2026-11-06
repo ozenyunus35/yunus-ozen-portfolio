@@ -53,10 +53,7 @@ type SearchResponse = {
   items: { repository_url: string }[];
 };
 
-/**
- * Owners whose repositories don't count as open-source work (my own past
- * workplaces' private product repos), stored as SHA-256 of the lowercase name.
- */
+/** Owners whose repositories don't count as open-source work, as SHA-256 of the lowercase name. */
 const EXCLUDED_OWNERS = new Set([
   "102ac65b6a6a8f184b122c45a5369df31392807437a1dc62fa6e2582fe151068",
   "0a1fa2f638f828c9ab0976a8a9f0b2171d122896b859f65fa542ab9d53f55a44",
