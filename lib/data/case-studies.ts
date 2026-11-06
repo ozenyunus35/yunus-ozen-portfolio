@@ -83,6 +83,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Checks a bookkeeper would do: line items, subtotal + VAT = total, VAT against its rate, every balance against the one before.",
         "Matches invoices to the bank lines that paid them, flags overdue invoices and possible duplicates.",
         "Exports one Excel workbook with Invoices, Line items and Transactions sheets, plus CSV and JSON.",
+        "English and Turkish interface down to the checks, error messages and Excel headers, a ⌘K palette to reach any document or action, and a link to each document.",
       ],
       tr: [
         "Telefon fotoğrafı, tarama, PDF, Word, Excel, CSV ve e-posta okur; metin içeren PDF'ler kendi metin katmanından, diğerleri Web Worker içinde OCR ile okunur.",
@@ -91,6 +92,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Bir muhasebecinin yapacağı kontroller: kalemler, ara toplam + KDV = toplam, KDV ile oranı, her bakiye bir öncekiyle.",
         "Faturaları onları ödeyen banka hareketiyle eşleştirir, geciken faturaları ve olası mükerrerleri işaretler.",
         "Faturalar, Kalemler ve Hareketler sayfalarıyla tek bir Excel dosyası; ayrıca CSV ve JSON.",
+        "Kontroller, hata mesajları ve Excel başlıkları dahil İngilizce ve Türkçe arayüz; her belgeye ve işleme ulaşan ⌘K paleti ve her belge için bir link.",
       ],
     },
     quality: {
@@ -109,6 +111,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       g("tally-statement", { en: "Bank statement with balance chart, transactions and reconciliation checks", tr: "Bakiye grafiği, hareketler ve mutabakat kontrolleriyle banka ekstresi" }),
       g("tally-overview", { en: "Overview: payment status, spend by vendor, VAT summary and cash flow", tr: "Genel bakış: ödeme durumu, tedarikçiye göre harcama, KDV özeti ve nakit akışı" }),
       g("tally-check", { en: "A failed check: line items that do not add up to the printed subtotal", tr: "Başarısız bir kontrol: basılı ara toplamı tutmayan kalemler" }),
+      g("tally-turkish", { en: "The bank statement with the interface in Turkish", tr: "Arayüzü Türkçe olan banka ekstresi" }),
     ],
   },
 
@@ -129,6 +132,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Admin inbox with filters, transcripts showing the confidence and sources of every AI answer, and replies that appear in the widget at once.",
         "Knowledge gaps: unanswered questions grouped and counted, with a button that opens the article editor.",
         "Answer playground that shows every step from normalisation to ranking and the final reply.",
+        "English and Turkish console, rules and charts included, a ⌘K palette across pages, articles and conversations, and links to a single conversation or article. Northfold's help center and replies stay in English.",
       ],
       tr: [
         "Kaynakları bağlantılı sohbet penceresi; kaynağa tıklayınca makale ilgili bölümde açılır.",
@@ -137,6 +141,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Filtreli yönetim gelen kutusu; her yapay zekâ cevabının güveni ve kaynakları görünür, ekibin cevabı pencereye anında düşer.",
         "Bilgi açıkları: cevaplanamayan sorular gruplanıp sayılır, bir düğme makale düzenleyiciyi açar.",
         "Normalleştirmeden sıralamaya ve son cevaba kadar her adımı gösteren cevap test alanı.",
+        "Kurallar ve grafikler dahil İngilizce ve Türkçe yönetim paneli; sayfalar, makaleler ve konuşmalar arasında ⌘K paleti; tek bir konuşmaya ya da makaleye link. Northfold'un yardım merkezi ve cevaplar İngilizce kalır.",
       ],
     },
     quality: {
@@ -153,6 +158,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       g("relay-widget", { en: "Chat widget on the help center, with cited sources", tr: "Yardım merkezinde, kaynak gösteren sohbet penceresi" }),
       g("relay-inbox", { en: "Admin inbox with the hand-off queue and transcripts", tr: "Devir kuyruğu ve konuşma kayıtlarıyla yönetim gelen kutusu" }),
       g("relay-playground", { en: "Answer playground: every step from the question to the reply", tr: "Cevap test alanı: sorudan cevaba her adım" }),
+      g("relay-turkish", { en: "Answer playground with the console in Turkish", tr: "Panel Türkçeyken cevap test alanı" }),
     ],
   },
 
@@ -172,6 +178,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Notices when someone else takes the chosen time in another tab.",
         "Staff calendar with a column per person; drag to move, with a preview that says why a slot does not work.",
         "Dashboard with revenue, no-show rate and team load; editors for services, hours, time off and booking rules.",
+        "English and Turkish salon console with 24-hour times, and a ⌘K palette to open any client, service or team member. The public booking pages stay in English for the Brooklyn salon.",
       ],
       tr: [
         "Hizmetler, uzman seçimi (ya da 'herhangi bir uzman') ve günün bölümlerine göre gruplanmış boş saatlerle rezervasyon sayfası.",
@@ -179,6 +186,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Seçilen saat başka bir sekmede alınırsa bunu fark edip başka saat seçtirir.",
         "Her kişi için bir sütunlu ekip takvimi; sürükleyerek taşıma, uymayan saat için nedenini söyleyen önizleme.",
         "Gelir, gelmeme oranı ve ekip yükünü gösteren pano; hizmet, saat, izin ve rezervasyon kuralları düzenleyicileri.",
+        "24 saat biçimiyle İngilizce ve Türkçe salon paneli; herhangi bir müşteriyi, hizmeti ya da ekip üyesini açan ⌘K paleti. Brooklyn'deki salonun herkese açık rezervasyon sayfaları İngilizce kalır.",
       ],
     },
     quality: {
@@ -189,6 +197,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       g("cadence-booking", { en: "Booking page: service, professional and free times", tr: "Rezervasyon sayfası: hizmet, uzman ve boş saatler" }),
       g("cadence-calendar", { en: "Staff calendar with a column per person", tr: "Kişi başına sütunlu ekip takvimi" }),
       g("cadence-dashboard", { en: "Dashboard: revenue, appointments, no-shows and team load", tr: "Pano: gelir, randevular, gelmeyenler ve ekip yükü" }),
+      g("cadence-turkish", { en: "Dashboard with the console in Turkish", tr: "Panel Türkçeyken pano" }),
     ],
   },
 
@@ -208,6 +217,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Parts from the van's stock with low-stock badges and restock requests.",
         "Invoice with call-out fee, labour in 15-minute steps and tax on parts; signature drawn on a custom painter.",
         "Labels on every control, so screen readers and the browser tests can use the app.",
+        "English and Turkish on every screen, toast and sync message, with 24-hour times; switch in Profile or open a link with ?lang=tr.",
       ],
       tr: [
         "Bugün: günün ilerlemesi, tek ana eylemli sıradaki iş ve zaman çizelgesi olarak rota.",
@@ -215,6 +225,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Araçtaki stoktan parça; azalan stok rozetleri ve yenileme talebi.",
         "Çıkış ücreti, 15 dakikalık adımlarla işçilik ve parçalara vergiyle fatura; imza özel bir çizim alanında atılır.",
         "Her kontrolde etiket var; ekran okuyucular ve tarayıcı testleri uygulamayı kullanabilir.",
+        "Her ekran, bildirim ve senkron mesajında İngilizce ve Türkçe, 24 saat biçimiyle; Profil'den ya da ?lang=tr linkiyle değiştirilir.",
       ],
     },
     quality: {
@@ -225,6 +236,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       g("fieldline-today", { en: "Today: the next job and the route", tr: "Bugün: sıradaki iş ve rota" }, 536, 900, true),
       g("fieldline-job", { en: "Job detail in the dark theme", tr: "Koyu temada iş detayı" }, 536, 900, true),
       g("fieldline-complete", { en: "Sign-off: invoice and signature", tr: "Kapanış: fatura ve imza" }, 536, 900, true),
+      g("fieldline-turkish", { en: "Today in Turkish", tr: "Türkçe Bugün ekranı" }, 536, 900, true),
     ],
   },
 
@@ -245,6 +257,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Previews for images, PDFs (with PDF.js, also on phones), CSV and text; uploaded SVG and HTML cannot run script.",
         "Share links with 1, 7 or 30-day expiry, a download counter and revoke.",
         "Command palette (⌘K) across pages, clients, projects, people and files.",
+        "English and Turkish on every screen, sign-in, shared-file page and toasts included; the ⌘K palette also switches language.",
       ],
       tr: [
         "Mini grafikler, 7/14/30 günlük yükleme ve girişler, yaklaşan projeler ve müşteri başına depolamayla pano.",
@@ -253,6 +266,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Görsel, PDF (PDF.js ile, telefonda da), CSV ve metin önizleme; yüklenen SVG ve HTML betik çalıştıramaz.",
         "1, 7 ya da 30 gün geçerli, indirme sayaçlı ve geri alınabilir paylaşım bağlantıları.",
         "Sayfalar, müşteriler, projeler, kişiler ve dosyalar arasında komut paleti (⌘K).",
+        "Giriş, paylaşılan dosya sayfası ve bildirimler dahil her ekranda İngilizce ve Türkçe; ⌘K paleti dili de değiştirir.",
       ],
     },
     quality: {
@@ -263,6 +277,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       g("atlas-dashboard", { en: "Admin dashboard", tr: "Yönetici panosu" }, 1440, 900),
       g("atlas-files", { en: "Client file portal", tr: "Müşteri dosya portalı" }, 1440, 900),
       g("atlas-preview", { en: "File preview", tr: "Dosya önizleme" }, 1440, 900),
+      g("atlas-turkish", { en: "Admin dashboard in Turkish", tr: "Türkçe yönetici panosu" }, 1440, 900),
     ],
   },
 
@@ -282,6 +297,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Totals inside the table are set aside and the rows are checked against the printed grand total.",
         "Detection view: the page with header, rows, skipped lines and column bounds drawn on top.",
         "CSV that is safe to open: no formula injection, ';' separators on decimal-comma locales.",
+        "English and Turkish interface, Excel sheet names and headers included, and a ⌘K palette to load a sample, split by a column or export.",
       ],
       tr: [
         "Her grup (şube, mağaza ya da bölge) için bir sayfa ve sayılar ile toplamları içeren bir özet sayfası.",
@@ -289,6 +305,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Tablo içindeki toplamlar ayrılır ve satırlar basılı genel toplamla karşılaştırılır.",
         "Tespit görünümü: başlık, satırlar, atlanan satırlar ve sütun sınırları sayfanın üzerine çizilir.",
         "Güvenle açılan CSV: formül enjeksiyonu yok, ondalık virgüllü dillerde ';' ayırıcı.",
+        "Excel sayfa adları ve başlıkları dahil İngilizce ve Türkçe arayüz; örnek yüklemek, bir sütuna göre bölmek ya da dışa aktarmak için ⌘K paleti.",
       ],
     },
     quality: {
@@ -298,6 +315,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     gallery: [
       g("pdf-home", { en: "Drop one or more PDFs", tr: "Bir ya da birden fazla PDF bırakın" }, 1440, 900),
       g("pdf-result", { en: "Detection view and the table preview", tr: "Tespit görünümü ve tablo önizlemesi" }, 1440, 900),
+      g("pdf-turkish", { en: "A membership register extracted, interface in Turkish", tr: "Arayüz Türkçeyken çıkarılmış üyelik kaydı" }, 1440, 900),
     ],
   },
 
@@ -316,12 +334,14 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         "Finds e-mails and social profiles on each business's own website and checks every e-mail without sending anything.",
         "Scores each lead 0 to 100 and tracks what is new or changed since the previous run.",
         "Exports CSV, a formatted Excel workbook, JSON and a CRM import file.",
+        "Results page in English and Turkish, a ⌘K palette to jump to any business or filter, and links that keep the filters.",
       ],
       tr: [
         "Kategori sayfalarını, sayfalamayı ve her işletme sayfasını tarar; bozuk sayfada çökmek yerine atlar.",
         "Her işletmenin kendi sitesinde e-posta ve sosyal profilleri bulur, hiçbir şey göndermeden her e-postayı kontrol eder.",
         "Her potansiyel müşteriye 0-100 arası puan verir ve önceki çalıştırmadan bu yana yeni ya da değişeni izler.",
         "CSV, biçimli Excel, JSON ve CRM içe aktarma dosyası üretir.",
+        "İngilizce ve Türkçe sonuç sayfası; herhangi bir işletmeye ya da filtreye atlayan ⌘K paleti ve filtreleri koruyan linkler.",
       ],
     },
     quality: {
@@ -331,6 +351,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     gallery: [
       g("lead-directory", { en: "The demo business directory it crawls", tr: "Taranan örnek işletme rehberi" }, 1440, 900),
       g("lead-results", { en: "Published results with run statistics", tr: "Çalıştırma istatistikleriyle yayınlanan sonuçlar" }, 1440, 900),
+      g("lead-turkish", { en: "Results page in Turkish", tr: "Türkçe sonuç sayfası" }, 1440, 900),
     ],
   },
 };
