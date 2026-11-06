@@ -5,9 +5,11 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { SectionLabel } from "@/components/prism/SectionLabel";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { OPEN_SOURCE_ALSO, mergedPrsUrl, type OpenSourceStats } from "@/lib/data/open-source";
+import { useLiveOpenSource } from "@/lib/data/use-live-open-source";
 
 /** The one dark section on the light page: merged pull requests per repository, counted from GitHub at build time. */
-export function HomeOpenSource({ stats }: { stats: OpenSourceStats }) {
+export function HomeOpenSource({ stats: built }: { stats: OpenSourceStats }) {
+  const stats = useLiveOpenSource(built);
   const { dict, locale } = useI18n();
   const { openSource } = dict;
   const countedAt = stats.countedAt

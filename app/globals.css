@@ -676,7 +676,7 @@ main { position: relative; z-index: 1; }
 [data-theme="dark"] .theme-toggle-moon { transform: translateY(-140%) rotate(90deg); opacity: 0; }
 [data-theme="dark"] .theme-toggle-sun { transform: none; opacity: 1; }
 
-/* The YÖ mark: a small gradient tile used in the header, the tech map and the footer. */
+/* The YO mark: a small gradient tile used in the header, the tech map and the footer. */
 .brand-mark {
   display: inline-grid;
   place-items: center;
@@ -1330,7 +1330,8 @@ a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
 a:hover > .logo .logo-dot { animation: logo-dot 500ms var(--ease-reveal) both; }
 a:hover > .logo .logo-dot:last-child { animation-delay: 80ms; }
 @keyframes logo-draw { from { stroke-dashoffset: 30; } }
-@keyframes logo-dot { from { transform: translateY(-3px); opacity: 0; } }
+@keyframes logo-dot { from { transform: scale(0); opacity: 0; } }
+.logo-dot { transform-box: fill-box; transform-origin: center; }
 .orbit-mark.logo { width: clamp(3.75rem, 15cqw, 5.5rem) !important; height: clamp(3.75rem, 15cqw, 5.5rem) !important; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--ink), 0 14px 40px -12px var(--accent-glow); }
 
 /* About: a short vertical path. Contact: the compose form. */

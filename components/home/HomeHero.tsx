@@ -6,6 +6,7 @@ import { ParticleOpening } from "@/components/cinematic/ParticleOpening";
 import { Avatar } from "@/components/ui/Avatar";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import type { OpenSourceStats } from "@/lib/data/open-source";
+import { useLiveOpenSource } from "@/lib/data/use-live-open-source";
 
 /** Entrance delays in ms; the text is in the HTML from the start, CSS only fades it in. */
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
@@ -16,7 +17,8 @@ const AUTHOR = "ozenyunus35";
  * Opening: who I am and what I do on the left; on the right an engineer's card with my photo and a terminal that lists
  * my merged pull requests, from the same GitHub count as the rest of the page. Below, a strip of the projects.
  */
-export function HomeHero({ marquee, stats }: { marquee: string[]; stats: OpenSourceStats }) {
+export function HomeHero({ marquee, stats: built }: { marquee: string[]; stats: OpenSourceStats }) {
+  const stats = useLiveOpenSource(built);
   const { dict, path } = useI18n();
   const { home, hero, site, openSource } = dict;
   const words = home.headline.lead.split(" ");

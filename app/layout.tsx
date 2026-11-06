@@ -36,7 +36,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  // The YÖ monogram from components/ui/Logo.tsx; PNGs for browsers that do not use SVG favicons (Safari).
+  // The YO monogram from components/ui/Logo.tsx; PNGs for browsers that do not use SVG favicons (Safari).
   icons: {
     icon: [
       { url: withBasePath("/logo.svg"), type: "image/svg+xml" },

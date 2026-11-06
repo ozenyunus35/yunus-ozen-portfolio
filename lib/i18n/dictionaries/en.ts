@@ -65,7 +65,7 @@ export const dictionaryEn = {
     location: "İzmir, Türkiye",
     role: "Software Engineer · AI Product Engineer",
     focus: ["Product Engineering", "Full-Stack Development", "AI Tools"],
-    initials: "YÖ",
+    initials: "YO",
     portfolioYear: "2026",
     cv: cvAvailable ? getCvPublicUrl() : null,
     email: "ozenyunusemre@outlook.com",

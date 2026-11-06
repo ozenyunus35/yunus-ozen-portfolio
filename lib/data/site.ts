@@ -13,7 +13,7 @@ export const siteConfig = {
   location: "İzmir, Türkiye",
   role: "Software Engineering Student",
   focus: ["Product Management", "Project Management", "Software Engineering"],
-  initials: "YÖ",
+  initials: "YO",
   portfolioYear: "2026",
   cvPath: CV_PUBLIC_PATH,
   cv: cvAvailable ? getCvPublicUrl() : null,

@@ -4,9 +4,11 @@ import { CountUp } from "@/components/motion/CountUp";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import type { OpenSourceStats } from "@/lib/data/open-source";
+import { useLiveOpenSource } from "@/lib/data/use-live-open-source";
 
 /** Three numbers, all counted from real data: merged PRs and repositories from GitHub, products from the project list. */
-export function HomeStats({ stats }: { stats: OpenSourceStats }) {
+export function HomeStats({ stats: built }: { stats: OpenSourceStats }) {
+  const stats = useLiveOpenSource(built);
   const { dict } = useI18n();
   const { home } = dict;
   const items = [

@@ -123,6 +123,25 @@ function startKey(slug: string) {
   return (year * 12 + month) * 32 + day;
 }
 
+/** Start dates of the milestones that aren't projects. */
+const MILESTONE_STARTS: Record<string, MonthYear> = {
+  education: { month: 9, year: 2021 },
+  "nasa-2022": { month: 10, year: 2022 },
+};
+
+function milestoneKey(id: string) {
+  const start = MILESTONE_STARTS[id];
+  if (!start) return startKey(id);
+  return (start.year * 12 + start.month) * 32 + (start.day ?? 1);
+}
+
+/** Sort comparator for the journey: oldest first, so the newest work is at the bottom. */
+export function compareMilestonesByDate(a: string, b: string) {
+  const diff = milestoneKey(a) - milestoneKey(b);
+  if (diff !== 0) return diff;
+  return SAME_DAY_ORDER.indexOf(b) - SAME_DAY_ORDER.indexOf(a);
+}
+
 /** Sort comparator: the most recently started project comes first. */
 export function compareProjectsByDate(a: string, b: string) {
   const diff = startKey(b) - startKey(a);

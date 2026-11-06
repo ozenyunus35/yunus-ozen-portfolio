@@ -3,9 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # Rebuild every morning so the open source counts on the home page stay current.
+  # Rebuild every hour so pages served without JavaScript stay current; the
+  # browser also counts again from GitHub on every visit.
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 concurrency:

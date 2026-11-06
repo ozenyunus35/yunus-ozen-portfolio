@@ -13,7 +13,7 @@ const RINGS = [
 ];
 
 /**
- * The stack as an orbit: one ring per category around the YÖ mark, turning slowly. The rings stop under the pointer
+ * The stack as an orbit: one ring per category around the YO mark, turning slowly. The rings stop under the pointer
  * and with reduced motion. The list next to it says the same thing in words.
  */
 export function HomeTechMap() {

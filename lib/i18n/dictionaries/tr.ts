@@ -65,7 +65,7 @@ export const dictionaryTr = {
     location: "İzmir, Türkiye",
     role: "Yazılım Mühendisi · AI Product Engineer",
     focus: ["Ürün Mühendisliği", "Full-Stack Geliştirme", "Yapay Zekâ Araçları"],
-    initials: "YÖ",
+    initials: "YO",
     portfolioYear: "2026",
     cv: cvAvailable ? getCvPublicUrl() : null,
     email: "ozenyunusemre@outlook.com",
