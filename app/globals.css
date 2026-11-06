@@ -1321,18 +1321,14 @@ a:hover > .avatar { transform: scale(1.06); box-shadow: 0 0 0 2px var(--accent-b
 }
 .timeline-year { margin: 0.75rem 0 0.875rem; font-family: var(--font-tight), var(--font-inter), sans-serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: -0.04em; color: var(--foreground-subtle); }
 
-/* Logo: the monogram tile; on hover the Y redraws and the dots drop in. */
-.logo { display: inline-grid; flex: none; border-radius: 27%; box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 6px 14px -8px rgb(0 0 0 / 0.35); transition: transform 400ms var(--ease-reveal); }
+/* Logo: an area chart in a rounded frame; on hover the area rises into place. */
+.logo { display: inline-grid; flex: none; border-radius: 28%; transition: transform 400ms var(--ease-reveal); }
 .logo-framed > svg { width: 100% !important; height: 100% !important; }
-.logo-path { stroke-dasharray: 30; stroke-dashoffset: 0; }
 a:hover > .logo { transform: translateY(-1px); }
-a:hover > .logo .logo-path { animation: logo-draw 700ms var(--ease-reveal); }
-a:hover > .logo .logo-dot { animation: logo-dot 500ms var(--ease-reveal) both; }
-a:hover > .logo .logo-dot:last-child { animation-delay: 80ms; }
-@keyframes logo-draw { from { stroke-dashoffset: 30; } }
-@keyframes logo-dot { from { transform: scale(0); opacity: 0; } }
-.logo-dot { transform-box: fill-box; transform-origin: center; }
-.orbit-mark.logo { width: clamp(3.75rem, 15cqw, 5.5rem) !important; height: clamp(3.75rem, 15cqw, 5.5rem) !important; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--ink), 0 14px 40px -12px var(--accent-glow); }
+a:hover > .logo .logo-area { animation: logo-rise 650ms var(--ease-reveal); }
+@keyframes logo-rise { from { transform: translateY(9px); } }
+@media (prefers-reduced-motion: reduce) { a:hover > .logo .logo-area { animation: none; } }
+.orbit-mark.logo { width: clamp(3.75rem, 15cqw, 5.5rem) !important; height: clamp(3.75rem, 15cqw, 5.5rem) !important; position: relative; z-index: 1; background: var(--ink); box-shadow: 0 0 0 6px var(--ink), 0 14px 40px -12px var(--accent-glow); }
 
 /* About: a short vertical path. Contact: the compose form. */
 .path { position: relative; display: grid; gap: 0.75rem; padding-left: 1.5rem; }

@@ -1,19 +1,25 @@
+import { useId } from "react";
 import { cn } from "@/lib/utils/cn";
 
+/** The area under a rising line: low start, a dip, then a climb to the top right. */
+const LOGO_AREA = "M0 23.5 11 14.5 17 19 32 6V32H0Z";
+
 /**
- * The site's monogram: a geometric Y and O on a tile in the text colour, with an accent dot in the O.
+ * The site's mark: an area chart inside a rounded square frame, drawn in the text colour.
  * Same drawing as public/logo.svg, which is the favicon.
  */
 export function Logo({ size = 28, className, framed = false }: { size?: number; className?: string; framed?: boolean }) {
+  const clip = useId();
   return (
     <span className={cn("logo", framed && "logo-framed", className)} style={{ width: size, height: size }} aria-hidden>
       <svg viewBox="0 0 32 32" width="100%" height="100%">
-        <rect width="32" height="32" rx="8" fill="var(--foreground)" />
-        <g fill="none" stroke="var(--ink)" strokeWidth="2.9" strokeLinecap="round" strokeLinejoin="round">
-          <path className="logo-path" d="M5.2 9.6 9.1 15.3 13 9.6M9.1 15.3V22.4" />
-          <circle cx="21.3" cy="16" r="5.5" />
+        <clipPath id={clip}>
+          <rect x="5.2" y="5.2" width="21.6" height="21.6" rx="5.6" />
+        </clipPath>
+        <rect x="1.8" y="1.8" width="28.4" height="28.4" rx="9" fill="none" stroke="var(--foreground)" strokeWidth="2.6" />
+        <g clipPath={`url(#${clip})`}>
+          <path className="logo-area" d={LOGO_AREA} fill="var(--foreground)" />
         </g>
-        <circle cx="21.3" cy="16" r="1.75" fill="var(--accent-hot)" className="logo-dot" />
       </svg>
     </span>
   );
