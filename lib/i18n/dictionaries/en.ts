@@ -400,6 +400,16 @@ export const dictionaryEn = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "folio",
+        period: formatProjectPeriod("folio", "en"),
+        title: "Folio",
+        context: "Fintech / Accounting",
+        description:
+          "Double-entry bookkeeping in the browser: journal, ledger, statements, invoices, VAT, multi-currency revaluation and year-end close, in two charts of accounts.",
+        type: "project" as const,
+        href: "/work/folio",
+      },
+      {
         id: "quarry",
         period: formatProjectPeriod("quarry", "en"),
         title: "Quarry",
@@ -493,6 +503,23 @@ export const dictionaryEn = {
   },
 
   projects: [
+    {
+      slug: "folio",
+      title: "Folio",
+      displayTitle: "FOLIO",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("folio", "en"),
+      industry: "FINTECH / ACCOUNTING",
+      tagline: "Double-entry bookkeeping in the browser, in the international or the Turkish uniform chart of accounts",
+      description:
+        "A ledger engine where every entry balances to the kuruş: drafts, posting with numbered entries, reversals instead of edits, period locks and an audit log. On top of it are invoices and bills with payments and realised exchange differences, month-end revaluation of euro and dollar balances, VAT settlement with carry-forward and the year-end close into retained earnings. Reports include the trial balance, income statement, balance sheet and an indirect cash flow statement that ties out, plus an Excel workbook. Journal and bank CSVs in Turkish or English formats are imported, with every entry checked first. English and Turkish interface, no server.",
+      roles: ["Product", "Development", "Testing"],
+      technologies: ["TypeScript", "Next.js", "Recharts", "ExcelJS", "Vitest", "Playwright"],
+      techInvolvement: "Built the ledger engine, both charts of accounts, the reports, the CSV importer, the interface and the tests",
+      href: "/work/folio",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "quarry",
       title: "Quarry",

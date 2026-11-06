@@ -400,6 +400,16 @@ export const dictionaryTr = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "folio",
+        period: formatProjectPeriod("folio", "tr"),
+        title: "Folio",
+        context: "Fintek / Muhasebe",
+        description:
+          "Tarayıcıda çift taraflı muhasebe: yevmiye, büyük defter, mali tablolar, faturalar, KDV, döviz değerlemesi ve yıl sonu kapanışı; iki hesap planıyla.",
+        type: "project" as const,
+        href: "/work/folio",
+      },
+      {
         id: "quarry",
         period: formatProjectPeriod("quarry", "tr"),
         title: "Quarry",
@@ -493,6 +503,23 @@ export const dictionaryTr = {
   },
 
   projects: [
+    {
+      slug: "folio",
+      title: "Folio",
+      displayTitle: "FOLIO",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("folio", "tr"),
+      industry: "FİNTEK / MUHASEBE",
+      tagline: "Tarayıcıda çift taraflı muhasebe; uluslararası ya da Tekdüzen hesap planıyla",
+      description:
+        "Her kaydın kuruşu kuruşuna denk olduğu bir defter motoru: taslaklar, numaralanarak işlenen kayıtlar, değişiklik yerine ters kayıt, dönem kilidi ve denetim izi. Üzerinde tahsilat, ödeme ve gerçekleşen kur farklarıyla satış ve alış faturaları, euro ve dolar bakiyelerinin ay sonu kur değerlemesi, devreden KDV ile KDV mahsubu ve geçmiş yıllar kârlarına yıl sonu kapanışı vardır. Raporlar mizan, gelir tablosu, bilanço ve tutan bir dolaylı nakit akış tablosudur; hepsi Excel çalışma kitabına aktarılır. Türkçe ya da İngilizce biçimdeki yevmiye ve banka CSV'leri, her kayıt önce kontrol edilerek içe aktarılır. Türkçe ve İngilizce arayüz, sunucu yok.",
+      roles: ["Ürün", "Geliştirme", "Test"],
+      technologies: ["TypeScript", "Next.js", "Recharts", "ExcelJS", "Vitest", "Playwright"],
+      techInvolvement: "Defter motoru, iki hesap planı, raporlar, CSV içe aktarıcı, arayüz ve testler",
+      href: "/work/folio",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "quarry",
       title: "Quarry",
