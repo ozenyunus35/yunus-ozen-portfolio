@@ -448,14 +448,14 @@ input.bad,select.bad,textarea.bad{border-color:var(--red);animation:shake .35s}
 body.adm-on{padding-bottom:0!important}
 body.adm-on .ann,body.adm-on header.hd,body.adm-on footer.ft,body.adm-on .demo,body.adm-on .totop,body.adm-on .mbar,body.adm-on .sbuy{display:none!important}
 :root{--a-bg:#f5f4f1;--a-card:#fff;--a-line:#e6e2dc;--a-line2:#efece7;--a-ink:#1f1c19;--a-ink2:#4b4640;--a-mute:#7b746c;--a-acc:#a8834f;--a-dark:#1f1c19;--a-ok:#1e7a4b;--a-okb:#e3f3ea;--a-warn:#9a5b12;--a-warnb:#fcefdc;--a-info:#2557a7;--a-infob:#e7effb;--a-pur:#6a3fa8;--a-purb:#f0e8fb;--a-bad:#a3302c;--a-badb:#fbe6e4}
-.ad{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh;background:var(--a-bg);font:14px/1.5 Inter,system-ui,sans-serif;color:var(--a-ink)}
-.ad h1,.ad h2,.ad h3,.ad h4{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
-.ad input,.ad select,.ad textarea{min-height:38px;padding:8px 12px;font-size:14px;border-radius:8px;border-color:var(--a-line);font-family:Inter,sans-serif}
-.ad select{padding-right:34px;background-position:right 12px center}
-.ad textarea{min-height:90px}
-.ad input:focus,.ad select:focus,.ad textarea:focus{border-color:var(--a-acc);box-shadow:0 0 0 3px rgba(168,131,79,.18)}
-.ad label.f{font-size:13px;font-weight:500;color:var(--a-ink2);gap:6px}
-.ad .ico{width:18px;height:18px;stroke-width:1.7}
+.pnl{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh;background:var(--a-bg);font:14px/1.5 Inter,system-ui,sans-serif;color:var(--a-ink)}
+.pnl h1,.pnl h2,.pnl h3,.pnl h4{font-family:Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.pnl input,.pnl select,.pnl textarea{min-height:38px;padding:8px 12px;font-size:14px;border-radius:8px;border-color:var(--a-line);font-family:Inter,sans-serif}
+.pnl select{padding-right:34px;background-position:right 12px center}
+.pnl textarea{min-height:90px}
+.pnl input:focus,.pnl select:focus,.pnl textarea:focus{border-color:var(--a-acc);box-shadow:0 0 0 3px rgba(168,131,79,.18)}
+.pnl label.f{font-size:13px;font-weight:500;color:var(--a-ink2);gap:6px}
+.pnl .ico{width:18px;height:18px;stroke-width:1.7}
 .ab{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--a-line);background:#fff;color:var(--a-ink);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .1s;white-space:nowrap;font-family:Inter,sans-serif}
 .ab:hover{background:#faf9f7;border-color:#d6d1ca}.ab:active{transform:translateY(1px)}
 .ab.pri{background:var(--a-dark);border-color:var(--a-dark);color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.08)}.ab.pri:hover{background:#38322c}
@@ -465,24 +465,24 @@ body.adm-on .ann,body.adm-on header.hd,body.adm-on footer.ft,body.adm-on .demo,b
 .ab.icon{width:36px;padding:0}
 .ab.lg{min-height:42px;padding:0 18px}
 .ab .ico{width:16px;height:16px}
-.ad-side{background:#fbfaf8;border-right:1px solid var(--a-line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;z-index:20}
-.ad-brand{display:flex;align-items:center;gap:10px;padding:16px 16px 14px;border-bottom:1px solid var(--a-line2)}
-.ad-brand .lg{width:36px;height:36px;border-radius:9px;background:var(--a-dark);color:#e9d8b9;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600}
-.ad-brand b{display:block;font-size:14px;line-height:1.2}.ad-brand span{font-size:12px;color:var(--a-mute);display:flex;align-items:center;gap:6px}
-.ad-brand span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--a-ok)}
-.ad-nav{flex:1;overflow:auto;padding:10px 10px}
-.ad-nav .grp{font-size:11px;font-weight:600;color:var(--a-mute);text-transform:uppercase;letter-spacing:.06em;padding:14px 10px 6px}
-.ad-nav button{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:0 10px;border:0;border-radius:8px;background:none;color:var(--a-ink2);font-size:13.5px;font-weight:500;cursor:pointer;text-align:left;transition:background .15s,color .15s;font-family:Inter,sans-serif}
-.ad-nav button:hover{background:rgba(0,0,0,.04);color:var(--a-ink)}
-.ad-nav button.on{background:#fff;color:var(--a-ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06),0 0 0 1px var(--a-line)}
-.ad-nav button.on .ico{color:var(--a-acc)}
-.ad-nav button i{margin-left:auto;font-style:normal;background:var(--a-dark);color:#fff;font-size:11px;font-weight:600;border-radius:10px;padding:1px 7px;line-height:1.5}
-.ad-sfoot{border-top:1px solid var(--a-line2);padding:12px;display:grid;gap:4px}
-.ad-sfoot a,.ad-sfoot button{display:flex;align-items:center;gap:10px;min-height:34px;padding:0 10px;border-radius:8px;font-size:13px;color:var(--a-ink2);background:none;border:0;cursor:pointer;font-family:Inter,sans-serif}
-.ad-sfoot a:hover,.ad-sfoot button:hover{background:rgba(0,0,0,.04)}
-.ad-main{min-width:0;display:flex;flex-direction:column}
-.ad-top{position:sticky;top:0;z-index:15;height:60px;background:rgba(245,244,241,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--a-line);display:flex;align-items:center;gap:12px;padding:0 24px}
-.ad-top .bc{font-size:13px;color:var(--a-mute);display:flex;gap:6px;align-items:center;white-space:nowrap}.ad-top .bc b{color:var(--a-ink);font-weight:600}
+.pnl-side{background:#fbfaf8;border-right:1px solid var(--a-line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;z-index:20}
+.pnl-brand{display:flex;align-items:center;gap:10px;padding:16px 16px 14px;border-bottom:1px solid var(--a-line2)}
+.pnl-brand .lg{width:36px;height:36px;border-radius:9px;background:var(--a-dark);color:#e9d8b9;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600}
+.pnl-brand b{display:block;font-size:14px;line-height:1.2}.pnl-brand span{font-size:12px;color:var(--a-mute);display:flex;align-items:center;gap:6px}
+.pnl-brand span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--a-ok)}
+.pnl-nav{flex:1;overflow:auto;padding:10px 10px}
+.pnl-nav .grp{font-size:11px;font-weight:600;color:var(--a-mute);text-transform:uppercase;letter-spacing:.06em;padding:14px 10px 6px}
+.pnl-nav button{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:0 10px;border:0;border-radius:8px;background:none;color:var(--a-ink2);font-size:13.5px;font-weight:500;cursor:pointer;text-align:left;transition:background .15s,color .15s;font-family:Inter,sans-serif}
+.pnl-nav button:hover{background:rgba(0,0,0,.04);color:var(--a-ink)}
+.pnl-nav button.on{background:#fff;color:var(--a-ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06),0 0 0 1px var(--a-line)}
+.pnl-nav button.on .ico{color:var(--a-acc)}
+.pnl-nav button i{margin-left:auto;font-style:normal;background:var(--a-dark);color:#fff;font-size:11px;font-weight:600;border-radius:10px;padding:1px 7px;line-height:1.5}
+.pnl-sfoot{border-top:1px solid var(--a-line2);padding:12px;display:grid;gap:4px}
+.pnl-sfoot a,.pnl-sfoot button{display:flex;align-items:center;gap:10px;min-height:34px;padding:0 10px;border-radius:8px;font-size:13px;color:var(--a-ink2);background:none;border:0;cursor:pointer;font-family:Inter,sans-serif}
+.pnl-sfoot a:hover,.pnl-sfoot button:hover{background:rgba(0,0,0,.04)}
+.pnl-main{min-width:0;display:flex;flex-direction:column}
+.pnl-top{position:sticky;top:0;z-index:15;height:60px;background:rgba(245,244,241,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--a-line);display:flex;align-items:center;gap:12px;padding:0 24px}
+.pnl-top .bc{font-size:13px;color:var(--a-mute);display:flex;gap:6px;align-items:center;white-space:nowrap}.pnl-top .bc b{color:var(--a-ink);font-weight:600}
 .gs{position:relative;margin-left:auto;width:min(360px,40vw)}
 .gs input{padding-left:36px;background:#fff;min-height:36px}
 .gs>.ico{position:absolute;left:11px;top:9px;color:var(--a-mute);width:17px;height:17px}
@@ -501,8 +501,8 @@ body.adm-on .ann,body.adm-on header.hd,body.adm-on footer.ft,body.adm-on .demo,b
 .bell{position:relative}.bell .dot{position:absolute;top:7px;right:8px;width:8px;height:8px;border-radius:50%;background:#d1453b;border:2px solid var(--a-bg)}
 .um{position:relative}
 .avt{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#a8834f,#6b5233);color:#fff;display:grid;place-items:center;font-weight:600;font-size:12.5px;cursor:pointer;border:0;font-family:Inter}
-.ad-burger{display:none}
-.ad-page{padding:24px 28px 48px;max-width:1440px;width:100%;margin:0 auto;animation:fade .35s}
+.pnl-burger{display:none}
+.pnl-page{padding:24px 28px 48px;max-width:1440px;width:100%;margin:0 auto;animation:fade .35s}
 .aph{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .aph h1{font-size:24px;margin:0 0 2px}.aph p{margin:0;color:var(--a-mute);font-size:13.5px}
 .aph .acts{display:flex;gap:8px;flex-wrap:wrap}
@@ -634,13 +634,13 @@ table.at{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
 /* admin responsive */
 @media(max-width:1180px){.kp{grid-template-columns:repeat(2,minmax(0,1fr))}.g2,.g2e{grid-template-columns:1fr}}
 @media(max-width:900px){
- .ad{grid-template-columns:1fr}
- .ad-side{position:fixed;left:0;top:0;bottom:0;width:272px;transform:translateX(-100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:65;visibility:hidden;box-shadow:20px 0 40px -20px rgba(0,0,0,.3)}
- .ad-side.show{transform:none;visibility:visible}
- .ad-burger{display:inline-flex}
- .ad-top{padding:0 14px;gap:8px}.ad-top .bc{display:none}
+ .pnl{grid-template-columns:1fr}
+ .pnl-side{position:fixed;left:0;top:0;bottom:0;width:272px;transform:translateX(-100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:65;visibility:hidden;box-shadow:20px 0 40px -20px rgba(0,0,0,.3)}
+ .pnl-side.show{transform:none;visibility:visible}
+ .pnl-burger{display:inline-flex}
+ .pnl-top{padding:0 14px;gap:8px}.pnl-top .bc{display:none}
  .gs{width:auto;flex:1}.gs kbd{display:none}
- .ad-page{padding:18px 14px 90px}
+ .pnl-page{padding:18px 14px 90px}
  .srow{grid-template-columns:1fr;gap:12px}
  .aph h1{font-size:21px}
 }
@@ -1180,7 +1180,7 @@ function renderSum(){
 /* ---------- overlays ---------- */
 const OVS=['cartD','mnavD','mdl','drw','srch','flt'];
 function openSide(id){closeAll(true);$('#'+id).classList.add('show');$('#ov').classList.add('show');lock()}
-function closeAll(keep){OVS.forEach(i=>{const e=$('#'+i);if(e)e.classList.remove('show')});$$('.dd.show').forEach(d=>d.classList.remove('show'));const as=$('.ad-side');if(as)as.classList.remove('show');if(!keep){$('#ov').classList.remove('show');unlock()}}
+function closeAll(keep){OVS.forEach(i=>{const e=$('#'+i);if(e)e.classList.remove('show')});$$('.dd.show').forEach(d=>d.classList.remove('show'));const as=$('.pnl-side');if(as)as.classList.remove('show');if(!keep){$('#ov').classList.remove('show');unlock()}}
 function modal(html){closeAll(true);const m=$('#mdl');m.oninput=null;m.onchange=null;m.innerHTML=`<button class="ib x" data-a="close" aria-label="Kapat"><svg class="ico"><use href="#i-x"/></svg></button>`+html;m.classList.add('show');$('#ov').classList.add('show');m.scrollTop=0;lock()}
 let tT;function toast(img,t,s){const ti=$('#tImg');if(img){ti.src=img;ti.hidden=false;$('#tIco').style.display='none'}else{ti.hidden=true;$('#tIco').style.display=''}$('#tT').textContent=t;$('#tS').textContent=s||'';const e=$('#toast');e.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>e.classList.remove('show'),2800)}
 function quick(id){const p=prod(id);if(!p)return;const dc=p.old>p.price;modal(`<div class="qvw"><img src="${esc(p.img)}" alt="${esc(p.name)}"><div class="pi"><span class="ey">${esc(CATS[p.cat])}</span><h1 style="font-size:34px">${esc(p.name)}</h1><div class="pr ${dc?'dc':''}" style="justify-content:flex-start;font-size:22px;margin:8px 0 14px">${dc?`<s>${fmt(p.old)}</s>`:''}<span class="now">${fmt(p.price)}</span></div><p class="lead">${esc(p.desc)}</p>${p.notes?`<p style="font-size:14px"><b>Tat notaları:</b> ${esc(p.notes)}</p>`:''}<div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap"><button class="btn gold" data-a="add" data-id="${esc(p.id)}" data-open="1" style="flex:1">Sepete Ekle</button><a class="btn line" href="#urun-${esc(p.id)}">Ürün Detayı</a></div></div></div>`)}
@@ -1215,14 +1215,14 @@ function notifs(){const n=[];S.orders.filter(o=>o.status==='Yeni').forEach(o=>n.
 function shell(inner){
   const nl=S.leads.filter(l=>l.status==='Yeni').length,no=S.orders.filter(o=>o.status==='Yeni').length,nn=notifs();
   const nav=(k,n)=>`<button class="${aTab===k?'on':''}" data-a="atab" data-t="${k}"><svg class="ico"><use href="#${OPAGE[k][1]}"/></svg>${OPAGE[k][0]}${n?`<i>${n}</i>`:''}</button>`;
-  return `<div class="ad"><aside class="ad-side"><div class="ad-brand"><div class="lg">T</div><div><b>${esc(S.settings.store)}</b><span>Mağaza yayında</span></div></div>
-  <nav class="ad-nav">${nav('dash')}${nav('orders',no)}${nav('products')}${nav('customers')}<div class="grp">Satış</div>${nav('leads',nl)}${nav('coupons')}<div class="grp">Mağaza</div>${nav('content')}${nav('settings')}</nav>
-  <div class="ad-sfoot"><a href="#home"><svg class="ico"><use href="#i-ext"/></svg>Mağazayı görüntüle</a><button data-a="reset"><svg class="ico"><use href="#i-refresh"/></svg>Demo verilerini sıfırla</button></div></aside>
-  <div class="ad-main"><header class="ad-top"><button class="ab icon ghost ad-burger" data-a="aside" aria-label="Menü"><svg class="ico"><use href="#i-menu"/></svg></button><div class="bc">Yönetim <svg class="ico" style="width:14px"><use href="#i-r"/></svg> <b>${OPAGE[aTab][0]}</b></div>
+  return `<div class="pnl"><aside class="pnl-side"><div class="pnl-brand"><div class="lg">T</div><div><b>${esc(S.settings.store)}</b><span>Mağaza yayında</span></div></div>
+  <nav class="pnl-nav">${nav('dash')}${nav('orders',no)}${nav('products')}${nav('customers')}<div class="grp">Satış</div>${nav('leads',nl)}${nav('coupons')}<div class="grp">Mağaza</div>${nav('content')}${nav('settings')}</nav>
+  <div class="pnl-sfoot"><a href="#home"><svg class="ico"><use href="#i-ext"/></svg>Mağazayı görüntüle</a><button data-a="reset"><svg class="ico"><use href="#i-refresh"/></svg>Demo verilerini sıfırla</button></div></aside>
+  <div class="pnl-main"><header class="pnl-top"><button class="ab icon ghost pnl-burger" data-a="aside" aria-label="Menü"><svg class="ico"><use href="#i-menu"/></svg></button><div class="bc">Yönetim <svg class="ico" style="width:14px"><use href="#i-r"/></svg> <b>${OPAGE[aTab][0]}</b></div>
   <div class="gs"><svg class="ico"><use href="#i-search"/></svg><input id="gsq" placeholder="Sipariş, ürün veya müşteri ara" autocomplete="off" aria-label="Panelde ara"><kbd>/</kbd><div class="dd" id="gsdd"></div></div>
   <div class="bell" style="position:relative"><button class="ab icon ghost" data-a="bell" aria-label="Bildirimler"><svg class="ico"><use href="#i-bell"/></svg></button>${nn.length&&!S.readN?'<span class="dot"></span>':''}<div class="dd" id="belldd"><div class="dh">Bildirimler <button class="ab ghost" style="min-height:28px;font-size:12px" data-a="readall">Tümünü okundu say</button></div>${nn.map(x=>`<div class="di" data-a="atab" data-t="${x.go}"><span class="dic"><svg class="ico"><use href="#${x.ic}"/></svg></span><div>${esc(x.t)}<small>${esc(x.s)}</small></div></div>`).join('')||'<div class="empty">Yeni bildirim yok</div>'}</div></div>
   <div class="um"><button class="avt" data-a="um" aria-label="Hesap menüsü">TK</button><div class="dd" id="umdd" style="min-width:230px"><div class="dh"><div>Telve Yönetici<small style="display:block;color:var(--a-mute);font-weight:400">yonetici@telvekahve.com.tr</small></div></div><a class="di" href="#home"><svg class="ico"><use href="#i-ext"/></svg>Mağazayı görüntüle</a><div class="di" data-a="atab" data-t="settings"><svg class="ico"><use href="#i-set"/></svg>Ayarlar</div><div class="di" data-a="logout"><svg class="ico"><use href="#i-out"/></svg>Çıkış yap</div></div></div>
-  </header><div class="ad-page">${inner}</div></div></div>`;
+  </header><div class="pnl-page">${inner}</div></div></div>`;
 }
 function phead(t,sub,acts=''){return `<div class="aph"><div><h1>${t}</h1><p>${sub}</p></div><div class="acts">${acts}</div></div>`}
 function renderAdmin(){
@@ -1394,7 +1394,7 @@ function route(same){
   $$('.mbar [data-mb]').forEach(a=>a.classList.toggle('on',a.dataset.mb===v));
   $('#sbuy').classList.remove('show');
   window.scrollTo({top:0,behavior:same?'smooth':'instant'});
-  if(document.activeElement&&document.activeElement!==document.body&&!document.activeElement.closest('.ad'))document.activeElement.blur();
+  if(document.activeElement&&document.activeElement!==document.body&&!document.activeElement.closest('.pnl'))document.activeElement.blur();
   requestAnimationFrame(reveal);
 }
 window.addEventListener('hashchange',()=>route());
@@ -1436,7 +1436,7 @@ const A={
   logoutU:()=>{S.user=null;save();userUI();closeAll();toast(null,'Çıkış yapıldı','')},
   /* admin */
   atab:t=>{aTab=t.dataset.t;oSel.clear();closeAll();renderAdmin();window.scrollTo({top:0,behavior:'instant'})},
-  aside:()=>{const s=$('.ad-side');s.classList.add('show');$('#ov').classList.add('show');lock()},
+  aside:()=>{const s=$('.pnl-side');s.classList.add('show');$('#ov').classList.add('show');lock()},
   bell:()=>{const d=$('#belldd');const o=d.classList.contains('show');$$('.dd.show').forEach(x=>x.classList.remove('show'));if(!o)d.classList.add('show')},
   um:()=>{const d=$('#umdd');const o=d.classList.contains('show');$$('.dd.show').forEach(x=>x.classList.remove('show'));if(!o)d.classList.add('show')},
   readall:()=>{S.readN=true;save();renderAdmin()},
