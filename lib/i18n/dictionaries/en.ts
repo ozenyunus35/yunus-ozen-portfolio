@@ -59,10 +59,10 @@ export const dictionaryEn = {
     name: "Yunus Ozen",
     title: "Yunus Ozen — Software Engineer",
     description:
-      "Software engineer and AI Product Engineer, final-year Software Engineering student. Products I have designed and built, from the first idea to a live release. Based in İzmir, Türkiye.",
+      "Software engineer and AI Product Engineer, final-year Software Engineering student. Products I have designed and built, from the first idea to a live release. Based in Antalya, Türkiye.",
     url: getSiteUrl(),
     locale: "en_US",
-    location: "İzmir, Türkiye",
+    location: "Antalya, Türkiye",
     role: "Software Engineer · AI Product Engineer",
     focus: ["Product Engineering", "Full-Stack Development", "AI Tools"],
     initials: "YO",
@@ -213,7 +213,7 @@ export const dictionaryEn = {
       headline: "Questions recruiters ask.",
       items: [
         { q: "What roles are you looking for?", a: "Software, AI and Product Engineer roles, remote, hybrid or on-site." },
-        { q: "Are you open to relocating?", a: "Yes: to the US, Europe, the Gulf or elsewhere." },
+        { q: "Where can you work?", a: "On-site or hybrid in Antalya, or remote for companies anywhere in Türkiye." },
         { q: "When do you graduate?", a: "I'm a final-year Software Engineering student at Fırat University, graduating in 2027." },
         { q: "What is your stack?", a: "TypeScript, React and Next.js for the interface; Node.js, Python, Kotlin and Spring Boot with PostgreSQL or MongoDB behind it; Flutter for mobile." },
         { q: "How do you use AI in your work?", a: "I use AI tools such as Claude Code and LLM APIs across the whole cycle, from research and specs to code, tests and release." },
@@ -322,7 +322,7 @@ export const dictionaryEn = {
     sectionLabel: "Contact",
     headline: ["Let's", "talk."],
     intro:
-      "Open to Software, AI and Product Engineer roles, remote, hybrid or on-site, and open to relocating to the US, Europe, the Gulf or elsewhere. The fastest way to reach me is email or LinkedIn.",
+      "Open to Software, AI and Product Engineer roles: on-site or hybrid in Antalya, or remote anywhere in Türkiye. The fastest way to reach me is email or LinkedIn.",
     actions: {
       email: "Email",
       linkedin: "LinkedIn",
@@ -342,7 +342,7 @@ export const dictionaryEn = {
     focusStatement:
       "I care about why a product should exist as much as how it is built, so I scope small, ship early and improve with real feedback.",
     meta: [
-      { label: "Based In", value: "İzmir, Türkiye" },
+      { label: "Based In", value: "Antalya, Türkiye" },
       { label: "Education", value: "B.Sc. Software Engineering, Fırat University" },
       { label: "Focus", value: "AI Product Engineering" },
     ],

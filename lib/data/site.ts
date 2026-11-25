@@ -7,10 +7,10 @@ export const siteConfig = {
   name: "Yunus Ozen",
   title: "Yunus Ozen — Personal Site",
   description:
-    "Software engineering student. An informational site about projects, processes, and learning. Based in İzmir, Türkiye.",
+    "Software engineering student. An informational site about projects, processes, and learning. Based in Antalya, Türkiye.",
   url: getSiteUrl(),
   locale: "en_US",
-  location: "İzmir, Türkiye",
+  location: "Antalya, Türkiye",
   role: "Software Engineering Student",
   focus: ["Product Management", "Project Management", "Software Engineering"],
   initials: "YO",

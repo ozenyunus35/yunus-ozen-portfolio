@@ -14,7 +14,7 @@ export function getPersonJsonLd(locale: Locale) {
     description: site.description,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "İzmir",
+      addressLocality: "Antalya",
       addressCountry: "TR",
     },
     sameAs: [site.social.linkedin, site.social.github],

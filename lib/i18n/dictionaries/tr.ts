@@ -59,10 +59,10 @@ export const dictionaryTr = {
     name: "Yunus Ozen",
     title: "Yunus Ozen — Yazılım Mühendisi",
     description:
-      "Yazılım mühendisi ve AI Product Engineer, Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. İzmir, Türkiye.",
+      "Yazılım mühendisi ve AI Product Engineer, Yazılım Mühendisliği son sınıf öğrencisi. Fikirden canlı ürüne kadar geliştirdiğim projeler. Antalya, Türkiye.",
     url: getSiteUrl(),
     locale: "tr_TR",
-    location: "İzmir, Türkiye",
+    location: "Antalya, Türkiye",
     role: "Yazılım Mühendisi · AI Product Engineer",
     focus: ["Ürün Mühendisliği", "Full-Stack Geliştirme", "Yapay Zekâ Araçları"],
     initials: "YO",
@@ -213,7 +213,7 @@ export const dictionaryTr = {
       headline: "İşe alımcıların sorduğu sorular.",
       items: [
         { q: "Hangi rolleri arıyorsun?", a: "Software, AI ve Product Engineer rolleri; uzaktan, hibrit veya ofiste." },
-        { q: "Taşınmaya açık mısın?", a: "Evet: ABD, Avrupa, Körfez ülkeleri ya da başka bir yere." },
+        { q: "Nerede çalışabilirsin?", a: "Antalya'da ofisten veya hibrit, Türkiye'deki firmalarla uzaktan." },
         { q: "Ne zaman mezun oluyorsun?", a: "Fırat Üniversitesi Yazılım Mühendisliği son sınıf öğrencisiyim, 2027'de mezun oluyorum." },
         { q: "Hangi teknolojileri kullanıyorsun?", a: "Arayüz için TypeScript, React ve Next.js; arkada PostgreSQL veya MongoDB ile Node.js, Python, Kotlin ve Spring Boot; mobil için Flutter." },
         { q: "İşinde yapay zekâyı nasıl kullanıyorsun?", a: "Claude Code ve LLM API'leri gibi yapay zekâ araçlarını araştırma ve gereksinimlerden koda, testlere ve yayına kadar tüm süreçte kullanıyorum." },
@@ -322,7 +322,7 @@ export const dictionaryTr = {
     sectionLabel: "İletişim",
     headline: ["Hadi", "konuşalım."],
     intro:
-      "Software, AI ve Product Engineer rollerine açığım; uzaktan, hibrit veya ofiste. ABD, Avrupa, Körfez ülkeleri veya başka bir ülkeye taşınmaya da açığım. En hızlı ulaşım e-posta veya LinkedIn.",
+      "Software, AI ve Product Engineer rollerine açığım: Antalya'da ofisten veya hibrit, Türkiye genelinde uzaktan. En hızlı ulaşım e-posta veya LinkedIn.",
     actions: {
       email: "E-posta",
       linkedin: "LinkedIn",
@@ -342,7 +342,7 @@ export const dictionaryTr = {
     focusStatement:
       "Bir ürünün neden var olması gerektiğini, nasıl yapıldığı kadar önemsiyorum; küçük başlayıp erken yayınlıyor, gerçek geri bildirimle geliştiriyorum.",
     meta: [
-      { label: "Konum", value: "İzmir, Türkiye" },
+      { label: "Konum", value: "Antalya, Türkiye" },
       { label: "Eğitim", value: "Yazılım Mühendisliği Lisans, Fırat Üniversitesi" },
       { label: "Odak", value: "AI Product Engineering" },
     ],
