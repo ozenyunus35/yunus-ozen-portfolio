@@ -358,6 +358,7 @@ export const dictionaryEn = {
       education: "Education",
       project: "Projects",
       event: "Events",
+      work: "Experience",
     },
     milestones: [
       {
@@ -378,6 +379,15 @@ export const dictionaryEn = {
           "1st place in Elazığ with team Innosoft: built Wink to the Future, a Flutter app, in 48 hours.",
         type: "event" as const,
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
+      },
+      {
+        id: "intellium",
+        period: "Oct 2026 – Jan 2027",
+        title: "Intellium Academy",
+        context: "Software Engineering Intern · Team Lead",
+        description:
+          "Leading a 7-person team on the company's internal portal (React, .NET 8, PostgreSQL): planning, code review and releases. Shipped 24 merged changes across frontend and backend, from leave balances and an approval-based Scrum board flow to authorization and document-access hardening.",
+        type: "work" as const,
       },
       {
         id: "bisevk",

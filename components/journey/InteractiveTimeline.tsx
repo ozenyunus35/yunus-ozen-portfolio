@@ -41,6 +41,7 @@ export function InteractiveTimeline({
   const filters: { id: MilestoneType; label: string }[] = [
     { id: "all", label: allLabel },
     { id: "education", label: types.education },
+    { id: "work", label: types.work },
     { id: "project", label: types.project },
     { id: "event", label: types.event },
   ];

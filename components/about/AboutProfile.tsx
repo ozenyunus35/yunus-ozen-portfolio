@@ -19,6 +19,7 @@ export function AboutProfile() {
     byId("education"),
     byId("nasa-2022"),
     byId("bisevk"),
+    byId("intellium"),
     { period: "2026", title: dict.openSource.sectionLabel, description: dict.openSource.intro },
   ]
     .filter((m): m is NonNullable<typeof m> => Boolean(m))

@@ -131,6 +131,7 @@ function startKey(slug: string) {
 const MILESTONE_STARTS: Record<string, MonthYear> = {
   education: { month: 9, year: 2021 },
   "nasa-2022": { month: 10, year: 2022 },
+  intellium: { month: 10, year: 2026 },
 };
 
 function milestoneKey(id: string) {

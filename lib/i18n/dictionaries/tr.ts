@@ -358,6 +358,7 @@ export const dictionaryTr = {
       education: "Eğitim",
       project: "Projeler",
       event: "Etkinlikler",
+      work: "Deneyim",
     },
     milestones: [
       {
@@ -378,6 +379,15 @@ export const dictionaryTr = {
           "Innosoft ekibiyle Elazığ birinciliği: 48 saatte Flutter uygulaması Wink to the Future'ı geliştirdik.",
         type: "event" as const,
         href: "https://github.com/ozenyunus35/WINK-TO-THE-FUTURE-INNOSOFT",
+      },
+      {
+        id: "intellium",
+        period: "Eki 2026 – Oca 2027",
+        title: "Intellium Academy",
+        context: "Yazılım Mühendisliği Stajyeri · Ekip Lideri",
+        description:
+          "Şirketin iç portalını (React, .NET 8, PostgreSQL) geliştiren 7 kişilik ekibe liderlik ediyorum: planlama, kod incelemesi ve sürümler. Ön ve arka uçta 24 değişiklik yayına aldım; izin bakiyeleri ve onaylı Scrum görev akışından yetkilendirme ve belge erişimi güvenliğine kadar.",
+        type: "work" as const,
       },
       {
         id: "bisevk",
