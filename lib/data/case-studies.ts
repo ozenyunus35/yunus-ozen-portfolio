@@ -20,6 +20,55 @@ export type CaseStudy = {
 const g = (name: string, caption: Text, w = 1600, h = 1000, phone = false) => ({ src: `/projects/gallery/${name}.jpg`, w, h, caption, phone });
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  telve: {
+    problem: {
+      en: "A small coffee roaster sells to two kinds of buyers: people ordering a bag of Turkish coffee, and cafés, hotels and shops asking for kilo prices or their own label. Marketplace stores handle the first badly and the second not at all, and the owner still needs one place to see orders, stock and quote requests.",
+      tr: "Küçük bir kavurmacı iki tür alıcıya satar: bir paket Türk kahvesi sipariş eden kişiler ve kilo fiyatı ya da kendi etiketini isteyen kafe, otel ve marketler. Pazaryeri mağazaları ilkini zayıf, ikincisini hiç karşılamaz; işletme sahibinin de siparişleri, stoğu ve teklif taleplerini tek yerde görmesi gerekir.",
+    },
+    approach: {
+      en: "A storefront and an admin panel in one page of plain HTML, CSS and JavaScript, with no framework and no build step, so it opens instantly on a phone and can be handed over as a single folder. All data sits in one state object saved in the browser, so a change in the admin panel (a price, a stock count, a slider image, the announcement bar) shows in the store at once. The demo opens with a month of synthetic orders, customers and quote requests, and can be reset.",
+      tr: "Mağaza ve yönetim paneli, framework ve derleme adımı olmadan düz HTML, CSS ve JavaScript ile tek sayfada; böylece telefonda anında açılır ve tek klasör olarak teslim edilebilir. Tüm veri tarayıcıda saklanan tek bir durum nesnesindedir; panelde yapılan bir değişiklik (fiyat, stok, slider görseli, duyuru şeridi) mağazaya hemen yansır. Demo, bir aylık sentetik sipariş, müşteri ve teklif talebiyle açılır ve sıfırlanabilir.",
+    },
+    features: {
+      en: [
+        "Store: Turkish coffee, filter, espresso, capsule and accessory categories, filters by category, price and roast, product pages with 250 g / 500 g / 1 kg sizes, favourites and quick view.",
+        "Cart and checkout with a free-shipping threshold, discount codes, card payment through iyzico with installments or bank transfer, and an order confirmation.",
+        "Wholesale and private-label page with packages for cafés, hotels and distributors and a step-by-step quote form.",
+        "Admin overview: sales, orders, average basket and conversion for 7, 30 or 90 days, a sales chart against the previous period, best sellers and recent activity.",
+        "Orders with status tabs, search and export, invoice, label and shipping with a carrier and tracking number; products with price and stock that update the store live.",
+        "Wholesale requests on a drag-and-drop board, campaigns and discount codes, site content (slider, announcement bar) and store, shipping, payment and notification settings.",
+      ],
+      tr: [
+        "Mağaza: Türk kahvesi, filtre, espresso, kapsül ve aksesuar kategorileri; kategori, fiyat ve kavruma göre filtre; 250 g / 500 g / 1 kg seçenekli ürün sayfaları, favoriler ve hızlı bakış.",
+        "Ücretsiz kargo eşiği, indirim kodu, iyzico ile taksitli kart ödemesi ya da havale/EFT seçenekli sepet ve ödeme; sipariş onayı.",
+        "Kafe, otel ve distribütör paketleri ve adım adım teklif formuyla toptan ve fason üretim sayfası.",
+        "Panel genel bakışı: 7, 30 ya da 90 günlük satış, sipariş, ortalama sepet ve dönüşüm; önceki dönemle karşılaştırmalı satış grafiği, en çok satanlar ve son hareketler.",
+        "Durum sekmeleri, arama ve dışa aktarmayla siparişler; fatura, etiket ve kargo firması ile takip numarasıyla kargoya verme; fiyatı ve stoğu mağazaya anında yansıyan ürünler.",
+        "Sürükle-bırak panoda toptan talepler, kampanyalar ve indirim kodları, site içeriği (slider, duyuru şeridi) ve mağaza, kargo, ödeme ve bildirim ayarları.",
+      ],
+    },
+    quality: {
+      en: [
+        "Designed mobile first: a bottom navigation bar, slide-in cart and filters, and the admin panel usable on a phone.",
+        "No framework and no dependencies: one HTML file and its images, fast on slow mobile connections.",
+        "All names, orders and contact details in the demo are synthetic.",
+      ],
+      tr: [
+        "Önce mobil için tasarlandı: alt gezinme çubuğu, kayarak açılan sepet ve filtreler, telefonda da kullanılabilen yönetim paneli.",
+        "Framework ve bağımlılık yok: tek HTML dosyası ve görselleri; yavaş mobil bağlantıda da hızlı.",
+        "Demodaki tüm isimler, siparişler ve iletişim bilgileri sentetiktir.",
+      ],
+    },
+    gallery: [
+      g("telve-home", { en: "Storefront home page with the hero slider", tr: "Slider'lı mağaza ana sayfası" }),
+      g("telve-product", { en: "Product page with sizes, price and delivery details", tr: "Gramaj, fiyat ve teslimat bilgileriyle ürün sayfası" }),
+      g("telve-toptan", { en: "Wholesale and private-label page", tr: "Toptan ve fason üretim sayfası" }),
+      g("telve-admin", { en: "Admin overview: sales, orders, best sellers and recent activity", tr: "Panel genel bakışı: satış, siparişler, en çok satanlar ve son hareketler" }),
+      g("telve-orders", { en: "Orders with status tabs, payment and fulfilment state", tr: "Durum sekmeleri, ödeme ve sipariş durumuyla siparişler" }),
+      g("telve-mobile", { en: "Store on a phone with the bottom navigation", tr: "Alt gezinmeyle telefonda mağaza" }, 536, 1088, true),
+    ],
+  },
+
   folio: {
     problem: {
       en: "Small companies keep their books in spreadsheets until something doesn't add up: an entry that doesn't balance, a payment in euros booked at the wrong rate, VAT that was never carried forward, or a closed month someone quietly changed. Accounting tools hide the rules; spreadsheets don't have any.",

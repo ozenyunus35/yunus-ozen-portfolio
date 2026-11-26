@@ -410,6 +410,16 @@ export const dictionaryTr = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "telve",
+        period: formatProjectPeriod("telve", "tr"),
+        title: "Telve",
+        context: "E-ticaret / Kahve",
+        description:
+          "Sepet, ödeme ve toptan teklif formuyla çevrimiçi kahve mağazası; siparişler, ürünler, kampanyalar ve site içeriği için kendi yönetim paneliyle.",
+        type: "project" as const,
+        href: "/work/telve",
+      },
+      {
         id: "folio",
         period: formatProjectPeriod("folio", "tr"),
         title: "Folio",
@@ -513,6 +523,23 @@ export const dictionaryTr = {
   },
 
   projects: [
+    {
+      slug: "telve",
+      title: "Telve",
+      displayTitle: "TELVE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("telve", "tr"),
+      industry: "E-TİCARET / KAHVE",
+      tagline: "Çevrimiçi kahve mağazası ve yönetim paneli, tek sayfada",
+      description:
+        "Bir kahve kavurmacısı için mağaza: kategoriler ve filtreler, gramaj seçenekli ürün sayfaları, favoriler, indirim kodu ve iyzico ile kart ya da havale seçenekli sepet ve ödeme, adım adım teklif formuyla toptan ve fason üretim sayfası. Arkasında bir yönetim paneli var: 7, 30 ya da 90 günlük satış, sipariş ve dönüşüm; durum sekmeli siparişler, fatura, etiket ve kargo; fiyatı ve stoğu mağazaya anında yansıyan ürünler; sürükle-bırak panoda toptan talepler, kampanyalar, slider ve duyuru şeridi. Framework kullanmadan tek HTML dosyası, önce mobil, sentetik demo verisiyle.",
+      roles: ["Tasarım", "Geliştirme"],
+      technologies: ["HTML", "CSS", "JavaScript", "iyzico (demo)"],
+      techInvolvement: "Mağazayı, ödeme akışını ve yönetim panelini tasarladım ve geliştirdim",
+      href: "/work/telve",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "folio",
       title: "Folio",

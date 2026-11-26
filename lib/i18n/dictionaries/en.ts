@@ -410,6 +410,16 @@ export const dictionaryEn = {
         href: "/work/tavuk-da-tavuk",
       },
       {
+        id: "telve",
+        period: formatProjectPeriod("telve", "en"),
+        title: "Telve",
+        context: "E-commerce / Coffee",
+        description:
+          "An online coffee store with cart, checkout and a wholesale quote form, plus its own admin panel for orders, products, campaigns and site content.",
+        type: "project" as const,
+        href: "/work/telve",
+      },
+      {
         id: "folio",
         period: formatProjectPeriod("folio", "en"),
         title: "Folio",
@@ -513,6 +523,23 @@ export const dictionaryEn = {
   },
 
   projects: [
+    {
+      slug: "telve",
+      title: "Telve",
+      displayTitle: "TELVE",
+      tier: "secondary" as const,
+      period: formatProjectPeriod("telve", "en"),
+      industry: "E-COMMERCE / COFFEE",
+      tagline: "An online coffee store and its admin panel, in Turkish, with no framework",
+      description:
+        "A storefront for a coffee roaster: categories and filters, product pages with sizes, favourites, cart and checkout with discount codes and card payment through iyzico or bank transfer, and a wholesale and private-label page with a step-by-step quote form. Behind it is an admin panel: sales, orders and conversion for 7, 30 or 90 days, orders with status tabs, invoices, labels and shipping, products whose price and stock update the store live, wholesale requests on a drag-and-drop board, campaigns, and the slider and announcement bar. One HTML file with no framework, mobile first, with synthetic demo data.",
+      roles: ["Design", "Development"],
+      technologies: ["HTML", "CSS", "JavaScript", "iyzico (demo)"],
+      techInvolvement: "Designed and built the storefront, the checkout flow and the admin panel",
+      href: "/work/telve",
+      status: "completed" as const,
+      visual: "screenshots" as const,
+    },
     {
       slug: "folio",
       title: "Folio",

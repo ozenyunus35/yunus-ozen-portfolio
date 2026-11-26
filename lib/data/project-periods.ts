@@ -13,6 +13,10 @@ export type ProjectDateRange = {
 
 /** Canonical project date ranges — used for ordering and display copy. */
 export const PROJECT_DATE_RANGES = {
+  telve: {
+    start: { month: 11, year: 2026, day: 25 },
+    end: { month: 11, year: 2026 },
+  },
   folio: {
     start: { month: 11, year: 2026, day: 6 },
     end: { month: 11, year: 2026 },

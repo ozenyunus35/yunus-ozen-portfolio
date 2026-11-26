@@ -42,6 +42,11 @@ export const PROJECT_MEDIA: Record<string, ProjectMedia> = {
     demo: "https://ozenyunus35.github.io/pdf-data-extractor/",
     source: "https://github.com/ozenyunus35/pdf-data-extractor",
   },
+  telve: {
+    image: "/projects/telve.webp",
+    demo: "https://ozenyunus35.github.io/yunus-ozen-portfolio/demos/telve-kahve/",
+    source: "https://github.com/ozenyunus35/yunus-ozen-portfolio/tree/main/public/demos/telve-kahve",
+  },
   folio: {
     image: "/projects/folio.webp",
     demo: "https://ozenyunus35.github.io/double-entry-ledger/",
